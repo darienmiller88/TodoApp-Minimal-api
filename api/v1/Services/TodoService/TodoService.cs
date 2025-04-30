@@ -16,11 +16,7 @@ class TodoService : ITodoService{
 
     // This method returns an array of Todo objects from the database eventually.
     public Todo[] GetTodos(){
-        return [
-            new Todo("Buy vicky birthday gift", 0),
-            new Todo("Go to birthday party", 1),
-            new Todo("Complete Todo list before day ends", 2)
-        ];
+        return todos;
     }
 
     public Todo GetTodoById(int id){
@@ -29,6 +25,7 @@ class TodoService : ITodoService{
         // if (todo == null) {
         //     return Results.NotFound($"Todo with id: {id} not found.");
         // }
+    
 
         return todo == null ? new Todo("nothing found", 999) : todo;
     }
