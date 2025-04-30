@@ -11,5 +11,5 @@ I'm introducing a new language into my tech stack: C#! Super happy with how the 
 
 * Clone repo using `git clone https://github.com/darienmiller88/TodoApp-Minimal-api`
 * Migrate the necessary information to your local `.env` as described in the `.env_sample` file
-* Run go build to create a root level `DigitalScoreBoard.exe` file, and then run `.\DigitalScoreBoard` to run the executable. If an executable is not needed, simply input `go run main.go` instead, or `.\fresh` to enable a server restart on change.
+* Run `dotnet run` instead, or `dotnet watch run` to enable a server restart on change.
 * `cd client` to access the Vue package, and run `npm run dev` to start vite server for Vue, which should be on port `5173`.
