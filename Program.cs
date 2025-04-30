@@ -1,13 +1,12 @@
-using api.v1.Models.Todo;
+using api.v1.Models;
+using api.v1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<ITodoService, TodoService>();
+
 var app = builder.Build();
 
-Todo []todos = {
-    new Todo("Buy vicky birthday gift", 0),
-    new Todo("Go to birthday party", 1),
-    new Todo("Complete Todo list before day ends", 2)
-};
 
 app.MapGet("/", () => "Hello Wold!");
 app.MapGet("/get-todos", () => todos);

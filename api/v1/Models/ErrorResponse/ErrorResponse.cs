@@ -1,4 +1,4 @@
-namespace api.v1.Models.ErrorResponse;
+namespace api.v1.Models;
 
 public class ErrorResponse{
     public string Message { get; set; }

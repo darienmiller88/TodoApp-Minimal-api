@@ -1,11 +1,12 @@
-namespace api.v1.Models.Todo;
+namespace api.v1.Models;
 
 class Todo{
-    public string TodoName { get; set; }
+    public string todoName { get; set; }
     public int id { get; set; }
-
+    public Boolean isComplete { get; set; }
     public Todo(string todoName, int id){
-        TodoName = todoName;
+        this.todoName = todoName;
         this.id = id;
+        isComplete = false;
     }
 }
