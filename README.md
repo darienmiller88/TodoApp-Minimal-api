@@ -18,3 +18,8 @@ I'm introducing a new language into my tech stack: C#! Super happy with how the 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Feel free to leave suggestions as well, I'm always looking for ways to improve!
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
