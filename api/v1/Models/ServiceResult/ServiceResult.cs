@@ -1,10 +1,10 @@
 namespace api.v1.Models;
 
-public class ErrorResponse{
+public class ServiceResult<T>{
     public string Message { get; set; }
     public int StatusCode { get; set; }
 
-    public ErrorResponse(string message, int statusCode){
+    public ServiceResult(string message, int statusCode){
         Message = message;
         StatusCode = statusCode;
     }

@@ -8,6 +8,11 @@ interface ITodoService{
 
 //Todo service implemenation that completes business logic for database interactions.
 class TodoService : ITodoService{
+    private Todo[] todos = [
+        new Todo("Buy vicky birthday gift", 0),
+        new Todo("Go to birthday party", 1),
+        new Todo("Complete Todo list before day ends", 2)
+    ];
 
     // This method returns an array of Todo objects from the database eventually.
     public Todo[] GetTodos(){
@@ -19,7 +24,12 @@ class TodoService : ITodoService{
     }
 
     public Todo GetTodoById(int id){
-        return new Todo("blaj", 9);
-    }
+        var todo = todos.FirstOrDefault(todo => todo.id == id);
 
+        // if (todo == null) {
+        //     return Results.NotFound($"Todo with id: {id} not found.");
+        // }
+
+        return todo == null ? new Todo("nothing found", 999) : todo;
+    }
 };
