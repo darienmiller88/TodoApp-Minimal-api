@@ -5,6 +5,7 @@ namespace api.v1.Services;
 interface ITodoService{
     Todo[] GetTodos();
     Todo GetTodoById(int id);
+    ServiceResult<Todo> AddTodo(Todo newTodo);
 }
 
 //Todo service implemenation that completes business logic for database interactions.
@@ -36,12 +37,12 @@ class TodoService : ITodoService{
 
         //First, check to see if there is a todo with a duplicate ID in the list of todos
         if (todos.FirstOrDefault(todo => todo.id == newTodo.id) == null){
-            return new ServiceResult<Todo>($"Todo with id of {newTodo.id} already exists!", 409, new Todo());
+            return new ServiceResult<Todo>($"Todo with id of {newTodo.id} already exists!", 409, null);
         }
 
         //Second, check to see if there is a todo with a duplicate name in the list of todos.
         if (todos.FirstOrDefault(todo => todo.todoName == newTodo.todoName) == null){
-            return new ServiceResult<Todo>($"Todo with name of {newTodo.todoName} already exists!", 409, new Todo());
+            return new ServiceResult<Todo>($"Todo with name of {newTodo.todoName} already exists!", 409, null);
         }
 
         //Afterwards, add the new todo to the list.
