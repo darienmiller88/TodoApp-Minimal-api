@@ -30,4 +30,24 @@ class TodoService : ITodoService{
 
         return todo == null ? new Todo("nothing found", 999) : todo;
     }
+
+    // Function to add a todo to the array,  and eventually to the database.
+     public ServiceResult<Todo> AddTodo(Todo newTodo){
+
+        //First, check to see if there is a todo with a duplicate ID in the list of todos
+        if (todos.FirstOrDefault(todo => todo.id == newTodo.id) == null){
+            return new ServiceResult<Todo>($"Todo with id of {newTodo.id} already exists!", 409, new Todo());
+        }
+
+        //Second, check to see if there is a todo with a duplicate name in the list of todos.
+        if (todos.FirstOrDefault(todo => todo.todoName == newTodo.todoName) == null){
+            return new ServiceResult<Todo>($"Todo with name of {newTodo.todoName} already exists!", 409, new Todo());
+        }
+
+        //Afterwards, add the new todo to the list.
+        todos.ToList().Add(newTodo);
+       
+        //Send the todo back with a successful code of 201.
+        return new ServiceResult<Todo>($"", 201, newTodo);
+    }
 };
