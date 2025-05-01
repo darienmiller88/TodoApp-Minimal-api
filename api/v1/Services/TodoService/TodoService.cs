@@ -1,9 +1,10 @@
-namespace api.v1.Services;
 using api.v1.Models;
+namespace api.v1.Services;
 
 //Interface for Todoservice to allow for depency injection for each route.
 interface ITodoService{
-     Todo[] GetTodos();
+    Todo[] GetTodos();
+    Todo GetTodoById(int id);
 }
 
 //Todo service implemenation that completes business logic for database interactions.
@@ -20,7 +21,7 @@ class TodoService : ITodoService{
     }
 
     public Todo GetTodoById(int id){
-        var todo = todos.FirstOrDefault(todo => todo.id == id);
+        Todo? todo = todos.FirstOrDefault(todo => todo.id == id);
 
         // if (todo == null) {
         //     return Results.NotFound($"Todo with id: {id} not found.");
