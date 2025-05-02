@@ -77,7 +77,7 @@ public class TodoService : ITodoService{
         todos.Add(newTodo);
        
         //Send the todo back with a successful code of 201.
-        return new ServiceResult<Todo>("", 201, newTodo);
+        return new ServiceResult<Todo>("Successfully added todo!", 201, newTodo);
     }
 
 

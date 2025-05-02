@@ -1,12 +1,12 @@
 namespace api.v1.Models;
 
 public class ServiceResult<T>{
-    public string ErrorMessage { get; set; }
+    public string Message { get; set; }
     public int StatusCode { get; set; }
     public T? Data { get; set; }
 
-    public ServiceResult(string errorMessage, int statusCode, T? data){
-        ErrorMessage = errorMessage;
+    public ServiceResult(string message, int statusCode, T? data){
+        Message = message;
         StatusCode = statusCode;
         Data = data;
     }

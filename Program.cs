@@ -56,7 +56,7 @@ v1.MapPost("/add-todo", (ITodoService service, Todo todo, HttpContext context) =
        return Results.Conflict(addTodoResult);
     }
 
-    return Results.Created(context.Request.Path, addTodoResult.Data);
+    return Results.Created(context.Request.Path, addTodoResult);
 });
 
 app.Run();
