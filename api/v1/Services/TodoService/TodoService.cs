@@ -41,7 +41,7 @@ class TodoService : ITodoService{
 
         //Second, check to see if there is a todo with a duplicate name in the list of todos.
         if (todos.Any(todo => todo.todoName == newTodo.todoName)){
-            return new ServiceResult<Todo>($"Todo with name of {newTodo.todoName} already exists!", 409, null);
+            return new ServiceResult<Todo>($"Todo with name of \'{newTodo.todoName}\' already exists!", 409, null);
         }
 
         //Afterwards, add the new todo to the list.
