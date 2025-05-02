@@ -4,6 +4,8 @@ namespace api.v1.Services;
 //Interface for Todoservice to allow for depency injection for each route.
 interface ITodoService{
     List<Todo> GetTodos();
+    ServiceResult<List<Todo>> GetIncompletedTodos();
+    ServiceResult<List<Todo>> GetCompletedTodos();
     ServiceResult<Todo> GetTodoById(int id);
     ServiceResult<Todo> AddTodo(Todo newTodo);
 }
@@ -46,16 +48,16 @@ class TodoService : ITodoService{
         return new ServiceResult<List<Todo>>("", 200, completedTodos);
     }
 
-    //GET: Retrieves all todos that are completed.
+    //GET: Retrieves all todos that are not completed.
     public ServiceResult<List<Todo>> GetIncompletedTodos(){
-        List<Todo> completedTodos = todos.FindAll(todo => todo.isComplete);
+        List<Todo> incompletedTodos = todos.FindAll(todo => !todo.isComplete);
 
         //If there are no INCOMPLETE todos, return a 404 to the client telling them such.
-        if (completedTodos.Count == 0){
-            return new ServiceResult<List<Todo>>("No todos are incomplete.", 404, null);
+        if (incompletedTodos.Count == 0){
+            return new ServiceResult<List<Todo>>("All todos are complete.", 404, null);
         }
 
-        return new ServiceResult<List<Todo>>("", 200, completedTodos);
+        return new ServiceResult<List<Todo>>("", 200, incompletedTodos);
     }
 
     //POST: Function to add a todo to the array,  and eventually to the database.

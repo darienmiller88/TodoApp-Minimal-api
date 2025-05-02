@@ -17,6 +17,26 @@ RouteGroupBuilder v1 = app.MapGroup("/api/v1");
 
 v1.MapGet("/", () => "Hello World!");
 v1.MapGet("/get-todos", (ITodoService service) => Results.Ok(service.GetTodos()));
+v1.MapGet("/get-completed-todos", (ITodoService service) => {
+    var todosResult = service.GetCompletedTodos();
+
+    if (todosResult.Data == null){
+        return Results.NotFound(todosResult);
+    }
+
+    return Results.Ok(todosResult.Data);
+});
+
+v1.MapGet("/get-incompleted-todos", (ITodoService service) => {
+    var todosResult = service.GetIncompletedTodos();
+
+    if (todosResult.Data == null){
+        return Results.NotFound(todosResult);
+    }
+
+    return Results.Ok(todosResult.Data);
+});
+
 v1.MapGet("/get-todo/{id}", (ITodoService service, int id) => {
    ServiceResult<Todo> getResult = service.GetTodoById(id);
    
