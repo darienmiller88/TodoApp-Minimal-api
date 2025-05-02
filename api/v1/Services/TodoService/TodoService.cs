@@ -8,6 +8,8 @@ public interface ITodoService{
     ServiceResult<List<Todo>> GetCompletedTodos();
     ServiceResult<Todo> GetTodoById(int id);
     ServiceResult<Todo> AddTodo(Todo newTodo);
+    ServiceResult<Todo> DeleteTodoById(int id);
+    ServiceResult<Todo> UpdateTodoById(int id);
 }
 
 //Todo service implemenation that completes business logic for database interactions.
@@ -80,5 +82,11 @@ public class TodoService : ITodoService{
         return new ServiceResult<Todo>("Successfully added todo!", 201, newTodo);
     }
 
+    public ServiceResult<Todo> DeleteTodoById(int id){
+        return new ServiceResult<Todo>("", 404, null);
+    }
+    public ServiceResult<Todo> UpdateTodoById(int id){
+        return new ServiceResult<Todo>("", 404, null);
+    }
 
 };
