@@ -11,11 +11,11 @@ public class ServiceResult<T>{
         Data = data;
     }
 
-    public Boolean IsSucess(){
+    public bool IsSucess(){
         return StatusCode >= 200 && StatusCode <= 226;
     }
 
-    public Boolean IsFailure(){
+    public bool IsFailure(){
         return StatusCode >= 400 && StatusCode <= 451;
     }
 }

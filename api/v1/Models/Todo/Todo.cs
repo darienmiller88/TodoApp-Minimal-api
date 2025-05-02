@@ -3,7 +3,7 @@ namespace api.v1.Models;
 public class Todo{
     public string todoName { get; set; }
     public int id { get; set; }
-    public Boolean isComplete { get; set; }
+    public bool isComplete { get; set; }
 
     public Todo(){
         todoName = "";
@@ -15,7 +15,7 @@ public class Todo{
         this.id = id;
         isComplete = false;
     }
-    
+
     public override string ToString(){
         return $"todo name: {todoName}\n id: {id}\n isComplete: {isComplete}";
     }

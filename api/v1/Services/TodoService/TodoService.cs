@@ -35,12 +35,12 @@ class TodoService : ITodoService{
      public ServiceResult<Todo> AddTodo(Todo newTodo){
 
         //First, check to see if there is a todo with a duplicate ID in the list of todos
-        if (todos.FirstOrDefault(todo => todo.id == newTodo.id) == null){
+        if (todos.Any(todo => todo.id == newTodo.id)){
             return new ServiceResult<Todo>($"Todo with id of {newTodo.id} already exists!", 409, null);
         }
 
         //Second, check to see if there is a todo with a duplicate name in the list of todos.
-        if (todos.FirstOrDefault(todo => todo.todoName == newTodo.todoName) == null){
+        if (todos.Any(todo => todo.todoName == newTodo.todoName)){
             return new ServiceResult<Todo>($"Todo with name of {newTodo.todoName} already exists!", 409, null);
         }
 
@@ -48,6 +48,6 @@ class TodoService : ITodoService{
         todos.Add(newTodo);
        
         //Send the todo back with a successful code of 201.
-        return new ServiceResult<Todo>($"", 201, newTodo);
+        return new ServiceResult<Todo>("", 201, newTodo);
     }
 };
