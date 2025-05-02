@@ -2,7 +2,7 @@ using api.v1.Models;
 namespace api.v1.Services;
 
 //Interface for Todoservice to allow for depency injection for each route.
-interface ITodoService{
+public interface ITodoService{
     List<Todo> GetTodos();
     ServiceResult<List<Todo>> GetIncompletedTodos();
     ServiceResult<List<Todo>> GetCompletedTodos();
@@ -11,7 +11,7 @@ interface ITodoService{
 }
 
 //Todo service implemenation that completes business logic for database interactions.
-class TodoService : ITodoService{
+public class TodoService : ITodoService{
     private List<Todo> todos = [
         new Todo("Buy vicky birthday gift", 0),
         new Todo("Go to birthday party", 1),
