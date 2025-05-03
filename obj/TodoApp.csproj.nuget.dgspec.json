@@ -43,6 +43,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MiniValidation": {
+              "target": "Package",
+              "version": "[0.9.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

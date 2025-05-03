@@ -32,3 +32,6 @@ C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\refint\TodoApp.d
 C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\TodoApp.pdb
 C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\TodoApp.genruntimeconfig.cache
 C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\ref\TodoApp.dll
+C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\TodoApp.csproj.AssemblyReference.cache
+C:\Users\steve\Desktop\csharp projects\TodoApp\bin\Debug\net9.0\MiniValidation.dll
+C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\TodoApp.csproj.Up2Date

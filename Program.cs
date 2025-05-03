@@ -1,6 +1,7 @@
 using api.v1.Services;
 using api.v1.Middlewares;
 using api.v1.Models;
+using MiniValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +51,15 @@ v1.MapGet("/get-todo/{id}", (ITodoService service, int id) => {
 v1.MapPost("/add-todo", (ITodoService service, Todo todo, HttpContext context) => {    
     ServiceResult<Todo> addTodoResult = service.AddTodo(todo);
 
+    bool isValid = MiniValidator.TryValidate(todo, out var errors);
+
+    Console.WriteLine("is valid: " + isValid);
+
+    if (!isValid){
+        return Results.BadRequest(errors);
+    }
+
+
     if (addTodoResult.Data == null){
        return Results.Conflict(addTodoResult);
     }
@@ -77,13 +87,13 @@ v1.MapPatch("/update-todo-complete-status/{id}", (ITodoService service, int id) 
     return Results.Ok(updateResult);
 });
 
-v1.MapPatch("/update-todoName/{id}", (ITodoService service, int id) => {
+v1.MapPatch("/update-todoName/{id}", (ITodoService service, int id, Todo todo) => {
     // ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
 
     // if (updateResult.Data == null){
     //     return Results.NotFound(updateResult);
     // }
-    Console.WriteLine("id:" + id);
+   
     return Results.Ok();
 });
 
