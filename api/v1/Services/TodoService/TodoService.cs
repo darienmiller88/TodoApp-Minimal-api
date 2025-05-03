@@ -83,9 +83,23 @@ public class TodoService : ITodoService{
     }
 
     public ServiceResult<Todo> DeleteTodoById(int id){
-        return new ServiceResult<Todo>("", 404, null);
+        Todo? todoToDelete = todos.FirstOrDefault(todo => todo.id == id);
+
+        //Try to find the todo that is to be deleted, and return an error if it doesn't exist.
+        if (todoToDelete == null) {
+            return new ServiceResult<Todo>($"No todo with id {id}", 404, null);
+        }
+
+        //If found, remove it!
+        todos.Remove(todoToDelete);
+
+        return new ServiceResult<Todo>("Todo deleted!", 200, todoToDelete);
     }
     public ServiceResult<Todo> UpdateTodoById(int id){
+        if (!todos.Any(todo => todo.id == id)) {
+            return new ServiceResult<Todo>($"No todo with id {id}", 404, null);
+        }
+
         return new ServiceResult<Todo>("", 404, null);
     }
 

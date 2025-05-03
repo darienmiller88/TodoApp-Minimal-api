@@ -47,16 +47,24 @@ v1.MapGet("/get-todo/{id}", (ITodoService service, int id) => {
     return Results.Ok(service.GetTodoById(id).Data);
 });
 
-v1.MapPost("/add-todo", (ITodoService service, Todo todo, HttpContext context) => {
-    Console.WriteLine("todo: " + todo);
-    
-    var addTodoResult = service.AddTodo(todo);
+v1.MapPost("/add-todo", (ITodoService service, Todo todo, HttpContext context) => {    
+    ServiceResult<Todo> addTodoResult = service.AddTodo(todo);
 
     if (addTodoResult.Data == null){
        return Results.Conflict(addTodoResult);
     }
 
     return Results.Created(context.Request.Path, addTodoResult);
+});
+
+v1.MapDelete("/delete-todo/{id}", (ITodoService service, int id) => {
+    ServiceResult<Todo> deleteTodoResult = service.DeleteTodoById(id);
+
+    if (deleteTodoResult.Data == null){
+        return Results.NotFound(deleteTodoResult);
+    }
+
+    return Results.Ok(deleteTodoResult);
 });
 
 app.Run();
