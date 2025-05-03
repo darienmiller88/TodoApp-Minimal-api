@@ -103,6 +103,7 @@ public class TodoService : ITodoService{
             return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
         }
 
+        //Retrieve todo to update from the list of todos.
         Todo todoToUpdate = todos.ElementAt(todoIndex);
 
         //Change the complete status to false or true depending on if it is complete or not.
@@ -110,5 +111,18 @@ public class TodoService : ITodoService{
 
         //Return the newly update todo.
         return new ServiceResult<Todo>("Todo updated!", 200, todoToUpdate);
+    }
+
+    public ServiceResult<Todo> UpdateTodoByName(int id, Todo newTodo){
+        int todoIndex = todos.FindIndex(todo => todo.id == id);
+        
+        //Try to find the todo that is to be updated, and return an error if it doesn't exist.
+        if (todoIndex == -1) {
+            return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
+        }
+
+        todos.ElementAt(todoIndex).todoName = newTodo.todoName;
+
+        return new ServiceResult<Todo>("", 200, newTodo);
     }
 };
