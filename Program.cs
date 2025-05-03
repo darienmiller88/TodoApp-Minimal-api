@@ -12,11 +12,12 @@ builder.Services.AddSingleton<ITodoService, TodoService>();
 
 var app = builder.Build();
 
+app.MapGet("/", () => "visit prefeix /api/v1/ for api content");
+
 app.Use(Logger.LogRequestAsync);
 
 RouteGroupBuilder v1 = app.MapGroup("/api/v1");
 
-v1.MapGet("/", () => "Hello World!");
 v1.MapGet("/get-todos", (ITodoService service) => Results.Ok(service.GetTodos()));
 v1.MapGet("/get-completed-todos", (ITodoService service) => {
     var todosResult = service.GetCompletedTodos();
