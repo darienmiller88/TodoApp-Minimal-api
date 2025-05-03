@@ -96,11 +96,19 @@ public class TodoService : ITodoService{
         return new ServiceResult<Todo>("Todo deleted!", 200, todoToDelete);
     }
     public ServiceResult<Todo> UpdateTodoById(int id){
-        if (!todos.Any(todo => todo.id == id)) {
-            return new ServiceResult<Todo>($"No todo with id {id}", 404, null);
+        int todoIndex = todos.FindIndex(todo => todo.id == id);
+        
+        //Try to find the todo that is to be updated, and return an error if it doesn't exist.
+        if (todoIndex == -1) {
+            return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
         }
 
-        return new ServiceResult<Todo>("", 404, null);
-    }
+        Todo todoToUpdate = todos.ElementAt(todoIndex);
 
+        //Change the complete status to false or true depending on if it is complete or not.
+        todos.ElementAt(todoIndex).isComplete = !todoToUpdate.isComplete;
+
+        //Return the newly update todo.
+        return new ServiceResult<Todo>("Todo updated!", 200, todoToUpdate);
+    }
 };
