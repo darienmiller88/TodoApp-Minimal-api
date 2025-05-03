@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace api.v1.Models;
 
 public class Todo{
+
+    [Required]
+    [StringLength(3, ErrorMessage = "Todoname must be at least 3 characters long!")]
     public string todoName { get; set; }
     public int id { get; set; }
+
     public bool isComplete { get; set; }
 
     public Todo(){

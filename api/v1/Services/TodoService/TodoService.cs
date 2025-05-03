@@ -113,6 +113,7 @@ public class TodoService : ITodoService{
         return new ServiceResult<Todo>("Todo updated!", 200, todoToUpdate);
     }
 
+    //PATCH: Method to change a Todos name.
     public ServiceResult<Todo> UpdateTodoByName(int id, Todo newTodo){
         int todoIndex = todos.FindIndex(todo => todo.id == id);
         
@@ -121,8 +122,9 @@ public class TodoService : ITodoService{
             return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
         }
 
+        //Change the current name to the new one!
         todos.ElementAt(todoIndex).todoName = newTodo.todoName;
 
-        return new ServiceResult<Todo>("", 200, newTodo);
+        return new ServiceResult<Todo>("Todo name updated!", 200, newTodo);
     }
 };
