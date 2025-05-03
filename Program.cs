@@ -67,7 +67,7 @@ v1.MapDelete("/delete-todo/{id}", (ITodoService service, int id) => {
     return Results.Ok(deleteTodoResult);
 });
 
-v1.MapPatch("/update-todo/{id}", (ITodoService service, int id) => {
+v1.MapPatch("/update-todo-complete-status/{id}", (ITodoService service, int id) => {
     ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
 
     if (updateResult.Data == null){
@@ -75,6 +75,16 @@ v1.MapPatch("/update-todo/{id}", (ITodoService service, int id) => {
     }
 
     return Results.Ok(updateResult);
+});
+
+v1.MapPatch("/update-todoName/{id}", (ITodoService service, int id) => {
+    // ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
+
+    // if (updateResult.Data == null){
+    //     return Results.NotFound(updateResult);
+    // }
+    Console.WriteLine("id:" + id);
+    return Results.Ok();
 });
 
 app.Run();
