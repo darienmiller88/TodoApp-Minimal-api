@@ -1,5 +1,6 @@
 using api.v1.Models;
 using api.v1.Services;
+using MiniValidation;
 namespace api.v1.Routes;
 
 
@@ -12,6 +13,9 @@ public static class TodoRoutes{
         todoRoutes.MapGet("/get-completed-todos", GetCompletedTodosHandler);
         todoRoutes.MapGet("/get-incompleted-todos", GetIncompletedTodosHandler);
         todoRoutes.MapGet("/get-todo/{id}", GetTodoByIdHandler);
+
+        //POST route(s).
+        todoRoutes.MapPost("/add-todo", AddTodoHandler);
     }
 
     //Handler to receive all todos from Todo service.
@@ -50,6 +54,27 @@ public static class TodoRoutes{
         }
         
         return Results.Ok(service.GetTodoById(id).Data);
+    }
+
+    //Handler to add Todo to list of Todos.
+    private static IResult AddTodoHandler(ITodoService service, Todo todo, HttpContext context) {    
+        bool isValid = MiniValidator.TryValidate(todo, out var errors);
+
+        //If the model validation failed, return the error messages to the client.
+        if (!isValid){
+            return Results.BadRequest(errors);
+        }
+
+        //Try adding the validated Todo to the list.
+        ServiceResult<Todo> addTodoResult = service.AddTodo(todo);
+
+        //If that fails, send back the errors.
+        if (addTodoResult.Data == null){
+            return Results.Conflict(addTodoResult);
+        }
+
+        //Otherwise, send back a success!
+        return Results.Created(context.Request.Path, addTodoResult);
     }
 
 }
