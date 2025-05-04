@@ -1,5 +1,6 @@
 using api.v1.Models;
 using api.v1.Services;
+using Microsoft.AspNetCore.Mvc;
 using MiniValidation;
 namespace api.v1.Routes;
 
@@ -68,7 +69,11 @@ public static class TodoRoutes{
     }
 
     //Handler to add Todo to list of Todos.
-    private static IResult AddTodoHandler(ITodoService service, Todo todo, HttpContext context) {    
+    private static IResult AddTodoHandler(ITodoService service, [FromBody] Todo? todo, HttpContext context) {    
+        if (todo == null){
+            return Results.BadRequest("Request body required!");
+        }
+
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
 
         //If the model validation failed, return the error messages to the client.
@@ -102,7 +107,11 @@ public static class TodoRoutes{
     }
 
     //Handler to update the name of a Todo.
-    private static IResult UpdateTodoByNameHandler(ITodoService service, int id, Todo todo) {
+    private static IResult UpdateTodoByNameHandler(ITodoService service, int id, [FromBody] Todo? todo) {
+        if (todo == null){
+            return Results.BadRequest("Request body is required!");
+        }
+
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
 
         //If the name of todo is NOT valid, return the list of errors back to the client.
