@@ -4,7 +4,7 @@ namespace api.v1.Models;
 
 public class Todo{
 
-    [StringLength(10, MinimumLength = 5, ErrorMessage = "Todo name must be between 5 and 100 characters.")]
+    [StringLength(100, MinimumLength = 5)]
     public string todoName { get; set; }
     public int id { get; set; }
     public bool isComplete { get; set; }
