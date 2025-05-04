@@ -25,7 +25,7 @@ v1.MapGet("/get-completed-todos", (ITodoService service) => {
     if (todosResult.Data == null){
         return Results.NotFound(todosResult);
     }
-
+    
     return Results.Ok(todosResult.Data);
 });
 
