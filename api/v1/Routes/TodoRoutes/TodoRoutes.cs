@@ -59,10 +59,12 @@ public static class TodoRoutes{
     private static IResult GetTodoByIdHandler(ITodoService service, int id){
         ServiceResult<Todo> getResult = service.GetTodoById(id);
         
+        //If the todo wasn't found, return a 404
         if (getResult.Data == null){
             return Results.NotFound(getResult);
         }
         
+        //Otherwise, return the todo
         return Results.Ok(getResult.Data);
     }
 
@@ -104,17 +106,21 @@ public static class TodoRoutes{
     private static IResult UpdateTodoByNameHandler(ITodoService service, int id, Todo todo) {
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
 
-        if (isValid){
+        //If the name of todo is NOT valid, return the list of errors back to the client.
+        if (!isValid){
             return Results.BadRequest(errors);
         }
 
-    // ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
+        //Afterwards, call the service to change the todos name.
+        ServiceResult<Todo> updateResult = service.UpdateTodoByName(id, todo);
 
-        // if (updateResult.Data == null){
-        //     return Results.NotFound(updateResult);
-        // }
+        //If the todo was not found, return a 404
+        if (updateResult.Data == null){
+            return Results.NotFound(updateResult);
+        }
     
-        return Results.Ok("Todo updated!");
+        //If both the validation AND service are successful, return a success message!
+        return Results.Ok(updateResult);
     }
 
     //Handler to delete a todo by id.

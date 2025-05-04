@@ -10,6 +10,7 @@ public interface ITodoService{
     ServiceResult<Todo> AddTodo(Todo newTodo);
     ServiceResult<Todo> DeleteTodoById(int id);
     ServiceResult<Todo> UpdateTodoById(int id);
+    ServiceResult<Todo> UpdateTodoByName(int id, Todo newTodo);
 }
 
 //Todo service implemenation that completes business logic for database interactions.

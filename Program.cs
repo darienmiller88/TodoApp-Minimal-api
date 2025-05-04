@@ -1,7 +1,5 @@
 using api.v1.Services;
 using api.v1.Middlewares;
-using api.v1.Models;
-using MiniValidation;
 using api.v1.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
