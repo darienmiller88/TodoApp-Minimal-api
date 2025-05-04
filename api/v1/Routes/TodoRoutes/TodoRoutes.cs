@@ -18,7 +18,8 @@ public static class TodoRoutes{
         todoRoutes.MapPost("/add-todo", AddTodoHandler);
 
         //PATCH routes
-        todoRoutes.MapPatch("/update-todo-complete-status/{id}", UpdateTodoByid);
+        todoRoutes.MapPatch("/update-todo-complete-status/{id}", UpdateTodoByidHandler);
+        todoRoutes.MapPatch("/update-todoName/{id}", UpdateTodoByNameHandler);
     }
 
     //Handler to receive all todos from Todo service.
@@ -80,7 +81,8 @@ public static class TodoRoutes{
         return Results.Created(context.Request.Path, addTodoResult);
     }
 
-    private static IResult UpdateTodoByid(ITodoService service, int id) {
+    //Handler to update Todo by id.
+    private static IResult UpdateTodoByidHandler(ITodoService service, int id) {
         ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
 
         //If the id doesn't exist, return a 404.
@@ -92,4 +94,20 @@ public static class TodoRoutes{
         return Results.Ok(updateResult);
     }
 
+    //Handler to update the name of a Todo.
+    private static IResult UpdateTodoByNameHandler(ITodoService service, int id, Todo todo) {
+        bool isValid = MiniValidator.TryValidate(todo, out var errors);
+
+        if (isValid){
+            return Results.BadRequest(errors);
+        }
+
+    // ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
+
+        // if (updateResult.Data == null){
+        //     return Results.NotFound(updateResult);
+        // }
+    
+        return Results.Ok("Todo updated!");
+    }
 }
