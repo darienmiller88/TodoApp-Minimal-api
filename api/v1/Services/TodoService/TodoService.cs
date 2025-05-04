@@ -122,7 +122,6 @@ public class TodoService : ITodoService{
             return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
         }
 
-
         //Change the current name to the new one!
         todos.ElementAt(todoIndex).todoName = newTodo.todoName;
 
