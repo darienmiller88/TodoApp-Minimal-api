@@ -20,6 +20,9 @@ public static class TodoRoutes{
         //PATCH routes
         todoRoutes.MapPatch("/update-todo-complete-status/{id}", UpdateTodoByidHandler);
         todoRoutes.MapPatch("/update-todoName/{id}", UpdateTodoByNameHandler);
+
+        //Delete Route(s)
+        todoRoutes.MapDelete("/delete-todo/{id}", DeleteTodoByIdHandler);
     }
 
     //Handler to receive all todos from Todo service.
@@ -57,7 +60,7 @@ public static class TodoRoutes{
             return Results.NotFound(getResult);
         }
         
-        return Results.Ok(service.GetTodoById(id).Data);
+        return Results.Ok(getResult.Data);
     }
 
     //Handler to add Todo to list of Todos.
@@ -109,5 +112,18 @@ public static class TodoRoutes{
         // }
     
         return Results.Ok("Todo updated!");
+    }
+
+    //Handler to delete a todo by id.
+    private static IResult DeleteTodoByIdHandler(ITodoService service, int id)  {
+        ServiceResult<Todo> deleteTodoResult = service.DeleteTodoById(id);
+
+        //If the id doesn't exist, return a 404
+        if (deleteTodoResult.Data == null){
+            return Results.NotFound(deleteTodoResult);
+        }
+
+        //Otherwise, return a success!
+        return Results.Ok(deleteTodoResult);
     }
 }
