@@ -5,6 +5,9 @@ namespace api.v1.Routes;
 
 
 public static class TodoRoutes{
+
+    //Extension method to all it to be callable by the "WebApplication" class, which is what the "app" object is 
+    //and instance of.
     public static void MapTodoRoutes(this IEndpointRouteBuilder app){
         RouteGroupBuilder todoRoutes = app.MapGroup("/api/v1/todos");
 

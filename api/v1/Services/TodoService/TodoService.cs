@@ -71,7 +71,7 @@ public class TodoService : ITodoService{
         }
 
         //Second, check to see if there is a todo with a duplicate name in the list of todos.
-        if (todos.Any(todo => todo.todoName == newTodo.todoName)){
+        if (todos.Any(todo => todo.todoName.Trim().ToLower() == newTodo.todoName.Trim().ToLower())){
             return new ServiceResult<Todo>($"Todo with name of \'{newTodo.todoName}\' already exists!", 409, null);
         }
 
@@ -82,6 +82,7 @@ public class TodoService : ITodoService{
         return new ServiceResult<Todo>("Successfully added todo!", 201, newTodo);
     }
 
+    //DELETE: Method to delete a todo by its id.
     public ServiceResult<Todo> DeleteTodoById(int id){
         Todo? todoToDelete = todos.FirstOrDefault(todo => todo.id == id);
 
@@ -95,6 +96,8 @@ public class TodoService : ITodoService{
 
         return new ServiceResult<Todo>("Todo deleted!", 200, todoToDelete);
     }
+
+    //PATCH: Method to update a Todo's complete status from done to undone, and vice versa.
     public ServiceResult<Todo> UpdateTodoById(int id){
         int todoIndex = todos.FindIndex(todo => todo.id == id);
         
@@ -125,6 +128,7 @@ public class TodoService : ITodoService{
         //Change the current name to the new one!
         todos.ElementAt(todoIndex).todoName = newTodo.todoName;
 
-        return new ServiceResult<Todo>("Todo name updated!", 200, newTodo);
+        //Return the newly updated todo!
+        return new ServiceResult<Todo>("Todo name updated!", 200, todos.ElementAt(todoIndex));
     }
 };

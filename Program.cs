@@ -2,6 +2,7 @@ using api.v1.Services;
 using api.v1.Middlewares;
 using api.v1.Models;
 using MiniValidation;
+using api.v1.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,17 +16,6 @@ var app = builder.Build();
 app.Use(Logger.LogRequestAsync);
 
 app.MapGet("/", () => "visit prefeix /api/v1/ for api content");
-
-RouteGroupBuilder v1 = app.MapGroup("/api/v1");
-
-v1.MapDelete("/delete-todo/{id}", (ITodoService service, int id) => {
-    ServiceResult<Todo> deleteTodoResult = service.DeleteTodoById(id);
-
-    if (deleteTodoResult.Data == null){
-        return Results.NotFound(deleteTodoResult);
-    }
-
-    return Results.Ok(deleteTodoResult);
-});
+app.MapTodoRoutes();
 
 app.Run();
