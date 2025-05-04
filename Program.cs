@@ -16,27 +16,7 @@ app.Use(Logger.LogRequestAsync);
 
 app.MapGet("/", () => "visit prefeix /api/v1/ for api content");
 
-
 RouteGroupBuilder v1 = app.MapGroup("/api/v1");
-
-v1.MapPost("/add-todo", (ITodoService service, Todo todo, HttpContext context) => {    
-    ServiceResult<Todo> addTodoResult = service.AddTodo(todo);
-
-    bool isValid = MiniValidator.TryValidate(todo, out var errors);
-
-    Console.WriteLine("is valid: " + isValid);
-
-    if (!isValid){
-        return Results.BadRequest(errors);
-    }
-
-
-    if (addTodoResult.Data == null){
-       return Results.Conflict(addTodoResult);
-    }
-
-    return Results.Created(context.Request.Path, addTodoResult);
-});
 
 v1.MapDelete("/delete-todo/{id}", (ITodoService service, int id) => {
     ServiceResult<Todo> deleteTodoResult = service.DeleteTodoById(id);
