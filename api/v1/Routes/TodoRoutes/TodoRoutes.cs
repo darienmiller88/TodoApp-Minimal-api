@@ -16,6 +16,9 @@ public static class TodoRoutes{
 
         //POST route(s).
         todoRoutes.MapPost("/add-todo", AddTodoHandler);
+
+        //PATCH routes
+        todoRoutes.MapPatch("/update-todo-complete-status/{id}", UpdateTodoByid);
     }
 
     //Handler to receive all todos from Todo service.
@@ -75,6 +78,18 @@ public static class TodoRoutes{
 
         //Otherwise, send back a success!
         return Results.Created(context.Request.Path, addTodoResult);
+    }
+
+    private static IResult UpdateTodoByid(ITodoService service, int id) {
+        ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
+
+        //If the id doesn't exist, return a 404.
+        if (updateResult.Data == null){
+            return Results.NotFound(updateResult);
+        }
+
+        //Otherwise, return a success message!
+        return Results.Ok(updateResult);
     }
 
 }
