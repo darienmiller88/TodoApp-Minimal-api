@@ -28,14 +28,4 @@ v1.MapDelete("/delete-todo/{id}", (ITodoService service, int id) => {
     return Results.Ok(deleteTodoResult);
 });
 
-v1.MapPatch("/update-todoName/{id}", (ITodoService service, int id, Todo todo) => {
-    // ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
-
-    // if (updateResult.Data == null){
-    //     return Results.NotFound(updateResult);
-    // }
-   
-    return Results.Ok();
-});
-
 app.Run();
