@@ -13,7 +13,7 @@ var app = builder.Build();
 
 app.Use(Logger.LogRequestAsync);
 
-app.MapGet("/", () => "visit prefeix /api/v1/ for api content");
+app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
 app.MapTodoRoutes();
 
 app.Run();

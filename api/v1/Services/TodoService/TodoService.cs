@@ -36,7 +36,7 @@ public class TodoService : ITodoService{
         }
 
         //otherwise return a 200 and the todo that was found.
-        return new ServiceResult<Todo>("", 200, todo);
+        return new ServiceResult<Todo>("Found todo!", 200, todo);
     }
 
     //GET: Retrieves all todos that are completed.
@@ -48,7 +48,7 @@ public class TodoService : ITodoService{
             return new ServiceResult<List<Todo>>("No todos are completed... yet.", 404, null);
         }
 
-        return new ServiceResult<List<Todo>>("", 200, completedTodos);
+        return new ServiceResult<List<Todo>>("All completed todos", 200, completedTodos);
     }
 
     //GET: Retrieves all todos that are not completed.
@@ -60,7 +60,7 @@ public class TodoService : ITodoService{
             return new ServiceResult<List<Todo>>("All todos are complete.", 404, null);
         }
 
-        return new ServiceResult<List<Todo>>("", 200, incompletedTodos);
+        return new ServiceResult<List<Todo>>("All incompleted todos", 200, incompletedTodos);
     }
 
     //POST: Function to add a todo to the array,  and eventually to the database.
