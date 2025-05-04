@@ -12,42 +12,12 @@ builder.Services.AddSingleton<ITodoService, TodoService>();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "visit prefeix /api/v1/ for api content");
-
 app.Use(Logger.LogRequestAsync);
 
+app.MapGet("/", () => "visit prefeix /api/v1/ for api content");
+
+
 RouteGroupBuilder v1 = app.MapGroup("/api/v1");
-
-v1.MapGet("/get-todos", (ITodoService service) => Results.Ok(service.GetTodos()));
-v1.MapGet("/get-completed-todos", (ITodoService service) => {
-    var todosResult = service.GetCompletedTodos();
-
-    if (todosResult.Data == null){
-        return Results.NotFound(todosResult);
-    }
-    
-    return Results.Ok(todosResult.Data);
-});
-
-v1.MapGet("/get-incompleted-todos", (ITodoService service) => {
-    var todosResult = service.GetIncompletedTodos();
-
-    if (todosResult.Data == null){
-        return Results.NotFound(todosResult);
-    }
-
-    return Results.Ok(todosResult.Data);
-});
-
-v1.MapGet("/get-todo/{id}", (ITodoService service, int id) => {
-   ServiceResult<Todo> getResult = service.GetTodoById(id);
-   
-    if (getResult.Data == null){
-        return Results.NotFound(getResult);
-    }
-    
-    return Results.Ok(service.GetTodoById(id).Data);
-});
 
 v1.MapPost("/add-todo", (ITodoService service, Todo todo, HttpContext context) => {    
     ServiceResult<Todo> addTodoResult = service.AddTodo(todo);

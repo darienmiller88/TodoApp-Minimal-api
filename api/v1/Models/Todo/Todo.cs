@@ -14,6 +14,7 @@ public class Todo{
         id = 0;
         isComplete = false;
     }
+    
     public Todo(string todoName, int id){
         this.todoName = todoName;
         this.id = id;
