@@ -9,12 +9,11 @@ I'm introducing a new language into my tech stack: C#! Super happy with how the 
 
 ### Requirements:
 
-#change
-
 * Clone repo using `git clone https://github.com/darienmiller88/TodoApp-Minimal-api`
 * Migrate the necessary information to your local `.env` as described in the `.env_sample` file
 * Run `dotnet run`, or `dotnet watch run` to enable a server restart on change.
 * `cd client` to access the Vue package, and run `npm run dev` to start vite server for Vue, which should be on port `5173`.
+* Run `dotnet test` to run tests.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
