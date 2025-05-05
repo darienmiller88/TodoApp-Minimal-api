@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "TodoApp/1.0.0": {
+        "dependencies": {
+          "MiniValidation": "0.9.2"
+        },
+        "runtime": {
+          "TodoApp.dll": {}
+        }
+      },
+      "MiniValidation/0.9.2": {
+        "runtime": {
+          "lib/net6.0/MiniValidation.dll": {
+            "assemblyVersion": "0.9.2.0",
+            "fileVersion": "0.9.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TodoApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MiniValidation/0.9.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xe5TqF3GBnPwPZKwC3clf1ntoc2tltJEDBAV+JJyn/WgdHHiO5GH67SukEqg63bUlMz36bwxxBkM/MSdD1EVLw==",
+      "path": "minivalidation/0.9.2",
+      "hashPath": "minivalidation.0.9.2.nupkg.sha512"
+    }
+  }
+}
