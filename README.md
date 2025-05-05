@@ -9,6 +9,8 @@ I'm introducing a new language into my tech stack: C#! Super happy with how the 
 
 ### Requirements:
 
+#change
+
 * Clone repo using `git clone https://github.com/darienmiller88/TodoApp-Minimal-api`
 * Migrate the necessary information to your local `.env` as described in the `.env_sample` file
 * Run `dotnet run`, or `dotnet watch run` to enable a server restart on change.
