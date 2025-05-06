@@ -64,4 +64,30 @@ public class TestTodoService{
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
     }
+
+    [Fact]
+    //Test to see if a todo with a certain id is returned succesfully. Result should NOT be null, and status code should
+    //be 200 to reflect success.
+    //EXPECTED: NOT NULL
+    //STATUS CODE: 200
+    public void TestGetTodoById(){
+        TodoService service = new TodoService();
+        ServiceResult<Todo> result = service.GetTodoById(1);
+
+        Assert.NotNull(result.Data);
+        Assert.Equal(200, result.StatusCode);
+    }
+
+     [Fact]
+    //Test to see if a todo with a non-existent id returns null. 
+    //EXPECTED: NULL
+    //STATUS CODE: 404
+    public void TestGetTodoByIdWithInvalidId(){
+        TodoService service = new TodoService();
+        ServiceResult<Todo> result = service.GetTodoById(11111);
+
+        Assert.Null(result.Data);
+        Assert.Equal(404, result.StatusCode);
+    }
+    
 }
