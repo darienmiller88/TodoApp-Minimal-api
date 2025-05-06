@@ -7,7 +7,7 @@ public class TestTodoValidation{
 
     [Fact]
     public void TestValidTodoName(){
-        Todo todo = new Todo("finish todo app", 1);
+        Todo todo = new Todo("finish todo app", 1, false);
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
         
         Assert.True(isValid);
@@ -17,7 +17,7 @@ public class TestTodoValidation{
     [Fact]
     //Test a todo with a name that is too short, less than the 5 characters minimum.
     public void TestInvalidTodoNameTooShort(){
-        Todo todo = new Todo("fin", 1);
+        Todo todo = new Todo("fin", 1, false);
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
         
         Assert.False(isValid);
@@ -26,7 +26,7 @@ public class TestTodoValidation{
     [Fact]
     //Test a todo with a name that is too long, more than the 50 characters maximum.
     public void TestInvalidTodoNameTooLong(){
-        Todo todo = new Todo("finish todo appfinish todo appfinish todo appfinish finish todo appfinish todo appfinish todo apptodo appfinish todo appfinish todo app", 1);
+        Todo todo = new Todo("finish todo appfinish todo appfinish todo appfinish finish todo appfinish todo appfinish todo apptodo appfinish todo appfinish todo app", 1, true);
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
         
         Assert.False(isValid);
@@ -35,7 +35,7 @@ public class TestTodoValidation{
     [Fact]
     //Test a todo with a name that is all whitespace.
     public void TestInvalidTodoNameAllWhiteSpace(){
-        Todo todo = new Todo("     ", 1);
+        Todo todo = new Todo("     ", 1, true);
         bool isValid = MiniValidator.TryValidate(todo, out var errors);
         
         Assert.False(isValid);
