@@ -31,4 +31,15 @@ public class TestTodoValidation{
         
         Assert.False(isValid);
     }
+
+    [Fact]
+    //Test a todo with a name that is all whitespace.
+    public void TestInvalidTodoNameAllWhiteSpace(){
+        Todo todo = new Todo("     ", 1);
+        bool isValid = MiniValidator.TryValidate(todo, out var errors);
+        
+        Assert.False(isValid);
+    }
+
+    
 }

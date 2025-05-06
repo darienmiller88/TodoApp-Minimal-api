@@ -16,7 +16,7 @@ public class Todo{
     }
     
     public Todo(string todoName, int id){
-        this.todoName = todoName;
+        this.todoName = todoName.Trim();
         this.id = id;
         isComplete = false;
     }
