@@ -4,7 +4,7 @@ namespace api.v1.Models;
 
 public class Todo{
 
-    [StringLength(100, MinimumLength = 5)]
+    [StringLength(50, MinimumLength = 5)]
     public string todoName { get; set; }
     public int id { get; set; }
     public bool isComplete { get; set; }

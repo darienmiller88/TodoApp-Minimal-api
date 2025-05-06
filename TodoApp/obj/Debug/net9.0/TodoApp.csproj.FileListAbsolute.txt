@@ -37,3 +37,4 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.pdb
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.genruntimeconfig.cache
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\ref\TodoApp.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.sourcelink.json

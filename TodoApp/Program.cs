@@ -4,7 +4,6 @@ using api.v1.Routes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-//Here is a change
 var builder = WebApplication.CreateBuilder(args);
 
 //'AddSingleton' ensures that the TodoService instance is shared for all routes, and persists as long as the server is
