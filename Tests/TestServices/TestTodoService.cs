@@ -23,6 +23,7 @@ public class TestTodoService{
 
         Assert.NotNull(result.Data);
         Assert.NotEmpty(result.Data);
+        Assert.Equal(200, result.StatusCode);
     }
 
     [Fact]
@@ -33,6 +34,7 @@ public class TestTodoService{
 
         Assert.NotNull(result.Data);
         Assert.NotEmpty(result.Data);
+        Assert.Equal(200, result.StatusCode);
     }
 
     [Fact]
@@ -46,6 +48,7 @@ public class TestTodoService{
         ServiceResult<List<Todo>> result = service.GetCompletedTodos();
 
         Assert.Null(result.Data);
+        Assert.Equal(404, result.StatusCode);
     }
 
     [Fact]
@@ -59,5 +62,6 @@ public class TestTodoService{
         ServiceResult<List<Todo>> result = service.GetIncompletedTodos();
 
         Assert.Null(result.Data);
+        Assert.Equal(404, result.StatusCode);
     }
 }
