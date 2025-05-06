@@ -15,10 +15,10 @@ public class Todo{
         isComplete = false;
     }
     
-    public Todo(string todoName, int id){
+    public Todo(string todoName, int id, bool completeStatus){
         this.todoName = todoName.Trim();
         this.id = id;
-        isComplete = false;
+        isComplete = completeStatus;
     }
 
     public override string ToString(){

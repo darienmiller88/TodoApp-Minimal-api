@@ -18,9 +18,10 @@ public interface ITodoService{
 //Todo service implemenation that completes business logic for database interactions.
 public class TodoService : ITodoService{
     private List<Todo> todos = [
-        new Todo("Buy vicky birthday gift", 0),
-        new Todo("Go to birthday party", 1),
-        new Todo("Complete Todo list before day ends", 2)
+        new Todo("Buy vicky birthday gift", 0, false),
+        new Todo("Go to birthday party", 1, true),
+        new Todo("Complete Todo list before day ends", 2, false),
+        new Todo("Go to sleep", 2, true)
     ];
 
     //GET: This method returns an array of Todo objects from the database eventually.
