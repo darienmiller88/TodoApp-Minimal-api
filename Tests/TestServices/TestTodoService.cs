@@ -78,7 +78,7 @@ public class TestTodoService{
         Assert.Equal(200, result.StatusCode);
     }
 
-     [Fact]
+    [Fact]
     //Test to see if a todo with a non-existent id returns null. 
     //EXPECTED: NULL
     //STATUS CODE: 404
@@ -88,6 +88,60 @@ public class TestTodoService{
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
+    }
+
+    [Fact]
+    //Test to see if a adding a valid todo works.
+    //EXPECTED: Todo (Not Null)
+    //STATUS CODE: 201
+    public void TestAddValidTodo(){
+        TodoService service = new TodoService();
+        ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
+
+        Assert.NotNull(result.Data);
+        Assert.Equal(201, result.StatusCode);
+    }
+
+    [Fact]
+    //Test to see if adding an invalid todo with a dupliucate id returns null and 409.
+    //EXPECTED: Null
+    //STATUS CODE: 409
+    public void TestAddInvalidTodoDuplicateId(){
+        TodoService service = new TodoService();
+        ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
+
+        //First todo is valid, should not be null, and should return 200
+        Assert.NotNull(result.Data);
+        Assert.Equal(201, result.StatusCode);
+
+        //Add a new todo with the same id as the above one.
+        result = service.AddTodo(new Todo("example todo again", 5, false));
+        
+        //Newly added todo should be null, and should return 409
+        Assert.Null(result.Data);
+        Assert.Equal(409, result.StatusCode);
+    }
+
+    [Fact]
+    //Test to see if a adding a invalid todo with a duplicate name return null and 409
+    //EXPECTED: Null
+    //STATUS CODE: 409
+    public void TestAddInvalidTodoDuplicateName(){
+        TodoService service = new TodoService();
+        ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
+
+        //Add a valid todo first.
+        Assert.NotNull(result.Data);
+        Assert.Equal(201, result.StatusCode);
+
+        //Add a todo with a duplicate name.
+        Todo invalidTodo = new Todo("example todo", 15, false);
+        result = service.AddTodo(invalidTodo);
+
+        //Newly added todo should be null, return the proper error message and should return 409
+        Assert.Null(result.Data);
+        Assert.Equal(409, result.StatusCode);
+        Assert.Equal($"Todo with name of \'{invalidTodo.todoName}\' already exists!", result.Message);
     }
     
 }
