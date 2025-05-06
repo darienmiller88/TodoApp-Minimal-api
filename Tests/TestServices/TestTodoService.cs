@@ -115,11 +115,15 @@ public class TestTodoService{
         Assert.Equal(201, result.StatusCode);
 
         //Add a new todo with the same id as the above one.
-        result = service.AddTodo(new Todo("example todo again", 5, false));
+        Todo invalidTodo = new Todo("example todo again", 5, false);
+        result = service.AddTodo(invalidTodo);
         
         //Newly added todo should be null, and should return 409
         Assert.Null(result.Data);
         Assert.Equal(409, result.StatusCode);
+
+        //This error message should be returned when an invalid todo is received by the AddTodo service.
+        Assert.Equal($"Todo with id of \'{invalidTodo.id}\' already exists!", result.Message);
     }
 
     [Fact]
@@ -142,6 +146,21 @@ public class TestTodoService{
         Assert.Null(result.Data);
         Assert.Equal(409, result.StatusCode);
         Assert.Equal($"Todo with name of \'{invalidTodo.todoName}\' already exists!", result.Message);
+    }
+
+    [Fact]
+    //Test to see if a deleting a valid todo works.
+    //EXPECTED: ServiceResult (Not Null)
+    //STATUS CODE: 200
+    public void TestDeleteValidTodoById(){
+        TodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, false),
+            new Todo("todo 2", 2, true),
+        });
+        ServiceResult<Todo> result = service.DeleteTodoById(1);
+
+        Assert.NotNull(result.Data);
+        Assert.Equal(200, result.StatusCode);
     }
     
 }
