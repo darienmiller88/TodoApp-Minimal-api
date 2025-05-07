@@ -167,7 +167,7 @@ public class TestTodoService{
     //Test to see if a deleting an invalid todo returns null.
     //EXPECTED: Null
     //STATUS CODE: 404
-    public void TestDeleteValidTodoByInvalidId(){
+    public void TestDeleteTodoByInvalidId(){
         TodoService service = new TodoService(new List<Todo>{
             new Todo("todo 1", 1, false),
             new Todo("todo 2", 2, true),
@@ -177,6 +177,38 @@ public class TestTodoService{
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
-        Assert.Equal($"No todo with id {id}", result.Message);
+        Assert.Equal($"No todo with id {id} found!", result.Message);
+    }
+
+     [Fact]
+    //Test to see if a updating a valid todo works.
+    //EXPECTED: ServiceResult (Not Null)
+    //STATUS CODE: 200
+    public void TestUpdateValidTodoById(){
+        TodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, false),
+            new Todo("todo 2", 2, true),
+        });
+        ServiceResult<Todo> result = service.UpdateTodoById(1);
+
+        Assert.NotNull(result.Data);
+        Assert.Equal(200, result.StatusCode);
+    }
+
+    [Fact]
+    //Test to see if a updating an invalid todo returns null.
+    //EXPECTED: Null
+    //STATUS CODE: 404
+    public void TestUpdateTodoByInvalidId(){
+        TodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, false),
+            new Todo("todo 2", 2, true),
+        });
+        int id = 11;
+        ServiceResult<Todo> result = service.UpdateTodoById(id);
+
+        Assert.Null(result.Data);
+        Assert.Equal(404, result.StatusCode);
+        Assert.Equal($"No todo with id {id} found!", result.Message);
     }
 }

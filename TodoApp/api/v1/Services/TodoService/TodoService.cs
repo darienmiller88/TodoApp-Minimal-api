@@ -100,7 +100,7 @@ public class TodoService : ITodoService{
 
         //Try to find the todo that is to be deleted, and return an error if it doesn't exist.
         if (todoToDelete == null) {
-            return new ServiceResult<Todo>($"No todo with id {id}", 404, null);
+            return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
         }
 
         //If found, remove it!
