@@ -211,4 +211,36 @@ public class TestTodoService{
         Assert.Equal(404, result.StatusCode);
         Assert.Equal($"No todo with id {id} found!", result.Message);
     }
+
+    [Fact]
+    //Test to see if a updating a todo with a new name works properly
+    //EXPECTED: ServiceResult 
+    //STATUS CODE: 200
+    public void TestUpdateTodoByName(){
+        TodoService service = new TodoService(new List<Todo>{
+            new Todo("todo1", 1, false),
+            new Todo("todo1", 2, true),
+        });
+        ServiceResult<Todo> result = service.UpdateTodoByName(1, new Todo("new todo name", 1, false));
+
+        Assert.NotNull(result.Data);
+        Assert.Equal(200, result.StatusCode);
+    }
+
+    [Fact]
+    //Test to see if a updating a todo with a new name but invalid id returns null.
+    //EXPECTED: null 
+    //STATUS CODE: 404
+    public void TestUpdateInvalidTodoByName(){
+        TodoService service = new TodoService(new List<Todo>{
+            new Todo("todo1", 1, false),
+            new Todo("todo1", 2, true),
+        });
+        int id = 11;
+        ServiceResult<Todo> result = service.UpdateTodoByName(id, new Todo("new todo name", 5, false));
+
+        Assert.Null(result.Data);
+        Assert.Equal(404, result.StatusCode);
+        Assert.Equal($"No todo with id {id} found!", result.Message);
+    }
 }
