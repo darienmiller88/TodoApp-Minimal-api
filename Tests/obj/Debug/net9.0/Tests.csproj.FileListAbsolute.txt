@@ -113,3 +113,5 @@ c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\re
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\Tests.pdb
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\Tests.genruntimeconfig.cache
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\ref\Tests.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Castle.Core.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Moq.dll

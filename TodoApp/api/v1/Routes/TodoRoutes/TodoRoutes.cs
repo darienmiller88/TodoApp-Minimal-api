@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using MiniValidation;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Tests")]
+
 namespace api.v1.Routes;
 
 public static class TodoRoutes{
@@ -31,13 +35,13 @@ public static class TodoRoutes{
         todoRoutes.MapDelete("/delete-todo/{id}", DeleteTodoByIdHandler);
     }
 
-    //Handler to receive all todos from Todo service.
-    private static IResult GetTodosHandler(ITodoService service){
+    //Handler to receive all todos from Todo service. 
+    internal static IResult GetTodosHandler(ITodoService service){
         return Results.Ok(service.GetTodos());
     }
 
     //Handler to receive all Completed todos from Todo service.
-    private static IResult GetCompletedTodosHandler(ITodoService service){
+    internal static IResult GetCompletedTodosHandler(ITodoService service){
         var todosResult = service.GetCompletedTodos();
 
         if (todosResult.Data == null){
@@ -48,7 +52,7 @@ public static class TodoRoutes{
     }
 
     //Handler to receive all incomplete todos from Service.
-    private static IResult GetIncompletedTodosHandler(ITodoService service){
+    internal static IResult GetIncompletedTodosHandler(ITodoService service){
         var todosResult = service.GetIncompletedTodos();
 
         if (todosResult.Data == null){
@@ -59,7 +63,7 @@ public static class TodoRoutes{
     }
 
     //Handler to receive one todo by id from service.
-    private static IResult GetTodoByIdHandler(ITodoService service, int id){
+    internal static IResult GetTodoByIdHandler(ITodoService service, int id){
         ServiceResult<Todo> getResult = service.GetTodoById(id);
         
         //If the todo wasn't found, return a 404
@@ -72,7 +76,7 @@ public static class TodoRoutes{
     }
 
     //Handler to add Todo to list of Todos.
-    private static IResult AddTodoHandler(ITodoService service, [FromBody] Todo? todo, HttpContext context) {    
+    internal static IResult AddTodoHandler(ITodoService service, [FromBody] Todo? todo, HttpContext context) {    
         if (todo == null){
             return Results.BadRequest("Request body required!");
         }
@@ -97,7 +101,7 @@ public static class TodoRoutes{
     }
 
     //Handler to update Todo by id.
-    private static IResult UpdateTodoByidHandler(ITodoService service, int id) {
+    internal static IResult UpdateTodoByidHandler(ITodoService service, int id) {
         ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
 
         //If the id doesn't exist, return a 404.
@@ -110,7 +114,7 @@ public static class TodoRoutes{
     }
 
     //Handler to update the name of a Todo.
-    private static IResult UpdateTodoByNameHandler(ITodoService service, int id, [FromBody] Todo? todo) {
+    internal static IResult UpdateTodoByNameHandler(ITodoService service, int id, [FromBody] Todo? todo) {
         if (todo == null){
             return Results.BadRequest("Request body is required!");
         }
@@ -135,7 +139,7 @@ public static class TodoRoutes{
     }
 
     //Handler to delete a todo by id.
-    private static IResult DeleteTodoByIdHandler(ITodoService service, int id)  {
+    internal static IResult DeleteTodoByIdHandler(ITodoService service, int id)  {
         ServiceResult<Todo> deleteTodoResult = service.DeleteTodoById(id);
 
         //If the id doesn't exist, return a 404
