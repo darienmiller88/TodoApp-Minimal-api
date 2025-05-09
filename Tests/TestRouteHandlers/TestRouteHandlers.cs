@@ -20,7 +20,9 @@ public class TestTodoRouteHandlers{
     }
 
     [Fact]
-    public void TestGetCompletedTodosHandler(){
+    //Test to see if the GetCompletedTodosHandler() returns all todos that are completed. 
+    //EXPECTED: List of todos containing Todos that are completed.
+    public void TestGetCompletedTodosHandler_WithAllComplete(){
         ITodoService service = new TodoService(new List<Todo>{
             new Todo("todo 1", 1, true),
             new Todo("todo 2", 2, true),
@@ -35,5 +37,17 @@ public class TestTodoRouteHandlers{
         Assert.NotNull(okResult);
         Assert.NotNull(okResult.Value);
         Assert.Equal(2, okResult.Value.Count);
+    }
+
+     [Fact]
+    public void TestGetCompletedTodosHandler_WithAllIncomplete(){
+        ITodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, false),
+            new Todo("todo 2", 2, false),
+            new Todo("todo 3", 3, false),
+        });
+        var result = TodoRoutes.GetCompletedTodosHandler(service);
+
+        Assert.IsType<NotFound<ServiceResult<List<Todo>>>>(result);
     }
 }
