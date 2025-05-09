@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Collections.Generic;
 using api.v1.Models;
+using Castle.Components.DictionaryAdapter.Xml;
 
 public class TestTodoRouteHandlers{
     
@@ -16,5 +17,23 @@ public class TestTodoRouteHandlers{
 
         //Ensures that the GetTodosHandler returns a list of todos.
         Assert.IsType<Ok<List<Todo>>>(result);
+    }
+
+    [Fact]
+    public void TestGetCompletedTodosHandler(){
+        ITodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, true),
+            new Todo("todo 2", 2, true),
+            new Todo("todo 3", 3, false),
+        });
+        var result = TodoRoutes.GetCompletedTodosHandler(service);
+
+        Assert.IsType<Ok<List<Todo>>>(result);
+
+        var okResult = result as Ok<List<Todo>>;
+
+        Assert.NotNull(okResult);
+        Assert.NotNull(okResult.Value);
+        Assert.Equal(2, okResult.Value.Count);
     }
 }
