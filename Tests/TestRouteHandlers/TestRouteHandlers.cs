@@ -96,9 +96,9 @@ public class TestTodoRouteHandlers{
         var result = TodoRoutes.GetTodoByIdHandler(service, 2);
 
         //This is what should be return by the handler
-        Assert.IsType<Ok<ServiceResult<Todo>>>(result);
+        Assert.IsType<Ok<Todo>>(result);
 
-        var okResult = result as Ok<ServiceResult<Todo>>;
+        var okResult = result as Ok<Todo>;
 
         //Ensure that the ok result is not null.
         Assert.NotNull(okResult);
@@ -107,10 +107,10 @@ public class TestTodoRouteHandlers{
         Assert.NotNull(okResult.Value);
 
         //Finally, ensure that the return data for the ServiceResult is not null.
-        Assert.NotNull(okResult.Value.Data);
+        Assert.NotNull(okResult.Value);
 
         //Afterwards, enure that the retrieved todo is the same as the one in the list.
-        Assert.Equal(new Todo("todo 2", 2, false), okResult.Value.Data);
+        Assert.Equal(new Todo("todo 2", 2, false), okResult.Value);
     }
 
     [Fact]
@@ -122,9 +122,22 @@ public class TestTodoRouteHandlers{
             new Todo("todo 2", 2, false),
             new Todo("todo 3", 3, false),
         });
-        var result = TodoRoutes.GetTodoByIdHandler(service, 2);
+        var result = TodoRoutes.GetTodoByIdHandler(service, 22);
 
         //This is what should be return by the handler
         Assert.IsType<NotFound<ServiceResult<Todo>>>(result);
+    }
+
+    [Fact]
+    //Test to see if the AddTodoHandler() returns a ok response after getting a valid todo.
+    //EXPECTED: ok<> response with ServiceResult
+    public void TestAddTodoByIdHandler_WithValidTodo(){
+        ITodoService service = new TodoService();
+        Todo todo = new Todo("todo to add", 22, false);
+        HttpContext context = new DefaultHttpContext();
+        var result = TodoRoutes.AddTodoHandler(service, todo, context);
+
+        //This is what should be return by the handler
+        Assert.IsType<Created<ServiceResult<Todo>>>(result);
     }
 }

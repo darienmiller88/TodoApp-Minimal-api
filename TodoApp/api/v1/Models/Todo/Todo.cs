@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace api.v1.Models;
@@ -19,6 +20,14 @@ public class Todo{
         this.todoName = todoName.Trim();
         this.id = id;
         isComplete = completeStatus;
+    }
+
+    public override bool Equals(object? obj){
+        return obj is Todo other && todoName == other.todoName && id == other.id && isComplete == other.isComplete;
+    }
+
+    public override int GetHashCode(){
+        return HashCode.Combine(todoName, id, isComplete);
     }
 
     public override string ToString(){
