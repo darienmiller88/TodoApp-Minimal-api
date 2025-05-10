@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Collections.Generic;
 using api.v1.Models;
-using Castle.Components.DictionaryAdapter.Xml;
 
 public class TestTodoRouteHandlers{
     
@@ -83,5 +82,49 @@ public class TestTodoRouteHandlers{
         var result = TodoRoutes.GetCompletedTodosHandler(service);
 
         Assert.IsType<NotFound<ServiceResult<List<Todo>>>>(result);
+    }
+
+    [Fact]
+    //Test to see if the GetTodoByIdHandler() returns a valid todo with the right id.
+    //EXPECTED: valid todo, Ok<> response with a ServiceResult<Todo>
+    public void TestGetTodoByIdHandler_WithValidId(){
+        ITodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, false),
+            new Todo("todo 2", 2, false),
+            new Todo("todo 3", 3, false),
+        });
+        var result = TodoRoutes.GetTodoByIdHandler(service, 2);
+
+        //This is what should be return by the handler
+        Assert.IsType<Ok<ServiceResult<Todo>>>(result);
+
+        var okResult = result as Ok<ServiceResult<Todo>>;
+
+        //Ensure that the ok result is not null.
+        Assert.NotNull(okResult);
+
+        //Ensure the ServiceResult object is not null.
+        Assert.NotNull(okResult.Value);
+
+        //Finally, ensure that the return data for the ServiceResult is not null.
+        Assert.NotNull(okResult.Value.Data);
+
+        //Afterwards, enure that the retrieved todo is the same as the one in the list.
+        Assert.Equal(new Todo("todo 2", 2, false), okResult.Value.Data);
+    }
+
+    [Fact]
+    //Test to see if the GetTodoByIdHandler() returns a NotFound response iwth null data todo.
+    //EXPECTED: NotFound<> response with null
+    public void TestGetTodoByIdHandler_WithInvalidId(){
+        ITodoService service = new TodoService(new List<Todo>{
+            new Todo("todo 1", 1, false),
+            new Todo("todo 2", 2, false),
+            new Todo("todo 3", 3, false),
+        });
+        var result = TodoRoutes.GetTodoByIdHandler(service, 2);
+
+        //This is what should be return by the handler
+        Assert.IsType<NotFound<ServiceResult<Todo>>>(result);
     }
 }
