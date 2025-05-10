@@ -5,11 +5,6 @@ C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\TodoApp.MvcAppli
 C:\Users\steve\Desktop\csharp projects\TodoApp\obj\Debug\net9.0\TodoApp.sourcelink.json
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\appsettings.json
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\client\package-lock.json
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\client\package.json
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\client\tsconfig.app.json
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\client\tsconfig.json
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\client\tsconfig.node.json
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\TodoApp.staticwebassets.endpoints.json
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\TodoApp.exe
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\TodoApp.deps.json
@@ -38,3 +33,8 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.genruntimeconfig.cache
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\ref\TodoApp.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.sourcelink.json
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\TodoApp.staticwebassets.runtime.json
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.RazorAssemblyInfo.cache
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.RazorAssemblyInfo.cs
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-5ipweew5fc.gz
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\exh82fkt9f-5ipweew5fc.gz

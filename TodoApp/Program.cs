@@ -10,14 +10,15 @@ var builder = WebApplication.CreateBuilder(args);
 //running. NOTE: this is just temporary until I get database functionality up and running. Afterwards, I will switch
 //back to AddScoped.
 builder.Services.AddSingleton<ITodoService, TodoService>();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.Use(Logger.LogRequestAsync);
 
-app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
-app.MapTodoRoutes();
+// app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
 app.MapRazorPages();
+app.MapTodoRoutes();
 
 app.Run();
