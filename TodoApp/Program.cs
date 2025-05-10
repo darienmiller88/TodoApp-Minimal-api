@@ -13,9 +13,11 @@ builder.Services.AddSingleton<ITodoService, TodoService>();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 app.Use(Logger.LogRequestAsync);
 
 app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
 app.MapTodoRoutes();
+app.MapRazorPages();
 
 app.Run();
