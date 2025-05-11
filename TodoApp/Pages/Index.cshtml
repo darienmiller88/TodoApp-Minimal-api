@@ -1,8 +1,5 @@
 @page
 @model TodoApp.Pages.IndexModel
-@{
-    ViewData["Title"] = "Index";
-}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,19 +8,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="~/css/index.css">
         <link rel="shortcut icon" href="~/img/todo.png" type="image/x-icon">
+        <partial name="_ValidationScriptsPartial" />
         <title>Todo List</title>
     </head>
     <body>
         <h1>Todo List</h1>
-        <form action="" method="post">
-            <input type="text">
+        <form method="post">
+            <input  type="text">
             <button>Add Todo</button>
         </form>
         <div class="todos">
             @foreach (var todo in Model.todos){
-                <div class="todo">
-                    <div class="todo-name">Finish this fucking project</div>
-                    <input type="checkbox" name="isComplete" id="">
+                <div class="todo" id="@todo.id">
+                @if(todo.isComplete){
+                    <div class="todo-name strike-through">@todo.todoName</div>
+                    <input type="checkbox" name="isComplete" checked>
+                }else{
+                    <div class="todo-name">@todo.todoName</div>
+                    <input type="checkbox" name="isComplete" >
+                }
                 </div>
             }
         </div>
