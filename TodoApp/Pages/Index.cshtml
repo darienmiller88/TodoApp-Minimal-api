@@ -8,27 +8,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="~/css/index.css">
         <link rel="shortcut icon" href="~/img/todo.png" type="image/x-icon">
-        <partial name="_ValidationScriptsPartial" />
         <title>Todo List</title>
     </head>
     <body>
         <h1>Todo List</h1>
         <form method="post">
-            <input  type="text">
-            <button>Add Todo</button>
+            <input asp-for="NewTodo.TodoName" minlength="5" maxlength="50" placeholder="Enter todo name"  type="text" required>
+            <span asp-validation-for="NewTodo.TodoName"></span>
+            <button type="submit">Add Todo</button>
         </form>
         <div class="todos">
             @foreach (var todo in Model.todos){
                 <div class="todo" id="@todo.id">
                 @if(todo.isComplete){
-                    <div class="todo-name strike-through">@todo.todoName</div>
+                    <div class="todo-name strike-through">@todo.TodoName</div>
                     <input type="checkbox" name="isComplete" checked>
                 }else{
-                    <div class="todo-name">@todo.todoName</div>
+                    <div class="todo-name">@todo.TodoName</div>
                     <input type="checkbox" name="isComplete" >
                 }
                 </div>
             }
         </div>
+        <partial name="_ValidationScriptsPartial" />
     </body>
 </html>

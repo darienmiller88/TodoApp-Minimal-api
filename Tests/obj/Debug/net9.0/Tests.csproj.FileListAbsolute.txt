@@ -5,11 +5,6 @@ c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\To
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\TodoApp.runtimeconfig.json
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\appsettings.Development.json
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\appsettings.json
-c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\client\package-lock.json
-c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\client\package.json
-c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\client\tsconfig.app.json
-c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\client\tsconfig.json
-c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\client\tsconfig.node.json
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\TodoApp.staticwebassets.endpoints.json
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\TodoApp.exe
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\testhost.exe
@@ -115,3 +110,4 @@ c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\Te
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\ref\Tests.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Castle.Core.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Moq.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\TodoApp.staticwebassets.runtime.json

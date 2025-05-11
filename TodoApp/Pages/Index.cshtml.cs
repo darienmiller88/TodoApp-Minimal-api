@@ -10,11 +10,15 @@ using api.v1.Models;
 
 namespace TodoApp.Pages;
 public class IndexModel : PageModel{
-    private readonly ILogger<Index> _logger;
+    private readonly ILogger<IndexModel> _logger;
     private readonly ITodoService _service;
     public List<Todo> todos; 
 
-    public IndexModel(ILogger<Index> logger, ITodoService service){
+    // [BindProperty]
+    //Forms from front end will bind to this object
+    public Todo? NewTodo { get; set; }
+
+    public IndexModel(ILogger<IndexModel> logger, ITodoService service){
         _logger = logger;
         _service = service;
         todos = [];
@@ -26,6 +30,11 @@ public class IndexModel : PageModel{
         foreach (Todo todo in todos){
             Console.WriteLine(todo);
         }
-
     }
+
+    public IActionResult OnPost(){
+     
+        return Page(); // Redirect to GET
+    }
+
 }

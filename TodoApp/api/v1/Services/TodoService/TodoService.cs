@@ -83,8 +83,8 @@ public class TodoService : ITodoService{
         }
 
         //Second, check to see if there is a todo with a duplicate name in the list of todos.
-        if (todos.Any(todo => todo.todoName.Trim().ToLower() == newTodo.todoName.Trim().ToLower())){
-            return new ServiceResult<Todo>($"Todo with name of \'{newTodo.todoName}\' already exists!", 409, null);
+        if (todos.Any(todo => todo.TodoName.Trim().ToLower() == newTodo.TodoName.Trim().ToLower())){
+            return new ServiceResult<Todo>($"Todo with name of \'{newTodo.TodoName}\' already exists!", 409, null);
         }
 
         //Afterwards, add the new todo to the list.
@@ -138,7 +138,7 @@ public class TodoService : ITodoService{
         }
 
         //Change the current name to the new one!
-        todos.ElementAt(todoIndex).todoName = newTodo.todoName;
+        todos.ElementAt(todoIndex).TodoName = newTodo.TodoName;
 
         //Return the newly updated todo!
         return new ServiceResult<Todo>("Todo name updated!", 200, todos.ElementAt(todoIndex));

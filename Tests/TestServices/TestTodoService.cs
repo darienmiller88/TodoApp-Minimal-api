@@ -145,7 +145,7 @@ public class TestTodoService{
         //Newly added todo should be null, return the proper error message and should return 409
         Assert.Null(result.Data);
         Assert.Equal(409, result.StatusCode);
-        Assert.Equal($"Todo with name of \'{invalidTodo.todoName}\' already exists!", result.Message);
+        Assert.Equal($"Todo with name of \'{invalidTodo.TodoName}\' already exists!", result.Message);
     }
 
     [Fact]

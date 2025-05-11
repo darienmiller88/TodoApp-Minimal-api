@@ -37,4 +37,4 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.RazorAssemblyInfo.cache
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.RazorAssemblyInfo.cs
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\exh82fkt9f-5ipweew5fc.gz
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-09j8c8xyme.gz
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-esxs87h7sg.gz
