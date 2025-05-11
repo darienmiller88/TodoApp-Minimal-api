@@ -2,3 +2,21 @@ h1{
     color: red;
     text-align: center;
 }
+
+.todos{
+    border: 2px solid black;
+    width: fit-content;
+    margin: auto;
+}
+
+.todos .todo{
+    display: flex;
+    border: 2px red solid;
+
+}
+
+form{
+    margin: auto;
+    width: fit-content;
+    border: 2px solid black;
+}

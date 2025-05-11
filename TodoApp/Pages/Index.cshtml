@@ -14,7 +14,18 @@
         <title>Todo List</title>
     </head>
     <body>
-        <h1>Todo List Change</h1>
-        <h1>Hello, world!</h1>
+        <h1>Todo List</h1>
+        <form action="" method="post">
+            <input type="text">
+            <button>Add Todo</button>
+        </form>
+        <div class="todos">
+            @foreach (var todo in Model.todos){
+                <div class="todo">
+                    <div class="todo-name">Finish this fucking project</div>
+                    <input type="checkbox" name="isComplete" id="">
+                </div>
+            }
+        </div>
     </body>
 </html>
