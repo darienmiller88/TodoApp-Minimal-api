@@ -12,13 +12,12 @@ public class IndexModel : PageModel{
     private readonly ILogger<Index> _logger;
     private readonly ITodoService _service;
 
-
     public IndexModel(ILogger<Index> logger, ITodoService service){
         _logger = logger;
         _service = service;
     }
 
-    public void OnGet()
-    {
+    public void OnGet(){
+        
     }
 }
