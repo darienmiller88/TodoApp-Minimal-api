@@ -5,13 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using api.v1.Services;
 
 namespace TodoApp.Pages;
-public class Index : PageModel{
+public class IndexModel : PageModel{
     private readonly ILogger<Index> _logger;
+    private readonly ITodoService _service;
 
-    public Index(ILogger<Index> logger){
+
+    public IndexModel(ILogger<Index> logger, ITodoService service){
         _logger = logger;
+        _service = service;
     }
 
     public void OnGet()
