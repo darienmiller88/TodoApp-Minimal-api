@@ -23,13 +23,14 @@ body{
 
 .todos .todo{
     display: flex;
-    /* border: 2px red solid; */
     width: 60vw;
-    background-color: rgba(175, 175, 175, 0.7);
+    background-color: rgba(175, 175, 175, 0.6);
     font-size: 28px;
-    
+    font-weight: 600;
+
     padding: 15px;
     margin: 10px;
+    color: aliceblue;
 
     border-radius: 8px;
 }
