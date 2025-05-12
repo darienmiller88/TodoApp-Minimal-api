@@ -16,7 +16,7 @@ public class IndexModel : PageModel{
 
     [BindProperty]
     //Forms from front end will bind to this object
-    public Todo? NewTodo { get; set; }
+    public Todo NewTodo { get; set; } = new();
 
     public IndexModel(ILogger<IndexModel> logger, ITodoService service){
         _logger = logger;
@@ -33,7 +33,22 @@ public class IndexModel : PageModel{
     }
 
     public IActionResult OnPost(){
+        if (!ModelState.IsValid){
+            return Page();
+        }
+
+        
+        NewTodo.id = _service.GetTodos().Last().id + 1;
+        var result = _service.AddTodo(NewTodo);
+
         Console.WriteLine(NewTodo);
+        todos = _service.GetTodos();
+        
+        if (result.Data == null){
+            Console.WriteLine(result.Message + " " + result.StatusCode);
+        }else{
+        }
+
 
         return RedirectToPage(); // Redirect to GET
     }

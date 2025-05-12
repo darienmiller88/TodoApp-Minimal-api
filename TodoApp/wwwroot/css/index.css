@@ -11,6 +11,10 @@ body{
     font-weight: bold;
 }
 
+.input-todo{
+    font-size: 25px;
+}
+
 .todos{
     /* border: 2px solid black; */
     width: fit-content;
@@ -38,11 +42,20 @@ body{
 form{
     margin: auto;
     width: fit-content;
-    /* border: 2px solid black; */
+    border: 2px solid black;
 }
 
 .add-todo{
     padding: 10px 15px;
+    font-size: 18px;
     color: aliceblue;
     background-color: chocolate;
+    
+    border: none;
+    border-radius: 5px;
+}
+
+.delete-update-wrapper{
+    display: flex;
+    border: 2px solid red;
 }
