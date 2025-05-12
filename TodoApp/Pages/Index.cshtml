@@ -1,25 +1,29 @@
 @page
 @model TodoApp.Pages.IndexModel
 
-<h1>Todo List</h1>
+<div class="title">Todo List</div>
 <form method="post">
     @Html.AntiForgeryToken()
-    <input asp-for="NewTodo.TodoName" minlength="5" maxlength="50" placeholder="Enter todo name"  type="text" required>
+    <input asp-for="NewTodo.TodoName" minlength="5" maxlength="25" placeholder="Enter todo name"  type="text" required>
     <span asp-validation-for="NewTodo.TodoName"></span>
-    <button type="submit">Add Todo</button>
+    <button class="add-todo" type="submit">Add Todo</button>
 </form>
 <div class="todos">
     @foreach (var todo in Model.todos){
         <div class="todo" id="@todo.id">
         @if(todo.isComplete){
             <div class="todo-name strike-through">@todo.TodoName</div>
-            <input type="checkbox" name="isComplete" checked>
+            <div class="delete-update-wrapper">
+                <input type="checkbox" name="isComplete" checked>
+                <button>Delete</button>
+            </div>
         }else{
             <div class="todo-name">@todo.TodoName</div>
-            <input type="checkbox" name="isComplete" >
+            <div class="delete-update-wrapper">
+                <input type="checkbox" name="isComplete" >
+                <button>Delete</button>
+            </div>
         }
         </div>
     }
 </div>
-<partial name="_ValidationScriptsPartial" />
-

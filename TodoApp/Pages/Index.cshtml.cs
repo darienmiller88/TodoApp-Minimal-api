@@ -14,7 +14,7 @@ public class IndexModel : PageModel{
     private readonly ITodoService _service;
     public List<Todo> todos; 
 
-    // [BindProperty]
+    [BindProperty]
     //Forms from front end will bind to this object
     public Todo? NewTodo { get; set; }
 
@@ -33,8 +33,9 @@ public class IndexModel : PageModel{
     }
 
     public IActionResult OnPost(){
-     
-        return Page(); // Redirect to GET
+        Console.WriteLine(NewTodo);
+
+        return RedirectToPage(); // Redirect to GET
     }
 
 }
