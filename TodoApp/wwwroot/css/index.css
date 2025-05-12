@@ -12,6 +12,9 @@ h1{
 .todos .todo{
     display: flex;
     border: 2px red solid;
+    width: 80vw;
+    background-color: rgba(175, 175, 175, 0.7);
+    font-size: 30px;
 
 }
 
