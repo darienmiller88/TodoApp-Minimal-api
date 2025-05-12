@@ -37,4 +37,12 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.RazorAssemblyInfo.cache
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.RazorAssemblyInfo.cs
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\exh82fkt9f-5ipweew5fc.gz
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-ks29cxp0rv.gz
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\DnsClient.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\DotNetEnv.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\MongoDB.Bson.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\MongoDB.Driver.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\SharpCompress.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\Snappier.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\Sprache.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-etaozjchys.gz

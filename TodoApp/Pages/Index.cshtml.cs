@@ -26,10 +26,6 @@ public class IndexModel : PageModel{
 
     public void OnGet(){
         todos = _service.GetTodos();
-        
-        foreach (Todo todo in todos){
-            Console.WriteLine(todo);
-        }
     }
 
     public IActionResult OnPost(){
@@ -38,16 +34,15 @@ public class IndexModel : PageModel{
         }
 
         
-        NewTodo.id = _service.GetTodos().Last().id + 1;
-        var result = _service.AddTodo(NewTodo);
+        // var result = _service.AddTodo(NewTodo);
 
         Console.WriteLine(NewTodo);
         todos = _service.GetTodos();
         
-        if (result.Data == null){
-            Console.WriteLine(result.Message + " " + result.StatusCode);
-        }else{
-        }
+        // if (result.Data == null){
+        //     Console.WriteLine(result.Message + " " + result.StatusCode);
+        // }else{
+        // }
 
 
         return RedirectToPage(); // Redirect to GET

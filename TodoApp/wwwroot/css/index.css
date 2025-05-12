@@ -60,3 +60,30 @@ form{
     display: flex;
     border: 2px solid red;
 }
+
+input[type="checkbox"]{
+   
+
+    color: yellow;
+    width: 2.15em;
+    height: 2.15em;
+    transition: 0.4s;
+    border: 2px solid black;
+}
+
+/* input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 0.6em;
+    top: 0.2em;
+    width: 0.4em;
+    height: 0.9em;
+    border: solid white;
+    border-width: 0 0.2em 0.2em 0;
+    transform: rotate(45deg);
+} */
+
+input[type="checkbox"]:hover{
+   cursor: pointer;
+   background-color: rgba(125, 125, 125, 0.6);
+}

@@ -1,24 +1,27 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using api.v1.Models;
+using MongoDB.Driver;
+
 namespace api.v1.Services;
 
-//Interface for Todoservice to allow for depency injection for each route.
+//stringerface for Todoservice to allow for depency injection for each route.
 public interface ITodoService{
     List<Todo> GetTodos();
     ServiceResult<List<Todo>> GetIncompletedTodos();
     ServiceResult<List<Todo>> GetCompletedTodos();
-    ServiceResult<Todo> GetTodoById(int id);
+    ServiceResult<Todo> GetTodoById(string Id);
     ServiceResult<Todo> AddTodo(Todo newTodo);
-    ServiceResult<Todo> DeleteTodoById(int id);
-    ServiceResult<Todo> UpdateTodoById(int id);
-    ServiceResult<Todo> UpdateTodoByName(int id, Todo newTodo);
+    ServiceResult<Todo> DeleteTodoById(string Id);
+    ServiceResult<Todo> UpdateTodoById(string Id);
+    ServiceResult<Todo> UpdateTodoByName(string Id, Todo newTodo);
 }
 
-//Todo service implemenation that completes business logic for database interactions.
+//Todo service implemenation that completes business logic for database stringeractions.
 public class TodoService : ITodoService{
     private List<Todo> todos;
-
+    private readonly IMongoCollection<Todo> todoCollection;
     public TodoService(){
         todos = [
             new Todo("Buy vicky birthday gift", 0, false),
@@ -26,10 +29,18 @@ public class TodoService : ITodoService{
             new Todo("Complete Todo list before day ends", 2, false),
             new Todo("Go to sleep", 3, true)
         ];
+
+        MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
+        IMongoDatabase mongoDatabase = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("MONGO_DATABASE"));
+        todoCollection = mongoDatabase.GetCollection<Todo>("todos");
     }
 
     public TodoService(List<Todo> todos){
         this.todos = todos;
+
+        MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
+        IMongoDatabase mongoDatabase = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("MONGO_DATABASE"));
+        todoCollection = mongoDatabase.GetCollection<Todo>("todos");
     }
 
     //GET: This method returns an array of Todo objects from the database eventually.
@@ -37,13 +48,13 @@ public class TodoService : ITodoService{
         return todos;
     }
 
-    //GET: Get a todo that with an id of 'id'
-    public ServiceResult<Todo> GetTodoById(int id){
-        Todo? todo = todos.FirstOrDefault(todo => todo.id == id);
+    //GET: Get a todo that with an Id of 'Id'
+    public ServiceResult<Todo> GetTodoById(string Id){
+        Todo? todo = todos.FirstOrDefault(todo => todo.Id == Id);
 
-        //If there is no todo with an id of 'id' found in the list of todos, return 404 not found.
+        //If there is no todo with an Id of 'Id' found in the list of todos, return 404 not found.
         if (todo == null) {
-            return new ServiceResult<Todo>($"Todo with id: {id} not found.", 404, null);
+            return new ServiceResult<Todo>($"Todo with Id: {Id} not found.", 404, null);
         }
 
         //otherwise return a 200 and the todo that was found.
@@ -77,9 +88,9 @@ public class TodoService : ITodoService{
     //POST: Function to add a todo to the array,  and eventually to the database.
      public ServiceResult<Todo> AddTodo(Todo newTodo){
 
-        //First, check to see if there is a todo with a duplicate ID in the list of todos
-        if (todos.Any(todo => todo.id == newTodo.id)){
-            return new ServiceResult<Todo>($"Todo with id of \'{newTodo.id}\' already exists!", 409, null);
+        //First, check to see if there is a todo with a duplicate Id in the list of todos
+        if (todos.Any(todo => todo.Id == newTodo.Id)){
+            return new ServiceResult<Todo>($"Todo with Id of \'{newTodo.Id}\' already exists!", 409, null);
         }
 
         //Second, check to see if there is a todo with a duplicate name in the list of todos.
@@ -94,13 +105,13 @@ public class TodoService : ITodoService{
         return new ServiceResult<Todo>("Successfully added todo!", 201, newTodo);
     }
 
-    //DELETE: Method to delete a todo by its id.
-    public ServiceResult<Todo> DeleteTodoById(int id){
-        Todo? todoToDelete = todos.FirstOrDefault(todo => todo.id == id);
+    //DELETE: Method to delete a todo by its Id.
+    public ServiceResult<Todo> DeleteTodoById(string Id){
+        Todo? todoToDelete = todos.FirstOrDefault(todo => todo.Id == Id);
 
         //Try to find the todo that is to be deleted, and return an error if it doesn't exist.
         if (todoToDelete == null) {
-            return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
+            return new ServiceResult<Todo>($"No todo with Id {Id} found!", 404, null);
         }
 
         //If found, remove it!
@@ -110,12 +121,12 @@ public class TodoService : ITodoService{
     }
 
     //PATCH: Method to update a Todo's complete status from done to undone, and vice versa.
-    public ServiceResult<Todo> UpdateTodoById(int id){
-        int todoIndex = todos.FindIndex(todo => todo.id == id);
+    public ServiceResult<Todo> UpdateTodoById(string Id){
+        int todoIndex = todos.FindIndex(todo => todo.Id == Id);
         
         //Try to find the todo that is to be updated, and return an error if it doesn't exist.
         if (todoIndex == -1) {
-            return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
+            return new ServiceResult<Todo>($"No todo with Id {Id} found!", 404, null);
         }
 
         //Retrieve todo to update from the list of todos.
@@ -129,12 +140,12 @@ public class TodoService : ITodoService{
     }
 
     //PATCH: Method to change a Todos name.
-    public ServiceResult<Todo> UpdateTodoByName(int id, Todo newTodo){
-        int todoIndex = todos.FindIndex(todo => todo.id == id);
+    public ServiceResult<Todo> UpdateTodoByName(string Id, Todo newTodo){
+        int todoIndex = todos.FindIndex(todo => todo.Id == Id);
         
         //Try to find the todo that is to be updated, and return an error if it doesn't exist.
         if (todoIndex == -1) {
-            return new ServiceResult<Todo>($"No todo with id {id} found!", 404, null);
+            return new ServiceResult<Todo>($"No todo with Id {Id} found!", 404, null);
         }
 
         //Change the current name to the new one!
