@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using api.v1.Models;
 using MongoDB.Driver;
 
@@ -8,14 +9,14 @@ namespace api.v1.Services;
 
 //stringerface for Todoservice to allow for depency injection for each route.
 public interface ITodoService{
-    List<Todo> GetTodos();
-    ServiceResult<List<Todo>> GetIncompletedTodos();
-    ServiceResult<List<Todo>> GetCompletedTodos();
-    ServiceResult<Todo> GetTodoById(string Id);
-    ServiceResult<Todo> AddTodo(Todo newTodo);
-    ServiceResult<Todo> DeleteTodoById(string Id);
-    ServiceResult<Todo> UpdateTodoById(string Id);
-    ServiceResult<Todo> UpdateTodoByName(string Id, Todo newTodo);
+    Task<List<Todo>> GetTodosAsync();
+    Task<ServiceResult<List<Todo>>> GetIncompletedTodosAsync();
+    Task<ServiceResult<List<Todo>>> GetCompletedTodos();
+    Task<ServiceResult<Todo>> GetTodoById(string Id);
+    Task<ServiceResult<Todo>> AddTodo(Todo newTodo);
+    Task<ServiceResult<Todo>> DeleteTodoById(string Id);
+    Task<ServiceResult<Todo>> UpdateTodoById(string Id);
+    Task<ServiceResult<Todo>> UpdateTodoByName(string Id, Todo newTodo);
 }
 
 //Todo service implemenation that completes business logic for database stringeractions.
@@ -24,10 +25,10 @@ public class TodoService : ITodoService{
     private readonly IMongoCollection<Todo> todoCollection;
     public TodoService(){
         todos = [
-            new Todo("Buy vicky birthday gift", 0, false),
-            new Todo("Go to birthday party", 1, true),
-            new Todo("Complete Todo list before day ends", 2, false),
-            new Todo("Go to sleep", 3, true)
+            new Todo("Buy vicky birthday gift", false),
+            new Todo("Go to birthday party", true),
+            new Todo("Complete Todo list before day ends", false),
+            new Todo("Go to sleep", true)
         ];
 
         MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
@@ -35,17 +36,17 @@ public class TodoService : ITodoService{
         todoCollection = mongoDatabase.GetCollection<Todo>("todos");
     }
 
-    public TodoService(List<Todo> todos){
-        this.todos = todos;
+    // public TodoService(List<Todo> todos){
+    //     this.todos = todos;
 
-        MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
-        IMongoDatabase mongoDatabase = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("MONGO_DATABASE"));
-        todoCollection = mongoDatabase.GetCollection<Todo>("todos");
-    }
+    //     MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
+    //     IMongoDatabase mongoDatabase = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("MONGO_DATABASE"));
+    //     todoCollection = mongoDatabase.GetCollection<Todo>("todos");
+    // }
 
     //GET: This method returns an array of Todo objects from the database eventually.
-    public List<Todo> GetTodos(){
-        return todos;
+    public async Task<List<Todo>> GetTodosAsync(){
+       return await todoCollection.Find(_ => true).ToListAsync();
     }
 
     //GET: Get a todo that with an Id of 'Id'

@@ -24,9 +24,9 @@ public class Todo{
         isComplete = false;
     }
     
-    public Todo(string TodoName, string id, bool completeStatus){
+    public Todo(string TodoName, bool completeStatus){
         this.TodoName = TodoName.Trim();
-        this.Id = id;
+        Id = "";
         isComplete = completeStatus;
     }
 
