@@ -10,6 +10,12 @@ public class Todo{
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
+
+    [BsonElement("created_at")]
+    public string CreatedAt { get; set; }
+
+    [BsonElement("updated_at")]
+    public string UpdatedAt { get; set; }
     
     [BsonElement("todo_name")]
     [StringLength(25, MinimumLength = 5)]
@@ -22,12 +28,16 @@ public class Todo{
         TodoName = "";
         Id = "";
         isComplete = false;
+        CreatedAt = DateTime.Now.ToString();
+        UpdatedAt = CreatedAt;
     }
     
     public Todo(string TodoName, bool completeStatus){
         this.TodoName = TodoName.Trim();
         Id = "";
         isComplete = completeStatus;
+        CreatedAt = DateTime.Now.ToString();
+        UpdatedAt = CreatedAt;
     }
 
     public override bool Equals(object? obj){

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.v1.Models;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 namespace api.v1.Services;
 
@@ -15,8 +16,8 @@ public interface ITodoService{
     Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id);
     Task<ServiceResult<Todo>> AddTodoAsync(Todo newTodo);
     Task<ServiceResult<Todo>> DeleteTodoByIdAsync(string Id);
-    Task<ServiceResult<Todo>> UpdateTodoByIdAsync(string Id);
-    Task<ServiceResult<Todo>> UpdateTodoByNameAsync(string Id, Todo newTodo);
+    Task<ServiceResult<UpdateResult>> UpdateTodoByIdAsync(string Id);
+    Task<ServiceResult<UpdateResult>> UpdateTodoByNameAsync(string Id, Todo newTodo);
 }
 
 //Todo service implemenation that completes business logic for database stringeractions.
@@ -107,22 +108,24 @@ public class TodoService : ITodoService{
     }
 
     //PATCH: Method to update a Todo's complete status from done to undone, and vice versa.
-    public async Task<ServiceResult<Todo>> UpdateTodoByIdAsync(string Id){
-        int todoIndex = todos.FindIndex(todo => todo.Id == Id);
-        
+    public async Task<ServiceResult<UpdateResult>> UpdateTodoByIdAsync(string Id){
+        Todo? todoToUpdate = await todoCollection.Find(todo => todo.Id == Id).FirstOrDefaultAsync();
+
         //Try to find the todo that is to be updated, and return an error if it doesn't exist.
-        if (todoIndex == -1) {
-            return new ServiceResult<Todo>($"No todo with Id {Id} found!", 404, null);
+        if (todoToUpdate == null){
+            return new ServiceResult<UpdateResult>($"No todo with Id {Id} found!", 404, null);
         }
 
-        //Retrieve todo to update from the list of todos.
-        Todo todoToUpdate = todos.ElementAt(todoIndex);
+        //establish the filter to find the id of the todo to update
+        var filter = Builders<Todo>.Filter.Eq(todo => todo.Id, Id);
 
-        //Change the complete status to false or true depending on if it is complete or not.
-        todos.ElementAt(todoIndex).isComplete = !todoToUpdate.isComplete;
+        //As well as the update to determine which fields get updated. 
+        var update = Builders<Todo>.Update.Set(todo => todo.isComplete, !todoToUpdate.isComplete).Set(todo => todo.UpdatedAt, DateTime.Now.ToString());
+        
+        var updateResult = await todoCollection.UpdateOneAsync(filter, update);
 
         //Return the newly update todo.
-        return new ServiceResult<Todo>("Todo updated!", 200, todoToUpdate);
+        return new ServiceResult<UpdateResult>("Todo updated!", 200, updateResult);
     }
 
     //PATCH: Method to change a Todos name.
