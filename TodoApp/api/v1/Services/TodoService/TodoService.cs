@@ -93,7 +93,7 @@ public class TodoService : ITodoService{
 
     //DELETE: Method to delete a todo by its Id.
     public async Task<ServiceResult<Todo>> DeleteTodoByIdAsync(string Id){
-        Todo? todoToDelete = todos.FirstOrDefault(todo => todo.Id == Id);
+        Todo? todoToDelete = await todoCollection.Find(todo => todo.Id == Id).FirstOrDefaultAsync();
 
         //Try to find the todo that is to be deleted, and return an error if it doesn't exist.
         if (todoToDelete == null) {
@@ -101,7 +101,7 @@ public class TodoService : ITodoService{
         }
 
         //If found, remove it!
-        todos.Remove(todoToDelete);
+        await todoCollection.DeleteOneAsync(todo => todo == todoToDelete);
 
         return new ServiceResult<Todo>("Todo deleted!", 200, todoToDelete);
     }
