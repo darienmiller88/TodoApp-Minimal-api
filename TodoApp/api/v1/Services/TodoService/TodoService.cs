@@ -11,12 +11,12 @@ namespace api.v1.Services;
 public interface ITodoService{
     Task<List<Todo>> GetTodosAsync();
     Task<ServiceResult<List<Todo>>> GetIncompletedTodosAsync();
-    Task<ServiceResult<List<Todo>>> GetCompletedTodos();
-    Task<ServiceResult<Todo>> GetTodoById(string Id);
-    Task<ServiceResult<Todo>> AddTodo(Todo newTodo);
-    Task<ServiceResult<Todo>> DeleteTodoById(string Id);
-    Task<ServiceResult<Todo>> UpdateTodoById(string Id);
-    Task<ServiceResult<Todo>> UpdateTodoByName(string Id, Todo newTodo);
+    Task<ServiceResult<List<Todo>>> GetCompletedTodosAsync();
+    Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id);
+    Task<ServiceResult<Todo>> AddTodoAsync(Todo newTodo);
+    Task<ServiceResult<Todo>> DeleteTodoByIdAsync(string Id);
+    Task<ServiceResult<Todo>> UpdateTodoByIdAsync(string Id);
+    Task<ServiceResult<Todo>> UpdateTodoByNameAsync(string Id, Todo newTodo);
 }
 
 //Todo service implemenation that completes business logic for database stringeractions.
@@ -50,7 +50,7 @@ public class TodoService : ITodoService{
     }
 
     //GET: Get a todo that with an Id of 'Id'
-    public ServiceResult<Todo> GetTodoById(string Id){
+    public async Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id){
         Todo? todo = todos.FirstOrDefault(todo => todo.Id == Id);
 
         //If there is no todo with an Id of 'Id' found in the list of todos, return 404 not found.
@@ -63,7 +63,7 @@ public class TodoService : ITodoService{
     }
 
     //GET: Retrieves all todos that are completed.
-    public ServiceResult<List<Todo>> GetCompletedTodos(){
+    public async Task<ServiceResult<List<Todo>>> GetCompletedTodosAsync(){
         List<Todo> completedTodos = todos.FindAll(todo => todo.isComplete);
 
         //If there are no completed todos, return a 404 to the client telling them such.
@@ -75,7 +75,7 @@ public class TodoService : ITodoService{
     }
 
     //GET: Retrieves all todos that are not completed.
-    public ServiceResult<List<Todo>> GetIncompletedTodos(){
+    public async Task<ServiceResult<List<Todo>>> GetIncompletedTodosAsync(){
         List<Todo> incompletedTodos = todos.FindAll(todo => !todo.isComplete);
 
         //If there are no INCOMPLETE todos, return a 404 to the client telling them such.
@@ -87,7 +87,7 @@ public class TodoService : ITodoService{
     }
 
     //POST: Function to add a todo to the array,  and eventually to the database.
-     public ServiceResult<Todo> AddTodo(Todo newTodo){
+     public async Task<ServiceResult<Todo>> AddTodoAsync(Todo newTodo){
 
         //First, check to see if there is a todo with a duplicate Id in the list of todos
         if (todos.Any(todo => todo.Id == newTodo.Id)){
@@ -107,7 +107,7 @@ public class TodoService : ITodoService{
     }
 
     //DELETE: Method to delete a todo by its Id.
-    public ServiceResult<Todo> DeleteTodoById(string Id){
+    public async Task<ServiceResult<Todo>> DeleteTodoByIdAsync(string Id){
         Todo? todoToDelete = todos.FirstOrDefault(todo => todo.Id == Id);
 
         //Try to find the todo that is to be deleted, and return an error if it doesn't exist.
@@ -122,7 +122,7 @@ public class TodoService : ITodoService{
     }
 
     //PATCH: Method to update a Todo's complete status from done to undone, and vice versa.
-    public ServiceResult<Todo> UpdateTodoById(string Id){
+    public async Task<ServiceResult<Todo>> UpdateTodoByIdAsync(string Id){
         int todoIndex = todos.FindIndex(todo => todo.Id == Id);
         
         //Try to find the todo that is to be updated, and return an error if it doesn't exist.
@@ -141,7 +141,7 @@ public class TodoService : ITodoService{
     }
 
     //PATCH: Method to change a Todos name.
-    public ServiceResult<Todo> UpdateTodoByName(string Id, Todo newTodo){
+    public async Task<ServiceResult<Todo>> UpdateTodoByNameAsync(string Id, Todo newTodo){
         int todoIndex = todos.FindIndex(todo => todo.Id == Id);
         
         //Try to find the todo that is to be updated, and return an error if it doesn't exist.
