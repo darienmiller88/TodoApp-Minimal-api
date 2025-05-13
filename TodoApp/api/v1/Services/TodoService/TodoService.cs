@@ -122,6 +122,7 @@ public class TodoService : ITodoService{
         //As well as the update to determine which fields get updated. 
         var update = Builders<Todo>.Update.Set(todo => todo.isComplete, !todoToUpdate.isComplete).Set(todo => todo.UpdatedAt, DateTime.Now.ToString());
         
+        //Finally, send both the filter and update to the update.
         var updateResult = await todoCollection.UpdateOneAsync(filter, update);
 
         //Return the newly update todo.
@@ -129,18 +130,24 @@ public class TodoService : ITodoService{
     }
 
     //PATCH: Method to change a Todos name.
-    public async Task<ServiceResult<Todo>> UpdateTodoByNameAsync(string Id, Todo newTodo){
-        int todoIndex = todos.FindIndex(todo => todo.Id == Id);
-        
+    public async Task<ServiceResult<UpdateResult>> UpdateTodoByNameAsync(string Id, Todo newTodo){
+        Todo? todoToUpdate = await todoCollection.Find(todo => todo.Id == Id).FirstOrDefaultAsync();
+
         //Try to find the todo that is to be updated, and return an error if it doesn't exist.
-        if (todoIndex == -1) {
-            return new ServiceResult<Todo>($"No todo with Id {Id} found!", 404, null);
+        if (todoToUpdate == null) {
+            return new ServiceResult<UpdateResult>($"No todo with Id {Id} found!", 404, null);
         }
 
-        //Change the current name to the new one!
-        todos.ElementAt(todoIndex).TodoName = newTodo.TodoName;
+        //establish the filter to find the id of the todo to update
+        var filter = Builders<Todo>.Filter.Eq(todo => todo.Id, Id);
+
+        //As well as the update to determine which fields get updated. 
+        var update = Builders<Todo>.Update.Set(todo => todo.TodoName, newTodo.TodoName).Set(todo => todo.UpdatedAt, DateTime.Now.ToString());
+        
+        //Finally, send both the filter and update to the update.
+        var updateResult = await todoCollection.UpdateOneAsync(filter, update);
 
         //Return the newly updated todo!
-        return new ServiceResult<Todo>("Todo name updated!", 200, todos.ElementAt(todoIndex));
-    }
+        return new ServiceResult<UpdateResult>("Todo name updated!", 200, updateResult);
+    } 
 };
