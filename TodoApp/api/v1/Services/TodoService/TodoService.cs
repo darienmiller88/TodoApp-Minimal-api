@@ -78,19 +78,14 @@ public class TodoService : ITodoService{
 
     //POST: Function to add a todo to the array,  and eventually to the database.
      public async Task<ServiceResult<Todo>> AddTodoAsync(Todo newTodo){
-
-        //First, check to see if there is a todo with a duplicate Id in the list of todos
-        if (todos.Any(todo => todo.Id == newTodo.Id)){
-            return new ServiceResult<Todo>($"Todo with Id of \'{newTodo.Id}\' already exists!", 409, null);
-        }
-
-        //Second, check to see if there is a todo with a duplicate name in the list of todos.
-        if (todos.Any(todo => todo.TodoName.Trim().ToLower() == newTodo.TodoName.Trim().ToLower())){
-            return new ServiceResult<Todo>($"Todo with name of \'{newTodo.TodoName}\' already exists!", 409, null);
+        
+        //First, check to see if there is a todo with a duplicate name in the list of todos
+        if(await todoCollection.Find(todo => todo.TodoName.ToLower() == newTodo.TodoName.ToLower()).FirstOrDefaultAsync() != null){
+            return new ServiceResult<Todo>($"Todo with name {newTodo.TodoName} is taken!", 409, null);
         }
 
         //Afterwards, add the new todo to the list.
-        todos.Add(newTodo);
+        await todoCollection.InsertOneAsync(newTodo);
        
         //Send the todo back with a successful code of 201.
         return new ServiceResult<Todo>("Successfully added todo!", 201, newTodo);

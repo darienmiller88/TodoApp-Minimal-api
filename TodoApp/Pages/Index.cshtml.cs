@@ -24,11 +24,11 @@ public class IndexModel : PageModel{
         todos = [];
     }
 
-    public void OnGet(){
-        todos = _service.GetTodos();
+    public async Task OnGet(){
+        todos = await _service.GetTodosAsync();
     }
 
-    public IActionResult OnPost(){
+    public async Task<IActionResult> OnPost(){
         if (!ModelState.IsValid){
             return Page();
         }
@@ -37,7 +37,7 @@ public class IndexModel : PageModel{
         // var result = _service.AddTodo(NewTodo);
 
         Console.WriteLine(NewTodo);
-        todos = _service.GetTodos();
+        todos = await _service.GetTodosAsync();
         
         // if (result.Data == null){
         //     Console.WriteLine(result.Message + " " + result.StatusCode);
