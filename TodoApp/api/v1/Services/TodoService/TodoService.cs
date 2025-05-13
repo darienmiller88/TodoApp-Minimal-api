@@ -51,37 +51,27 @@ public class TodoService : ITodoService{
 
     //GET: Get a todo that with an Id of 'Id'
     public async Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id){
-        Todo? todo = todos.FirstOrDefault(todo => todo.Id == Id);
+        Todo? todoResult = await todoCollection.Find(todo => todo.Id == Id).FirstOrDefaultAsync();
 
         //If there is no todo with an Id of 'Id' found in the list of todos, return 404 not found.
-        if (todo == null) {
+        if (todoResult == null) {
             return new ServiceResult<Todo>($"Todo with Id: {Id} not found.", 404, null);
         }
 
         //otherwise return a 200 and the todo that was found.
-        return new ServiceResult<Todo>("Found todo!", 200, todo);
+        return new ServiceResult<Todo>("Found todo!", 200, todoResult);
     }
 
     //GET: Retrieves all todos that are completed.
     public async Task<ServiceResult<List<Todo>>> GetCompletedTodosAsync(){
-        List<Todo> completedTodos = todos.FindAll(todo => todo.isComplete);
-
-        //If there are no completed todos, return a 404 to the client telling them such.
-        if (completedTodos.Count == 0){
-            return new ServiceResult<List<Todo>>("No todos are completed... yet.", 404, null);
-        }
+        List<Todo> completedTodos = await todoCollection.Find(todo => todo.isComplete).ToListAsync();
 
         return new ServiceResult<List<Todo>>("All completed todos", 200, completedTodos);
     }
 
     //GET: Retrieves all todos that are not completed.
     public async Task<ServiceResult<List<Todo>>> GetIncompletedTodosAsync(){
-        List<Todo> incompletedTodos = todos.FindAll(todo => !todo.isComplete);
-
-        //If there are no INCOMPLETE todos, return a 404 to the client telling them such.
-        if (incompletedTodos.Count == 0){
-            return new ServiceResult<List<Todo>>("All todos are complete.", 404, null);
-        }
+        List<Todo> incompletedTodos = await todoCollection.Find(todo => !todo.isComplete).ToListAsync();
 
         return new ServiceResult<List<Todo>>("All incompleted todos", 200, incompletedTodos);
     }
