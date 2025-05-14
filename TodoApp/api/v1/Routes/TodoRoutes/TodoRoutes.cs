@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using MiniValidation;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 [assembly: InternalsVisibleTo("Tests")]
 
@@ -36,13 +38,13 @@ public static class TodoRoutes{
     }
 
     //Handler to receive all todos from Todo service. 
-    internal static IResult GetTodosHandler(ITodoService service){
-        return Results.Ok(service.GetTodos());
+    internal static async Task<IResult> GetTodosHandler(ITodoService service){
+        return Results.Ok(await service.GetTodosAsync());
     }
 
     //Handler to receive all Completed todos from Todo service.
-    internal static IResult GetCompletedTodosHandler(ITodoService service){
-        var todosResult = service.GetCompletedTodos();
+    internal static async Task<IResult> GetCompletedTodosHandler(ITodoService service){
+        ServiceResult<List<Todo>> todosResult = await service.GetCompletedTodosAsync();
 
         if (todosResult.Data == null){
             return Results.NotFound(todosResult);
@@ -52,8 +54,8 @@ public static class TodoRoutes{
     }
 
     //Handler to receive all incomplete todos from Service.
-    internal static IResult GetIncompletedTodosHandler(ITodoService service){
-        var todosResult = service.GetIncompletedTodos();
+    internal static async Task<IResult> GetIncompletedTodosHandler(ITodoService service){
+        ServiceResult<List<Todo>> todosResult = await service.GetIncompletedTodosAsync();
 
         if (todosResult.Data == null){
             return Results.NotFound(todosResult);
@@ -63,8 +65,8 @@ public static class TodoRoutes{
     }
 
     //Handler to receive one todo by id from service.
-    internal static IResult GetTodoByIdHandler(ITodoService service, int id){
-        ServiceResult<Todo> getResult = service.GetTodoById(id);
+    internal static async Task<IResult> GetTodoByIdHandler(ITodoService service, string id){
+        ServiceResult<Todo> getResult = await service.GetTodoByIdAsync(id);
         
         //If the todo wasn't found, return a 404
         if (getResult.Data == null){

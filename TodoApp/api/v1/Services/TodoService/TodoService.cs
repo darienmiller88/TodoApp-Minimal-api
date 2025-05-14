@@ -140,14 +140,14 @@ public class TodoService : ITodoService{
 
         //establish the filter to find the id of the todo to update
         var filter = Builders<Todo>.Filter.Eq(todo => todo.Id, Id);
-
-        //As well as the update to determine which fields get updated. 
+        
+        //Create update filter to determine which fields get updated. 
         var update = Builders<Todo>.Update.Set(todo => todo.TodoName, newTodo.TodoName).Set(todo => todo.UpdatedAt, DateTime.Now.ToString());
         
         //Finally, send both the filter and update to the update.
         var updateResult = await todoCollection.UpdateOneAsync(filter, update);
 
         //Return the newly updated todo!
-        return new ServiceResult<UpdateResult>("Todo name updated!", 200, updateResult);
+        return new ServiceResult<UpdateResult>("Todo updated!", 200, updateResult);
     } 
 };
