@@ -117,7 +117,7 @@ public static class TodoRoutes{
     }
 
     //Handler to update the name of a Todo.
-    internal static IResult UpdateTodoByNameHandler(ITodoService service, int id, [FromBody] Todo? todo) {
+    internal static async Task<IResult> UpdateTodoByNameHandler(ITodoService service, string id, [FromBody] Todo? todo) {
         if (todo == null){
             return Results.BadRequest("Request body is required!");
         }
@@ -130,7 +130,7 @@ public static class TodoRoutes{
         }
 
         //Afterwards, call the service to change the todos name.
-        ServiceResult<Todo> updateResult = service.UpdateTodoByName(id, todo);
+        ServiceResult<UpdateResult> updateResult = await service.UpdateTodoByNameAsync(id, todo);
 
         //If the todo was not found, return a 404
         if (updateResult.Data == null){
