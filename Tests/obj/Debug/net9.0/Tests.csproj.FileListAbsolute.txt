@@ -111,3 +111,11 @@ c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\obj\Debug\net9.0\re
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Castle.Core.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Moq.dll
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\TodoApp.staticwebassets.runtime.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\DnsClient.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\DotNetEnv.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\MongoDB.Bson.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\MongoDB.Driver.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\SharpCompress.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Snappier.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Sprache.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\ZstdSharp.dll

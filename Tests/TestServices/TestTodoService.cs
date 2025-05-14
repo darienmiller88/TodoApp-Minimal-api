@@ -5,24 +5,51 @@ using api.v1.Models;
 using System.Threading.Tasks;
 using Moq;
 using MongoDB.Driver;
+using System.Threading;
 
 public class TestTodoService{
+
+    private Mock<IMongoCollection<Todo>> GetMockTodoService(List<Todo> dummyTodos){
+        //First, create a new cursor object, which will be used by our fake mongo object to look up out mongo cluster
+        var mockCursor = new Mock<IAsyncCursor<Todo>>();
+
+        //Setup the cursor to return a list of todos as the dummy data.
+        mockCursor.Setup(_ => _.Current).Returns(dummyTodos);
+        
+        //Finally, Set up the sequence so that at most, one batch of data is retrieved, and no more.
+        mockCursor.SetupSequence(_ => _.MoveNextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(true).ReturnsAsync(false);
+    
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        mockCollection.Setup(x => x.FindAsync(
+            It.IsAny<FilterDefinition<Todo>>(),
+            It.IsAny<FindOptions<Todo, Todo>>(),
+            It.IsAny<CancellationToken>())
+        ).ReturnsAsync(mockCursor.Object);
+
+        return mockCollection;
+    }
 
     [Fact]
     //Test to see if Service can get all todos from list.
     public async Task TestGetTodos(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        var mockCollection = GetMockTodoService(new List<Todo>{
+            new Todo("go home", false),
+            new Todo("finish work", true),
+        });
         TodoService service = new TodoService(mockCollection.Object);
         List<Todo> todos = await service.GetTodosAsync();
 
-        Assert.NotNull(todos);
+        Assert.NotNull(todos);  
         Assert.NotEmpty(todos);
     }
 
     [Fact]
     //Test to see if all completed todos are returned.
     public async Task TestGetCompletedTodos(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        var mockCollection = GetMockTodoService(new List<Todo>{
+            new Todo("todo 1", true),
+            new Todo("todo 2", true)
+        });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
 
