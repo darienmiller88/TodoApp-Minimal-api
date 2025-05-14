@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using MiniValidation;
+using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -78,7 +79,7 @@ public static class TodoRoutes{
     }
 
     //Handler to add Todo to list of Todos.
-    internal static IResult AddTodoHandler(ITodoService service, [FromBody] Todo? todo, HttpContext context) {    
+    internal static async Task<IResult> AddTodoHandler(ITodoService service, [FromBody] Todo? todo, HttpContext context) {    
         if (todo == null){
             return Results.BadRequest("Request body required!");
         }
@@ -91,7 +92,7 @@ public static class TodoRoutes{
         }
 
         //Try adding the validated Todo to the list.
-        ServiceResult<Todo> addTodoResult = service.AddTodo(todo);
+        ServiceResult<Todo> addTodoResult = await service.AddTodoAsync(todo);
 
         //If that fails, send back the errors.
         if (addTodoResult.Data == null){
@@ -103,8 +104,8 @@ public static class TodoRoutes{
     }
 
     //Handler to update Todo by id.
-    internal static IResult UpdateTodoByidHandler(ITodoService service, int id) {
-        ServiceResult<Todo> updateResult = service.UpdateTodoById(id);
+    internal static async Task<IResult> UpdateTodoByidHandler(ITodoService service, string id) {
+        ServiceResult<UpdateResult> updateResult = await service.UpdateTodoByIdAsync(id);
 
         //If the id doesn't exist, return a 404.
         if (updateResult.Data == null){
