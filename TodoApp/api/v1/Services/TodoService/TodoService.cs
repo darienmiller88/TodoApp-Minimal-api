@@ -22,28 +22,16 @@ public interface ITodoService{
 
 //Todo service implemenation that completes business logic for database stringeractions.
 public class TodoService : ITodoService{
-    private List<Todo> todos;
     private readonly IMongoCollection<Todo> todoCollection;
     public TodoService(){
-        todos = [
-            new Todo("Buy vicky birthday gift", false),
-            new Todo("Go to birthday party", true),
-            new Todo("Complete Todo list before day ends", false),
-            new Todo("Go to sleep", true)
-        ];
-
         MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
         IMongoDatabase mongoDatabase = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("MONGO_DATABASE"));
         todoCollection = mongoDatabase.GetCollection<Todo>("todos");
     }
 
-    // public TodoService(List<Todo> todos){
-    //     this.todos = todos;
-
-    //     MongoClient mongoClient = new MongoClient(Environment.GetEnvironmentVariable("MONGO_URI"));
-    //     IMongoDatabase mongoDatabase = mongoClient.GetDatabase(Environment.GetEnvironmentVariable("MONGO_DATABASE"));
-    //     todoCollection = mongoDatabase.GetCollection<Todo>("todos");
-    // }
+    public TodoService(IMongoCollection<Todo> todoCollection){
+        this.todoCollection = todoCollection;
+    }
 
     //GET: This method returns an array of Todo objects from the database eventually.
     public async Task<List<Todo>> GetTodosAsync(){

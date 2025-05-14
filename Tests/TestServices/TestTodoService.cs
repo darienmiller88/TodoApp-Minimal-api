@@ -2,14 +2,18 @@ using Xunit;
 using api.v1.Services;
 using System.Collections.Generic;
 using api.v1.Models;
+using System.Threading.Tasks;
+using Moq;
+using MongoDB.Driver;
 
 public class TestTodoService{
 
     [Fact]
     //Test to see if Service can get all todos from list.
-    public void TestGetTodos(){
+    public async Task TestGetTodos(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
         TodoService service = new TodoService();
-        List<Todo> todos = service.GetTodos();
+        List<Todo> todos = await service.GetTodosAsync();
 
         Assert.NotNull(todos);
         Assert.NotEmpty(todos);
@@ -17,9 +21,9 @@ public class TestTodoService{
 
     [Fact]
     //Test to see if all completed todos are returned.
-    public void TestGetCompletedTodos(){
+    public async Task TestGetCompletedTodos(){
         TodoService service = new TodoService();
-        ServiceResult<List<Todo>> result = service.GetCompletedTodos();
+        ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
 
         Assert.NotNull(result.Data);
         Assert.NotEmpty(result.Data);
