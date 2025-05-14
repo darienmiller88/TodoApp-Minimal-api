@@ -142,8 +142,8 @@ public static class TodoRoutes{
     }
 
     //Handler to delete a todo by id.
-    internal static IResult DeleteTodoByIdHandler(ITodoService service, int id)  {
-        ServiceResult<Todo> deleteTodoResult = service.DeleteTodoById(id);
+    internal static async Task<IResult> DeleteTodoByIdHandler(ITodoService service, string id)  {
+        ServiceResult<Todo> deleteTodoResult = await service.DeleteTodoByIdAsync(id);
 
         //If the id doesn't exist, return a 404
         if (deleteTodoResult.Data == null){
