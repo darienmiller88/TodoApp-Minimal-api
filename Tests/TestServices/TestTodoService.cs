@@ -12,7 +12,7 @@ public class TestTodoService{
     //Test to see if Service can get all todos from list.
     public async Task TestGetTodos(){
         var mockCollection = new Mock<IMongoCollection<Todo>>();
-        TodoService service = new TodoService();
+        TodoService service = new TodoService(mockCollection.Object);
         List<Todo> todos = await service.GetTodosAsync();
 
         Assert.NotNull(todos);
@@ -22,7 +22,8 @@ public class TestTodoService{
     [Fact]
     //Test to see if all completed todos are returned.
     public async Task TestGetCompletedTodos(){
-        TodoService service = new TodoService();
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
 
         Assert.NotNull(result.Data);
@@ -32,9 +33,10 @@ public class TestTodoService{
 
     [Fact]
     //Test to see if all incompleted todos are returned. It SHOULD NOT be null.
-    public void TestGetIncompletedTodos(){
-        TodoService service = new TodoService();
-        ServiceResult<List<Todo>> result = service.GetIncompletedTodos();
+    public async Task TestGetIncompletedTodos(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<List<Todo>> result = await service.GetIncompletedTodosAsync();
 
         Assert.NotNull(result.Data);
         Assert.NotEmpty(result.Data);
@@ -43,13 +45,10 @@ public class TestTodoService{
 
     [Fact]
     //Test to see if all if any todos are returned by GetCompletedTodos() when none are completed. it SHOULD be null.
-    public void TestGetCompletedTodosWhenNoCompletedTodos(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("example", 1, false),
-            new Todo("example1", 2, false),
-            new Todo("example3", 3, false),
-        });
-        ServiceResult<List<Todo>> result = service.GetCompletedTodos();
+    public async Task TestGetCompletedTodos_NoCompletedTodos(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
@@ -57,13 +56,10 @@ public class TestTodoService{
 
     [Fact]
     //Test to see if all if any todos are returned by GetIncompletedTodos() when all are completed. It SHOULD be null.
-    public void TestGetIncompletedTodosWhenNoIncompletedTodos(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("example", 1, true),
-            new Todo("example1", 2, true),
-            new Todo("example3", 3, true),
-        });
-        ServiceResult<List<Todo>> result = service.GetIncompletedTodos();
+    public async Task TestGetIncompletedTodos_NoIncompletedTodos(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<List<Todo>> result = await service.GetIncompletedTodosAsync();
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
@@ -74,9 +70,10 @@ public class TestTodoService{
     //be 200 to reflect success.
     //EXPECTED: NOT NULL
     //STATUS CODE: 200
-    public void TestGetTodoById(){
+    public async Task TestGetTodoById(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
         TodoService service = new TodoService();
-        ServiceResult<Todo> result = service.GetTodoById(1);
+        ServiceResult<Todo> result = await service.GetTodoByIdAsync("frcfr");
 
         Assert.NotNull(result.Data);
         Assert.Equal(200, result.StatusCode);
@@ -86,9 +83,10 @@ public class TestTodoService{
     //Test to see if a todo with a non-existent id returns null. 
     //EXPECTED: NULL
     //STATUS CODE: 404
-    public void TestGetTodoByIdWithInvalidId(){
+    public async Task TestGetTodoById_InvalidId(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
         TodoService service = new TodoService();
-        ServiceResult<Todo> result = service.GetTodoById(11111);
+        ServiceResult<Todo> result = await service.GetTodoByIdAsync("11111");
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
@@ -98,9 +96,10 @@ public class TestTodoService{
     //Test to see if a adding a valid todo works.
     //EXPECTED: Todo (Not Null)
     //STATUS CODE: 201
-    public void TestAddValidTodo(){
+    public async Task TestAddValidTodo(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
         TodoService service = new TodoService();
-        ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
+        ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
         Assert.NotNull(result.Data);
         Assert.Equal(201, result.StatusCode);
@@ -110,31 +109,31 @@ public class TestTodoService{
     //Test to see if adding an invalid todo with a dupliucate id returns null and 409.
     //EXPECTED: Null
     //STATUS CODE: 409
-    public void TestAddInvalidTodoDuplicateId(){
+    public async Task TestAddInvalid_TodoDuplicateId(){
         TodoService service = new TodoService();
-        ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
+        ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
         //First todo is valid, should not be null, and should return 200
         Assert.NotNull(result.Data);
         Assert.Equal(201, result.StatusCode);
 
         //Add a new todo with the same id as the above one.
-        Todo invalidTodo = new Todo("example todo again", 5, false);
-        result = service.AddTodo(invalidTodo);
+        Todo invalidTodo = new Todo("example todo again", false);
+        result = await service.AddTodoAsync(invalidTodo);
         
         //Newly added todo should be null, and should return 409
         Assert.Null(result.Data);
         Assert.Equal(409, result.StatusCode);
 
         //This error message should be returned when an invalid todo is received by the AddTodo service.
-        Assert.Equal($"Todo with id of \'{invalidTodo.id}\' already exists!", result.Message);
+        Assert.Equal($"Todo with id of \'{invalidTodo.Id}\' already exists!", result.Message);
     }
 
     [Fact]
     //Test to see if a adding a invalid todo with a duplicate name return null and 409
     //EXPECTED: Null
     //STATUS CODE: 409
-    public void TestAddInvalidTodoDuplicateName(){
+    public async Task TestAddInvalidTodoDuplicateName(){
         TodoService service = new TodoService();
         ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
 
@@ -156,7 +155,7 @@ public class TestTodoService{
     //Test to see if a deleting a valid todo works.
     //EXPECTED: ServiceResult (Not Null)
     //STATUS CODE: 200
-    public void TestDeleteValidTodoById(){
+    public async Task TestDeleteValidTodoById(){
         TodoService service = new TodoService(new List<Todo>{
             new Todo("todo 1", 1, false),
             new Todo("todo 2", 2, true),
@@ -171,7 +170,7 @@ public class TestTodoService{
     //Test to see if a deleting an invalid todo returns null.
     //EXPECTED: Null
     //STATUS CODE: 404
-    public void TestDeleteTodoByInvalidId(){
+    public async Task TestDeleteTodoByInvalidId(){
         TodoService service = new TodoService(new List<Todo>{
             new Todo("todo 1", 1, false),
             new Todo("todo 2", 2, true),
@@ -188,7 +187,7 @@ public class TestTodoService{
     //Test to see if a updating a valid todo works.
     //EXPECTED: ServiceResult (Not Null)
     //STATUS CODE: 200
-    public void TestUpdateValidTodoById(){
+    public async Task TestUpdateValidTodoById(){
         TodoService service = new TodoService(new List<Todo>{
             new Todo("todo 1", 1, false),
             new Todo("todo 2", 2, true),
@@ -203,7 +202,7 @@ public class TestTodoService{
     //Test to see if a updating an invalid todo returns null.
     //EXPECTED: Null
     //STATUS CODE: 404
-    public void TestUpdateTodoByInvalidId(){
+    public async Task TestUpdateTodoByInvalidId(){
         TodoService service = new TodoService(new List<Todo>{
             new Todo("todo 1", 1, false),
             new Todo("todo 2", 2, true),
@@ -220,12 +219,10 @@ public class TestTodoService{
     //Test to see if a updating a todo with a new name works properly
     //EXPECTED: ServiceResult 
     //STATUS CODE: 200
-    public void TestUpdateTodoByName(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("todo1", 1, false),
-            new Todo("todo1", 2, true),
-        });
-        ServiceResult<Todo> result = service.UpdateTodoByName(1, new Todo("new todo name", 1, false));
+    public async Task TestUpdateTodoByName(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService();
+        ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync("f", new Todo("new todo name", false));
 
         Assert.NotNull(result.Data);
         Assert.Equal(200, result.StatusCode);
@@ -235,7 +232,7 @@ public class TestTodoService{
     //Test to see if a updating a todo with a new name but invalid id returns null.
     //EXPECTED: null 
     //STATUS CODE: 404
-    public void TestUpdateInvalidTodoByName(){
+    public async Task TestUpdateInvalidTodoByName(){
         TodoService service = new TodoService(new List<Todo>{
             new Todo("todo1", 1, false),
             new Todo("todo1", 2, true),
