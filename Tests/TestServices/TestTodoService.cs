@@ -134,16 +134,17 @@ public class TestTodoService{
     //EXPECTED: Null
     //STATUS CODE: 409
     public async Task TestAddInvalidTodoDuplicateName(){
-        TodoService service = new TodoService();
-        ServiceResult<Todo> result = service.AddTodo(new Todo("example todo", 5, false));
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
         //Add a valid todo first.
         Assert.NotNull(result.Data);
         Assert.Equal(201, result.StatusCode);
 
         //Add a todo with a duplicate name.
-        Todo invalidTodo = new Todo("example todo", 15, false);
-        result = service.AddTodo(invalidTodo);
+        Todo invalidTodo = new Todo("example todo", false);
+        result = await service.AddTodoAsync(invalidTodo);
 
         //Newly added todo should be null, return the proper error message and should return 409
         Assert.Null(result.Data);
@@ -156,11 +157,9 @@ public class TestTodoService{
     //EXPECTED: ServiceResult (Not Null)
     //STATUS CODE: 200
     public async Task TestDeleteValidTodoById(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("todo 1", 1, false),
-            new Todo("todo 2", 2, true),
-        });
-        ServiceResult<Todo> result = service.DeleteTodoById(1);
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<Todo> result = await service.DeleteTodoByIdAsync("1");
 
         Assert.NotNull(result.Data);
         Assert.Equal(200, result.StatusCode);
@@ -171,16 +170,13 @@ public class TestTodoService{
     //EXPECTED: Null
     //STATUS CODE: 404
     public async Task TestDeleteTodoByInvalidId(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("todo 1", 1, false),
-            new Todo("todo 2", 2, true),
-        });
-        int id = 11;
-        ServiceResult<Todo> result = service.DeleteTodoById(id);
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<Todo> result = await service.DeleteTodoByIdAsync("id");
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
-        Assert.Equal($"No todo with id {id} found!", result.Message);
+        Assert.Equal($"No todo with id found!", result.Message);
     }
 
      [Fact]
@@ -188,11 +184,9 @@ public class TestTodoService{
     //EXPECTED: ServiceResult (Not Null)
     //STATUS CODE: 200
     public async Task TestUpdateValidTodoById(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("todo 1", 1, false),
-            new Todo("todo 2", 2, true),
-        });
-        ServiceResult<Todo> result = service.UpdateTodoById(1);
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<UpdateResult> result = await service.UpdateTodoByIdAsync("gkv");
 
         Assert.NotNull(result.Data);
         Assert.Equal(200, result.StatusCode);
@@ -202,17 +196,14 @@ public class TestTodoService{
     //Test to see if a updating an invalid todo returns null.
     //EXPECTED: Null
     //STATUS CODE: 404
-    public async Task TestUpdateTodoByInvalidId(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("todo 1", 1, false),
-            new Todo("todo 2", 2, true),
-        });
-        int id = 11;
-        ServiceResult<Todo> result = service.UpdateTodoById(id);
+    public async Task TestUpdateTodo_ByInvalidId(){
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<UpdateResult> result = await service.UpdateTodoByIdAsync("id");
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
-        Assert.Equal($"No todo with id {id} found!", result.Message);
+        Assert.Equal($"No todo with id  found!", result.Message);
     }
 
     [Fact]
@@ -221,7 +212,7 @@ public class TestTodoService{
     //STATUS CODE: 200
     public async Task TestUpdateTodoByName(){
         var mockCollection = new Mock<IMongoCollection<Todo>>();
-        TodoService service = new TodoService();
+        TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync("f", new Todo("new todo name", false));
 
         Assert.NotNull(result.Data);
@@ -233,12 +224,10 @@ public class TestTodoService{
     //EXPECTED: null 
     //STATUS CODE: 404
     public async Task TestUpdateInvalidTodoByName(){
-        TodoService service = new TodoService(new List<Todo>{
-            new Todo("todo1", 1, false),
-            new Todo("todo1", 2, true),
-        });
+        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        TodoService service = new TodoService(mockCollection.Object);
         int id = 11;
-        ServiceResult<Todo> result = service.UpdateTodoByName(id, new Todo("new todo name", 5, false));
+        ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync("id", new Todo("new todo name", false));
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);

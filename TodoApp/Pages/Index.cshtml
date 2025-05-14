@@ -9,7 +9,7 @@
 </form>
 <div class="todos">
     @foreach (var todo in Model.todos){
-        <div class="todo" id="@todo.id">
+        <div class="todo" id="@todo.Id">
         @if(todo.isComplete){
             <div class="todo-name strike-through">@todo.TodoName</div>
             <div class="delete-update-wrapper">
