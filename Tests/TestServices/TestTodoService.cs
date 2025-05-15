@@ -138,9 +138,21 @@ public class TestTodoService{
     //EXPECTED: NULL
     //STATUS CODE: 404
     public async Task TestGetTodoById_InvalidId(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
-        TodoService service = new TodoService();
-        ServiceResult<Todo> result = await service.GetTodoByIdAsync("11111");
+        Todo t1 = new Todo("todo 1", false);
+        Todo t2 = new Todo("todo 2", false);
+
+        //Assign object ids first.
+        t1.AssignRandomMongoObjectId();
+        t2.AssignRandomMongoObjectId();
+
+        var mockCollection = GetMockTodoService(new List<Todo>{ t1, t2 });
+        TodoService service = new TodoService(mockCollection.Object);
+        ServiceResult<Todo> result = await service.GetTodoByIdAsync("");//Check for empty
+
+        Assert.Null(result.Data);
+        Assert.Equal(404, result.StatusCode);
+
+        result = await service.GetTodoByIdAsync("FH3UIJORE");//Check for fake id
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
