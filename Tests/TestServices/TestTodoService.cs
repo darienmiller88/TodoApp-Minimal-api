@@ -172,6 +172,7 @@ public class TestTodoService{
 
         List<Todo> todos = await service.GetTodosAsync();
 
+        //Assert that only one todo is in the fake database.
         Assert.Single(todos);
     }
 
@@ -180,7 +181,8 @@ public class TestTodoService{
     //EXPECTED: Null
     //STATUS CODE: 409
     public async Task TestAddInvalid_TodoDuplicateId(){
-        TodoService service = new TodoService();
+        var mockCollection = GetMockTodoService(new List<Todo>{});
+        TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
         //First todo is valid, should not be null, and should return 200
