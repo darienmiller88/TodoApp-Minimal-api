@@ -77,25 +77,31 @@ public class TestTodoService{
     }
 
     [Fact]
-    //Test to see if all if any todos are returned by GetCompletedTodos() when none are completed. it SHOULD be null.
+    //Test to see if all if any todos are returned by GetCompletedTodos() when none are completed. The array should be EMPTY.
     public async Task TestGetCompletedTodos_NoCompletedTodos(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        var mockCollection = GetMockTodoService(new List<Todo>{
+            new Todo("todo 1", false),
+            new Todo("todo 2", false)
+        });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
 
-        Assert.Null(result.Data);
-        Assert.Equal(404, result.StatusCode);
+        Assert.NotNull(result.Data);
+        Assert.Empty(result.Data);
     }
 
     [Fact]
     //Test to see if all if any todos are returned by GetIncompletedTodos() when all are completed. It SHOULD be null.
     public async Task TestGetIncompletedTodos_NoIncompletedTodos(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        var mockCollection = GetMockTodoService(new List<Todo>{
+            new Todo("todo 1", true),
+            new Todo("todo 2", true)
+        });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<List<Todo>> result = await service.GetIncompletedTodosAsync();
 
-        Assert.Null(result.Data);
-        Assert.Equal(404, result.StatusCode);
+        Assert.NotNull(result.Data);
+        Assert.Empty(result.Data);
     }
 
     [Fact]
