@@ -163,12 +163,16 @@ public class TestTodoService{
     //EXPECTED: Todo (Not Null)
     //STATUS CODE: 201
     public async Task TestAddValidTodo(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
-        TodoService service = new TodoService();
+        var mockCollection = GetMockTodoService(new List<Todo>{});
+        TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
         Assert.NotNull(result.Data);
         Assert.Equal(201, result.StatusCode);
+
+        List<Todo> todos = await service.GetTodosAsync();
+
+        Assert.Single(todos);
     }
 
     [Fact]
