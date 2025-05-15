@@ -229,12 +229,21 @@ public class TestTodoService{
     //EXPECTED: ServiceResult (Not Null)
     //STATUS CODE: 200
     public async Task TestDeleteValidTodoById(){
-        var mockCollection = GetMockTodoService(new List<Todo>{});
+        Todo t1 = new Todo("new todo", false);
+
+        t1.AssignRandomMongoObjectId();
+
+        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<Todo> result = await service.DeleteTodoByIdAsync("1");
+        ServiceResult<Todo> result = await service.DeleteTodoByIdAsync(t1.Id);
 
         Assert.NotNull(result.Data);
         Assert.Equal(200, result.StatusCode);
+        
+        List<Todo> todos = await service.GetTodosAsync();
+        
+        //Check to see if the todos is empty after removing the "t1" todo we added above
+        Assert.Empty(todos);
     }
     
     [Fact]
@@ -242,13 +251,17 @@ public class TestTodoService{
     //EXPECTED: Null
     //STATUS CODE: 404
     public async Task TestDeleteTodoByInvalidId(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        Todo t1 = new Todo("new todo", false);
+
+        t1.AssignRandomMongoObjectId();
+
+        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<Todo> result = await service.DeleteTodoByIdAsync("id");
+        ServiceResult<Todo> result = await service.DeleteTodoByIdAsync("ifcbeucd");
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
-        Assert.Equal($"No todo with id found!", result.Message);
+        Assert.Equal($"No todo with id {"ifcbeucd"} found!", result.Message);
     }
 
      [Fact]
