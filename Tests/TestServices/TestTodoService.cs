@@ -10,7 +10,7 @@ using System.Threading;
 public class TestTodoService{
 
     private Mock<IMongoCollection<Todo>> GetMockTodoService(List<Todo> dummyTodos){
-        //First, create a new cursor object, which will be used by our fake mongo object to look up out mongo cluster
+        //First, create a new cursor object, which will be used by our fake mongo object to look up the mongo cluster
         var mockCursor = new Mock<IAsyncCursor<Todo>>();
 
         //Setup the cursor to return a list of todos as the dummy data.
@@ -41,6 +41,7 @@ public class TestTodoService{
 
         Assert.NotNull(todos);  
         Assert.NotEmpty(todos);
+        Assert.Equal(2, todos.Count);
     }
 
     [Fact]
@@ -56,18 +57,23 @@ public class TestTodoService{
         Assert.NotNull(result.Data);
         Assert.NotEmpty(result.Data);
         Assert.Equal(200, result.StatusCode);
+        Assert.Equal(2,result.Data.Count);
     }
 
     [Fact]
     //Test to see if all incompleted todos are returned. It SHOULD NOT be null.
     public async Task TestGetIncompletedTodos(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        var mockCollection = GetMockTodoService(new List<Todo>{
+            new Todo("todo 1", false),
+            new Todo("todo 2", false)
+        });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<List<Todo>> result = await service.GetIncompletedTodosAsync();
 
         Assert.NotNull(result.Data);
         Assert.NotEmpty(result.Data);
         Assert.Equal(200, result.StatusCode);
+        Assert.Equal(2,result.Data.Count);
     }
 
     [Fact]
