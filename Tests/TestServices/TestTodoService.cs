@@ -304,23 +304,38 @@ public class TestTodoService{
     //EXPECTED: ServiceResult 
     //STATUS CODE: 200
     public async Task TestUpdateTodoByName(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+        Todo t1 = new Todo("new todo", false);
+
+        t1.AssignRandomMongoObjectId();
+
+        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync("f", new Todo("new todo name", false));
+        string newTodoName = "go home";
+        ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync(t1.Id, new Todo(newTodoName, false));
 
         Assert.NotNull(result.Data);
         Assert.Equal(200, result.StatusCode);
+
+        //Get all of the todos after updating...
+        List<Todo> todos = await service.GetTodosAsync();
+    
+        //And check to see if it has the same name as the new name we updated it with
+        Assert.Equal(newTodoName, todos.ElementAt(0).TodoName);
     }
 
     [Fact]
     //Test to see if a updating a todo with a new name but invalid id returns null.
     //EXPECTED: null 
     //STATUS CODE: 404
-    public async Task TestUpdateInvalidTodoByName(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
+    public async Task TestUpdateTodoByName_InvalidId(){
+         Todo t1 = new Todo("new todo", false);
+
+        t1.AssignRandomMongoObjectId();
+
+        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
-        int id = 11;
-        ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync("id", new Todo("new todo name", false));
+        string id = "fake_id";
+        ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync(id, new Todo("new one", false));
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);
