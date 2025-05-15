@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Moq;
 using MongoDB.Driver;
 using System.Threading;
+using System.Linq;
 
 public class TestTodoService{
 
@@ -110,12 +111,26 @@ public class TestTodoService{
     //EXPECTED: NOT NULL
     //STATUS CODE: 200
     public async Task TestGetTodoById(){
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
-        TodoService service = new TodoService();
-        ServiceResult<Todo> result = await service.GetTodoByIdAsync("frcfr");
+        Todo t1 = new Todo("todo 1", false);
+        Todo t2 = new Todo("todo 2", false);
 
-        Assert.NotNull(result.Data);
-        Assert.Equal(200, result.StatusCode);
+        //Assign object ids first.
+        t1.AssignRandomMongoObjectId();
+        t2.AssignRandomMongoObjectId();
+
+        var mockCollection = GetMockTodoService(new List<Todo>{ t1, t2 });
+        TodoService service = new TodoService(mockCollection.Object);
+        List<Todo> todos = await service.GetTodosAsync();
+
+        Assert.NotNull(todos);
+        Assert.Equal(2, todos.Count);
+
+        ServiceResult<Todo> resultT1 = await service.GetTodoByIdAsync(t1.Id);
+        ServiceResult<Todo> resultT2 = await service.GetTodoByIdAsync(t2.Id);
+
+        //Check to see if the original todos, and the ones we retrieved by their ids
+        Assert.Equal(t1, resultT1.Data);
+        Assert.Equal(t2, resultT2.Data);
     }
 
     [Fact]

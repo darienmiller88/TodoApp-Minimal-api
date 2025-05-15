@@ -40,6 +40,11 @@ public class Todo{
         UpdatedAt = CreatedAt;
     }
 
+    //For testing purposes only. Id will be overwritten when being added to database by mongodb.
+    public void AssignRandomMongoObjectId(){
+        Id = ObjectId.GenerateNewId().ToString();
+    }
+
     public override bool Equals(object? obj){
         return obj is Todo other && TodoName == other.TodoName && Id == other.Id && isComplete == other.isComplete;
     }
