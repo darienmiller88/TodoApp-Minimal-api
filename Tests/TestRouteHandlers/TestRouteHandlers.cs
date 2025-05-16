@@ -94,8 +94,15 @@ public class TestTodoRouteHandlers{
     //Test to see if the GetTodoByIdHandler() returns a valid todo with the right id.
     //EXPECTED: valid todo, Ok<> response with a ServiceResult<Todo>
     public async Task TestGetTodoByIdHandler_WithValidId(){
-        ITodoService service = new TodoService();
-        var result = await TodoRoutes.GetTodoByIdHandler(service, "");
+        Todo t1 = new Todo("todo1", false);
+        Todo t2 = new Todo("todo2", false);
+
+        t1.AssignRandomMongoObjectId();
+        t2.AssignRandomMongoObjectId();
+
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
+        ITodoService service = new TodoService(mockCollection.Object);
+        var result = await TodoRoutes.GetTodoByIdHandler(service, t1.Id);
 
         //This is what should be return by the handler
         Assert.IsType<Ok<Todo>>(result);
@@ -108,18 +115,22 @@ public class TestTodoRouteHandlers{
         //Ensure the ServiceResult object is not null.
         Assert.NotNull(okResult.Value);
 
-        //Finally, ensure that the return data for the ServiceResult is not null.
-        Assert.NotNull(okResult.Value);
-
         //Afterwards, enure that the retrieved todo is the same as the one in the list.
-        Assert.Equal(new Todo("todo 2", false), okResult.Value);
+        Assert.Equal(t1, okResult.Value);
     }
 
     [Fact]
     //Test to see if the GetTodoByIdHandler() returns a NotFound response iwth null data todo.
     //EXPECTED: NotFound<> response with null
     public async Task TestGetTodoByIdHandler_WithInvalidId(){
-        ITodoService service = new TodoService();
+        Todo t1 = new Todo("todo1", false);
+        Todo t2 = new Todo("todo2", false);
+
+        t1.AssignRandomMongoObjectId();
+        t2.AssignRandomMongoObjectId();
+
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
+        ITodoService service = new TodoService(mockCollection.Object);
         var result = await TodoRoutes.GetTodoByIdHandler(service, "22");
 
         //This is what should be return by the handler
