@@ -13,7 +13,11 @@ public class TestTodoRouteHandlers{
     
     [Fact]
     public async Task TestGetTodosHandler(){
-        ITodoService service = new TodoService();
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
+            new Todo("todo1", false),
+            new Todo("todo2", true)
+        });
+        ITodoService service = new TodoService(mockCollection.Object);
         IResult result = await TodoRoutes.GetTodosHandler(service);
 
         //Ensures that the GetTodosHandler returns a list of todos.
@@ -24,7 +28,11 @@ public class TestTodoRouteHandlers{
     //Test to see if the GetCompletedTodosHandler() returns all todos that are completed. 
     //EXPECTED: List of todos containing Todos that are completed.
     public async Task TestGetCompletedTodosHandler_WithAllComplete(){
-        ITodoService service = new TodoService();
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
+            new Todo("todo1", false),
+            new Todo("todo2", true)
+        });
+        ITodoService service = new TodoService(mockCollection.Object);
         var result = await TodoRoutes.GetCompletedTodosHandler(service);
 
         Assert.IsType<Ok<List<Todo>>>(result);
@@ -38,7 +46,11 @@ public class TestTodoRouteHandlers{
 
      [Fact]
     public async Task TestGetCompletedTodosHandler_WithAllIncomplete(){
-        ITodoService service = new TodoService();
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
+            new Todo("todo1", false),
+            new Todo("todo2", true)
+        });
+        ITodoService service = new TodoService(mockCollection.Object);
         var result = await TodoRoutes.GetCompletedTodosHandler(service);
 
         Assert.IsType<NotFound<ServiceResult<List<Todo>>>>(result);
