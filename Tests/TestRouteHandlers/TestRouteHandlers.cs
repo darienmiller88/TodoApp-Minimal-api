@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using System.Collections.Generic;
 using api.v1.Models;
 using System.Threading.Tasks;
+using Tests;
 
 public class TestTodoRouteHandlers{
     
@@ -47,7 +48,8 @@ public class TestTodoRouteHandlers{
     //Test to see if the GetIncompletedTodosHandler() returns all todos that are incomplete. 
     //EXPECTED: List of todos containing Todos that are incompleted, with HttpResults type (ok).
     public async Task TestGetIncompletedTodosHandler_WithAllIncomplete(){
-        ITodoService service = new TodoService();
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{});
+        ITodoService service = new TodoService(mockCollection.Object);
         var result = await TodoRoutes.GetIncompletedTodosHandler(service);
 
         Assert.IsType<Ok<List<Todo>>>(result);

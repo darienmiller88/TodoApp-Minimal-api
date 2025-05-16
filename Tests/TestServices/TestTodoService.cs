@@ -8,32 +8,13 @@ using MongoDB.Driver;
 using System.Threading;
 using System.Linq;
 
+namespace Tests;
 public class TestTodoService{
-
-    private Mock<IMongoCollection<Todo>> GetMockTodoService(List<Todo> dummyTodos){
-        //First, create a new cursor object, which will be used by our fake mongo object to look up the mongo cluster
-        var mockCursor = new Mock<IAsyncCursor<Todo>>();
-
-        //Setup the cursor to return a list of todos as the dummy data.
-        mockCursor.Setup(_ => _.Current).Returns(dummyTodos);
-        
-        //Finally, Set up the sequence so that at most, one batch of data is retrieved, and no more.
-        mockCursor.SetupSequence(_ => _.MoveNextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(true).ReturnsAsync(false);
-    
-        var mockCollection = new Mock<IMongoCollection<Todo>>();
-        mockCollection.Setup(x => x.FindAsync(
-            It.IsAny<FilterDefinition<Todo>>(),
-            It.IsAny<FindOptions<Todo, Todo>>(),
-            It.IsAny<CancellationToken>())
-        ).ReturnsAsync(mockCursor.Object);
-
-        return mockCollection;
-    }
 
     [Fact]
     //Test to see if Service can get all todos from list.
     public async Task TestGetTodos(){
-        var mockCollection = GetMockTodoService(new List<Todo>{
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
             new Todo("go home", false),
             new Todo("finish work", true),
         });
@@ -48,7 +29,7 @@ public class TestTodoService{
     [Fact]
     //Test to see if all completed todos are returned.
     public async Task TestGetCompletedTodos(){
-        var mockCollection = GetMockTodoService(new List<Todo>{
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
             new Todo("todo 1", true),
             new Todo("todo 2", true)
         });
@@ -64,7 +45,7 @@ public class TestTodoService{
     [Fact]
     //Test to see if all incompleted todos are returned. It SHOULD NOT be null.
     public async Task TestGetIncompletedTodos(){
-        var mockCollection = GetMockTodoService(new List<Todo>{
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
             new Todo("todo 1", false),
             new Todo("todo 2", false)
         });
@@ -80,7 +61,7 @@ public class TestTodoService{
     [Fact]
     //Test to see if all if any todos are returned by GetCompletedTodos() when none are completed. The array should be EMPTY.
     public async Task TestGetCompletedTodos_NoCompletedTodos(){
-        var mockCollection = GetMockTodoService(new List<Todo>{
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
             new Todo("todo 1", false),
             new Todo("todo 2", false)
         });
@@ -94,7 +75,7 @@ public class TestTodoService{
     [Fact]
     //Test to see if all if any todos are returned by GetIncompletedTodos() when all are completed. It SHOULD be null.
     public async Task TestGetIncompletedTodos_NoIncompletedTodos(){
-        var mockCollection = GetMockTodoService(new List<Todo>{
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{
             new Todo("todo 1", true),
             new Todo("todo 2", true)
         });
@@ -118,7 +99,7 @@ public class TestTodoService{
         t1.AssignRandomMongoObjectId();
         t2.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1, t2 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
         TodoService service = new TodoService(mockCollection.Object);
         List<Todo> todos = await service.GetTodosAsync();
 
@@ -145,7 +126,7 @@ public class TestTodoService{
         t1.AssignRandomMongoObjectId();
         t2.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1, t2 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.GetTodoByIdAsync("");//Check for empty
 
@@ -163,7 +144,7 @@ public class TestTodoService{
     //EXPECTED: Todo (Not Null)
     //STATUS CODE: 201
     public async Task TestAddValidTodo(){
-        var mockCollection = GetMockTodoService(new List<Todo>{});
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{});
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
@@ -176,37 +157,12 @@ public class TestTodoService{
         Assert.Single(todos);
     }
 
-    // [Fact]
-    // //Test to see if adding an invalid todo with a dupliucate id returns null and 409.
-    // //EXPECTED: Null
-    // //STATUS CODE: 409
-    // public async Task TestAddInvalid_TodoDuplicateId(){
-    //     var mockCollection = GetMockTodoService(new List<Todo>{});
-    //     TodoService service = new TodoService(mockCollection.Object);
-    //     ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
-
-    //     //First todo is valid, should not be null, and should return 200
-    //     Assert.NotNull(result.Data);
-    //     Assert.Equal(201, result.StatusCode);
-
-    //     //Add a new todo with the same id as the above one.
-    //     Todo invalidTodo = new Todo("example todo again", false);
-    //     result = await service.AddTodoAsync(invalidTodo);
-        
-    //     //Newly added todo should be null, and should return 409
-    //     Assert.Null(result.Data);
-    //     Assert.Equal(409, result.StatusCode);
-
-    //     //This error message should be returned when an invalid todo is received by the AddTodo service.
-    //     Assert.Equal($"Todo with id of \'{invalidTodo.Id}\' already exists!", result.Message);
-    // }
-
     [Fact]
     //Test to see if a adding a invalid todo with a duplicate name return null and 409
     //EXPECTED: Null
     //STATUS CODE: 409
     public async Task TestAddInvalidTodo_DuplicateName(){
-        var mockCollection = GetMockTodoService(new List<Todo>{});
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{});
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
 
@@ -233,7 +189,7 @@ public class TestTodoService{
 
         t1.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.DeleteTodoByIdAsync(t1.Id);
 
@@ -255,7 +211,7 @@ public class TestTodoService{
 
         t1.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<Todo> result = await service.DeleteTodoByIdAsync("ifcbeucd");
 
@@ -273,7 +229,7 @@ public class TestTodoService{
 
         t1.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<UpdateResult> result = await service.UpdateTodoByIdAsync(t1.Id);
 
@@ -290,7 +246,7 @@ public class TestTodoService{
 
         t1.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
         ServiceResult<UpdateResult> result = await service.UpdateTodoByIdAsync("1");
 
@@ -308,7 +264,7 @@ public class TestTodoService{
 
         t1.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
         string newTodoName = "go home";
         ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync(t1.Id, new Todo(newTodoName, false));
@@ -332,7 +288,7 @@ public class TestTodoService{
 
         t1.AssignRandomMongoObjectId();
 
-        var mockCollection = GetMockTodoService(new List<Todo>{ t1 });
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1 });
         TodoService service = new TodoService(mockCollection.Object);
         string id = "fake_id";
         ServiceResult<UpdateResult> result = await service.UpdateTodoByNameAsync(id, new Todo("new one", false));
