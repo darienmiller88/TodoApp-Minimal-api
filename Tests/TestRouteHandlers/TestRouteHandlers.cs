@@ -131,7 +131,7 @@ public class TestTodoRouteHandlers{
 
         var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
         ITodoService service = new TodoService(mockCollection.Object);
-        var result = await TodoRoutes.GetTodoByIdHandler(service, "22");
+        var result = await TodoRoutes.GetTodoByIdHandler(service, "fake_id");
 
         //This is what should be return by the handler
         Assert.IsType<NotFound<ServiceResult<Todo>>>(result);
@@ -141,7 +141,8 @@ public class TestTodoRouteHandlers{
     //Test to see if the AddTodoHandler() returns a ok response after getting a valid todo.
     //EXPECTED: ok<> response with ServiceResult
     public async Task TestAddTodoByIdHandler_WithValidTodo(){
-        ITodoService service = new TodoService();
+        var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{});
+        ITodoService service = new TodoService(mockCollection.Object);
         Todo todo = new Todo("todo to add", false);
         HttpContext context = new DefaultHttpContext();
         var result = await TodoRoutes.AddTodoHandler(service, todo, context);
