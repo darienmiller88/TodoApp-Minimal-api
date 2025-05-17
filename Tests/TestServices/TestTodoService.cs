@@ -128,7 +128,7 @@ public class TestTodoService{
 
         var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<Todo> result = await service.GetTodoByIdAsync("");//Check for empty
+        ServiceResult<Todo> result = await service.GetTodoByIdAsync("bhjbbui");//Check for empty
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);

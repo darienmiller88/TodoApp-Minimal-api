@@ -1,15 +1,15 @@
 {
   "Files": [
     {
-      "Id": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "Id": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },
     {
-      "Id": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "Id": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "PackagePath": "staticwebassets\\img\\todo.png"
     },
     {
-      "Id": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "Id": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "PackagePath": "staticwebassets\\js\\index.js"
     },
     {

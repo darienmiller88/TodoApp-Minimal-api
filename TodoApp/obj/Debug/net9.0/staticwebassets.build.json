@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4vtvNlkBoYpVTaDAB2M85CUbLJm8/n8AyjEC/Oy2uGU=",
+  "Hash": "DqHvZyW6eUt3UG/OBn6ys2GVplNBo/0FoG+fEe/a+Aw=",
   "Source": "TodoApp",
   "BasePath": "_content/TodoApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "TodoApp\\wwwroot",
       "Source": "TodoApp",
-      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "css/index#[.{fingerprint=etaozjchys}]?.css.gz",
       "AssetKind": "All",
@@ -28,20 +28,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "RelatedAsset": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "48dnp3sdi7",
       "Integrity": "tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css"
+      "OriginalItemSpec": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css"
     },
     {
-      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "js/index#[.{fingerprint=5ipweew5fc}]?.js.gz",
       "AssetKind": "All",
@@ -49,20 +49,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "RelatedAsset": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "5ipweew5fc",
       "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js"
+      "OriginalItemSpec": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js"
     },
     {
-      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "css/index#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\index.css"
     },
     {
-      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "img/todo#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\img\\todo.png"
     },
     {
-      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "js/index#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -125,7 +125,7 @@
   "Endpoints": [
     {
       "Route": "css/index.css",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -180,7 +180,7 @@
     },
     {
       "Route": "css/index.css",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -217,7 +217,7 @@
     },
     {
       "Route": "css/index.css.gz",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -262,7 +262,7 @@
     },
     {
       "Route": "css/index.etaozjchys.css",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -325,7 +325,7 @@
     },
     {
       "Route": "css/index.etaozjchys.css",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -370,7 +370,7 @@
     },
     {
       "Route": "css/index.etaozjchys.css.gz",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -423,7 +423,7 @@
     },
     {
       "Route": "img/todo.izapxcrqx6.png",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -468,7 +468,7 @@
     },
     {
       "Route": "img/todo.png",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -505,7 +505,7 @@
     },
     {
       "Route": "js/index.5ipweew5fc.js",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -568,7 +568,7 @@
     },
     {
       "Route": "js/index.5ipweew5fc.js",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -613,7 +613,7 @@
     },
     {
       "Route": "js/index.5ipweew5fc.js.gz",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -666,7 +666,7 @@
     },
     {
       "Route": "js/index.js",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -721,7 +721,7 @@
     },
     {
       "Route": "js/index.js",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -758,7 +758,7 @@
     },
     {
       "Route": "js/index.js.gz",
-      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
