@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace Middleware.Example;
+namespace Middleware;
 
 public class ValidateMongoId {
     private readonly RequestDelegate _next;
@@ -12,7 +12,6 @@ public class ValidateMongoId {
     }
 
     public async Task InvokeAsync(HttpContext context) {
-        context.Request.RouteValues.TryGetValue("id", out var id);
 
         // Call the next delegate/middleware in the pipeline.
         await _next(context);

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using MiniValidation;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -20,8 +21,6 @@ public static class TodoRoutes{
     //and instance of.
     public static void MapTodoRoutes(this IEndpointRouteBuilder app){
         RouteGroupBuilder todoRoutes = app.MapGroup("/api/v1/todos");
-
-    
 
         //GET routes.
         todoRoutes.MapGet("/get-todos", GetTodosHandler);
@@ -70,9 +69,11 @@ public static class TodoRoutes{
     //Handler to receive one todo by id from service.
     internal static async Task<IResult> GetTodoByIdHandler(ITodoService service, string id){
         ServiceResult<Todo> getResult = await service.GetTodoByIdAsync(id);
-        
+
+        // HttpStatusCode.Accepted;
         //If the todo wasn't found, return a 404
-        if (getResult.Data == null){
+        if (getResult.Data == null)
+        {
             return Results.NotFound(getResult);
         }
         
