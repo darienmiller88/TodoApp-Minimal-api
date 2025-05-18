@@ -31,12 +31,12 @@ public static class MockTodoService{
         
         var mockCollection = new Mock<IMongoCollection<Todo>>();
 
-    mockCollection.Setup(x => x.FindAsync(
-        It.IsAny<FilterDefinition<Todo>>(),
-        It.IsAny<FindOptions<Todo, Todo>>(),
-        It.IsAny<CancellationToken>())
-    ).Returns<FilterDefinition<Todo>, FindOptions<Todo, Todo>, CancellationToken>(
-        (filter, options, token) => {
+        mockCollection.Setup(collection => collection.FindAsync(
+            It.IsAny<FilterDefinition<Todo>>(),
+            It.IsAny<FindOptions<Todo, Todo>>(),
+            It.IsAny<CancellationToken>())
+        ).Returns<FilterDefinition<Todo>, FindOptions<Todo, Todo>, CancellationToken>(
+            (filter, options, token) => {
             var serializerRegistry = BsonSerializer.SerializerRegistry;
             var documentSerializer = serializerRegistry.GetSerializer<Todo>();
 
@@ -46,7 +46,6 @@ public static class MockTodoService{
 
             // Extract the ID being searched (assumes it's an ID-based query)
             string? filterId = renderedFilter.GetValue("_id", null)?.AsString;
-
             List<Todo>? matched = string.IsNullOrEmpty(filterId) ? dummyTodos : dummyTodos.Where(t => t.Id == filterId).ToList();
 
             var mockCursor = new Mock<IAsyncCursor<Todo>>();

@@ -21,6 +21,8 @@ public static class TodoRoutes{
     public static void MapTodoRoutes(this IEndpointRouteBuilder app){
         RouteGroupBuilder todoRoutes = app.MapGroup("/api/v1/todos");
 
+    
+
         //GET routes.
         todoRoutes.MapGet("/get-todos", GetTodosHandler);
         todoRoutes.MapGet("/get-completed-todos", GetCompletedTodosHandler);
