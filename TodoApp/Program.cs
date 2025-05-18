@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
+using System.Diagnostics;
 
 //Load .env as early as possible
 DotNetEnv.Env.Load();
@@ -20,7 +21,13 @@ builder.Services.AddRazorPages();
 var app = builder.Build();
 
 app.UseStaticFiles();
-app.Use(Logger.LogRequestAsync);
+app.Use(async (context, next) => {
+    Stopwatch stopwatch = Stopwatch.StartNew();
+    await next();
+    stopwatch.Stop();
+
+    Console.WriteLine($"Request: {context.Request.Method} {context.Response.StatusCode} {context.Request.Path} {stopwatch.ElapsedMilliseconds}ms");
+});
 
 app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
 // app.MapRazorPages();
