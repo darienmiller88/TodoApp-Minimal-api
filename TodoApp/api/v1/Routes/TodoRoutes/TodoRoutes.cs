@@ -68,7 +68,7 @@ public static class TodoRoutes{
     }
 
     //Handler to add Todo to list of Todos.
-    internal static async Task<IResult> AddTodoHandler(ITodoService service, [FromBody] Todo? todo, HttpContext context) {    
+    internal static async Task<IResult> AddTodoHandler(ITodoService service, [FromBody] Todo? todo) {    
         if (todo == null){
             return Results.BadRequest("Request body required!");
         }
@@ -118,13 +118,8 @@ public static class TodoRoutes{
     //Handler to delete a todo by id.
     internal static async Task<IResult> DeleteTodoByIdHandler(ITodoService service, string id)  {
         ServiceResult<Todo> deleteTodoResult = await service.DeleteTodoByIdAsync(id);
-
-        //If the id doesn't exist, return a 404
-        if (deleteTodoResult.Data == null){
-            return Results.NotFound(deleteTodoResult);
-        }
-
+        
         //Otherwise, return a success!
-        return Results.Ok(deleteTodoResult);
+        return Results.Json(deleteTodoResult, statusCode: deleteTodoResult.StatusCode);
     }
 }
