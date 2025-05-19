@@ -48,10 +48,6 @@ public static class TodoRoutes{
     internal static async Task<IResult> GetCompletedTodosHandler(ITodoService service){
         ServiceResult<List<Todo>> todosResult = await service.GetCompletedTodosAsync();
 
-        if (todosResult.Data == null){
-            return Results.NotFound(todosResult);
-        }
-        
         return Results.Ok(todosResult.Data);
     }
 
@@ -59,26 +55,14 @@ public static class TodoRoutes{
     internal static async Task<IResult> GetIncompletedTodosHandler(ITodoService service){
         ServiceResult<List<Todo>> todosResult = await service.GetIncompletedTodosAsync();
 
-        if (todosResult.Data == null){
-            return Results.NotFound(todosResult);
-        }
-
         return Results.Ok(todosResult.Data);
     }
 
     //Handler to receive one todo by id from service.
     internal static async Task<IResult> GetTodoByIdHandler(ITodoService service, string id){
         ServiceResult<Todo> getResult = await service.GetTodoByIdAsync(id);
-
-        // HttpStatusCode.Accepted;
-        //If the todo wasn't found, return a 404
-        if (getResult.Data == null)
-        {
-            return Results.NotFound(getResult);
-        }
         
-        //Otherwise, return the todo
-        return Results.Ok(getResult.Data);
+        return Results.Json(getResult.Data, statusCode: getResult.StatusCode);
     }
 
     //Handler to add Todo to list of Todos.
