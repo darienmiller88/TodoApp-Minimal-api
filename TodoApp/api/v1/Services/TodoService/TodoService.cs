@@ -37,9 +37,19 @@ public class TodoService : ITodoService{
     public async Task<List<Todo>> GetTodosAsync(){
        return await todoCollection.Find(_ => true).ToListAsync();
     }
+    
+     //GET: Retrieves all todos that are completed.
+    public async Task<List<Todo>> GetCompletedTodosAsync(){
+        return await todoCollection.Find(todo => todo.isComplete).ToListAsync();
+    }
+
+    //GET: Retrieves all todos that are not completed.
+    public async Task<List<Todo>> GetIncompletedTodosAsync(){
+        return await todoCollection.Find(todo => !todo.isComplete).ToListAsync();
+    }
 
     //GET: Get a todo that with an Id of 'Id'
-    public async Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id){
+    public async Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id) {
         Todo? todoResult = await todoCollection.Find(todo => todo.Id == Id).FirstOrDefaultAsync();
 
         //If there is no todo with an Id of 'Id' found in the list of todos, return 404 not found.
@@ -49,16 +59,6 @@ public class TodoService : ITodoService{
 
         //otherwise return a 200 and the todo that was found.
         return new ServiceResult<Todo>("Found todo!", 200, todoResult);
-    }
-
-    //GET: Retrieves all todos that are completed.
-    public async Task<List<Todo>> GetCompletedTodosAsync(){
-        return await todoCollection.Find(todo => todo.isComplete).ToListAsync();
-    }
-
-    //GET: Retrieves all todos that are not completed.
-    public async Task<List<Todo>> GetIncompletedTodosAsync(){
-        return await todoCollection.Find(todo => !todo.isComplete).ToListAsync();
     }
 
     //POST: Function to add a todo to the array,  and eventually to the database.
