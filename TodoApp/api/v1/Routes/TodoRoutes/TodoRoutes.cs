@@ -111,13 +111,8 @@ public static class TodoRoutes{
         //Afterwards, call the service to change the todos name.
         ServiceResult<UpdateResult> updateResult = await service.UpdateTodoByNameAsync(id, todo);
 
-        //If the todo was not found, return a 404
-        if (updateResult.Data == null){
-            return Results.NotFound(updateResult);
-        }
-    
         //If both the validation AND service are successful, return a success message!
-        return Results.Ok(updateResult);
+        return Results.Json(updateResult, statusCode: updateResult.StatusCode);
     }
 
     //Handler to delete a todo by id.
