@@ -91,13 +91,8 @@ public static class TodoRoutes{
     internal static async Task<IResult> UpdateTodoByidHandler(ITodoService service, string id) {
         ServiceResult<UpdateResult> updateResult = await service.UpdateTodoByIdAsync(id);
 
-        //If the id doesn't exist, return a 404.
-        if (updateResult.Data == null){
-            return Results.NotFound(updateResult);
-        }
-
         //Otherwise, return a success message!
-        return Results.Ok(updateResult);
+        return Results.Json(updateResult, statusCode: updateResult.StatusCode);
     }
 
     //Handler to update the name of a Todo.

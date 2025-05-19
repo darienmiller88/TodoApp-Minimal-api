@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Diagnostics;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Http;
 
 //Load .env as early as possible
 DotNetEnv.Env.Load();
@@ -33,8 +34,11 @@ app.Use(async (context, next) => {
     if (context.Request.RouteValues.TryGetValue("id", out var id)) {
         string? idString = id?.ToString();
 
-        if (!ObjectId.TryParse(idString, out _)){
+        if (!ObjectId.TryParse(idString, out _))
+        {
             Console.WriteLine($"{idString} is not a valid 24 hex string");
+            await context.Response.WriteAsync($"{idString} is not a valid 24 hex string");
+            return;
         }
     }
 
