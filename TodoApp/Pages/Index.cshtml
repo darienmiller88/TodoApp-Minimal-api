@@ -20,7 +20,10 @@
             <div class="todo-name">@todo.TodoName</div>
             <div class="delete-update-wrapper">
                 <input type="checkbox" name="isComplete" >
-                <button class="delete-todo">Delete</button>
+                <form asp-page-handler="Delete" method="post">
+                    <button class="delete-todo">Delete</button>
+                    <input type="hidden" name="id" value="@todo.Id"/>
+                </form>
             </div>
         }
         </div>

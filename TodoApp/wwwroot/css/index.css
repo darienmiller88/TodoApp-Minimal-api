@@ -11,11 +11,7 @@ body{
     font-weight: bold;
 }
 
-.input-todo{
-}
-
 .todos{
-    /* border: 2px solid black; */
     width: fit-content;
     margin: auto;
     margin-top: 20px;
@@ -51,12 +47,12 @@ form{
     display: flex;
     margin: auto;
     width: fit-content;
-    /* border: 2px solid red; */
 }
 
 form input{
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
+    border: none;
     padding: 10px;
     font-size: 25px;
 }
@@ -74,7 +70,6 @@ form input{
 .delete-update-wrapper{
     display: flex;
     align-items: center;
-    /* border: 2px solid red; */
 }
 
 input[type="checkbox"]{
@@ -95,10 +90,13 @@ input[type="checkbox"]{
     
     font-size: 20px;
     transition: 0.3s;
-    /* font-weight: 900; */
 }
 
 .delete-todo:hover{
     cursor: pointer;
     background-color: rgb(170, 10, 15);
+}
+
+.delete-todo:active{
+    border: 2px solid rgb(10, 15, 150);
 }

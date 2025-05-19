@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DqHvZyW6eUt3UG/OBn6ys2GVplNBo/0FoG+fEe/a+Aw=",
+  "Hash": "IretPDkrl0s7knbKSYw7uCp30ZkMjZqZgStd6cLLeO0=",
   "Source": "TodoApp",
   "BasePath": "_content/TodoApp",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-bthux85ump.gz",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TodoApp",
-      "RelativePath": "css/index#[.{fingerprint=etaozjchys}]?.css.gz",
+      "RelativePath": "css/index#[.{fingerprint=bthux85ump}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -31,8 +31,8 @@
       "RelatedAsset": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "48dnp3sdi7",
-      "Integrity": "tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE=",
+      "Fingerprint": "1tl52u9p63",
+      "Integrity": "pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css"
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "etaozjchys",
-      "Integrity": "wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw=",
+      "Fingerprint": "bthux85ump",
+      "Integrity": "r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\index.css"
@@ -124,13 +124,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/index.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
+      "Route": "css/index.bthux85ump.css",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-bthux85ump.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001180637544"
+          "Quality": "0.001164144354"
         }
       ],
       "ResponseHeaders": [
@@ -140,19 +140,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "846"
+          "Value": "858"
         },
         {
           "Name": "ETag",
-          "Value": "\"tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE=\""
+          "Value": "\"pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 13:27:08 GMT"
+          "Value": "Mon, 19 May 2025 16:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -168,18 +168,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw=\""
+          "Value": "W/\"r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "bthux85ump"
+        },
+        {
+          "Name": "label",
+          "Value": "css/index.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw="
+          "Value": "sha256-r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM="
         }
       ]
     },
     {
-      "Route": "css/index.css",
+      "Route": "css/index.bthux85ump.css",
       "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -189,7 +197,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2579"
+          "Value": "2793"
         },
         {
           "Name": "Content-Type",
@@ -197,121 +205,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw=\""
+          "Value": "\"r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 13:27:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw="
-        }
-      ]
-    },
-    {
-      "Route": "css/index.css.gz",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "846"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 13:27:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE="
-        }
-      ]
-    },
-    {
-      "Route": "css/index.etaozjchys.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001180637544"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "846"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 13:27:08 GMT"
+          "Value": "Mon, 19 May 2025 16:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "etaozjchys"
+          "Value": "bthux85ump"
         },
         {
           "Name": "label",
@@ -319,13 +227,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw="
+          "Value": "sha256-r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM="
         }
       ]
     },
     {
-      "Route": "css/index.etaozjchys.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "Route": "css/index.bthux85ump.css.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-bthux85ump.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -334,7 +242,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2579"
+          "Value": "858"
         },
         {
           "Name": "Content-Type",
@@ -342,56 +250,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw=\""
+          "Value": "\"pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 13:27:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "etaozjchys"
-        },
-        {
-          "Name": "label",
-          "Value": "css/index.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-wnv1Kz6IYp8EndOJGySSfwPOi4kdixF324HiczSu3Qw="
-        }
-      ]
-    },
-    {
-      "Route": "css/index.etaozjchys.css.gz",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-etaozjchys.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "846"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 12 May 2025 13:27:08 GMT"
+          "Value": "Mon, 19 May 2025 16:13:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -409,7 +272,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "etaozjchys"
+          "Value": "bthux85ump"
         },
         {
           "Name": "label",
@@ -417,7 +280,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-tEcO1csaujpPrgLs0IvFoP4IBdqyKvxBTVFNqVE7UmE="
+          "Value": "sha256-pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.css",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-bthux85ump.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001164144354"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "858"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 16:13:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.css",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2793"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 16:13:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-r2aZnlu18iFw/RPBr3N0opmRbL05TY3IVwzUpPlWIsM="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.css.gz",
+      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-bthux85ump.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "858"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 16:13:16 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pUckoV9ZTnMWzQToToT2+HNUjmCv5i2GhpLoLzZ3AqU="
         }
       ]
     },

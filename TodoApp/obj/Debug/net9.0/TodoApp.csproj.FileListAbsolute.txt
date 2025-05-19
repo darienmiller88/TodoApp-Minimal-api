@@ -31,7 +31,6 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\Snappier.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\scopedcss\bundle\TodoApp.styles.css
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-etaozjchys.gz
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\exh82fkt9f-5ipweew5fc.gz
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\staticwebassets.development.json
@@ -46,3 +45,4 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\refint\TodoApp.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.genruntimeconfig.cache
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\ref\TodoApp.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-bthux85ump.gz
