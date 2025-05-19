@@ -25,7 +25,9 @@ public class IndexModel : PageModel {
         todos = [];
     }
 
-    public async Task OnGet() {
+    //This method is called every time the "/" route is hit.
+    public async Task OnGet()
+    {
         todos = await _service.GetTodosAsync();
     }
 
@@ -40,12 +42,18 @@ public class IndexModel : PageModel {
         //And afterwards, refresh the list of Todos by retrieving the updated list from the database.
         todos = await _service.GetTodosAsync();
 
-        return RedirectToPage(); // Redirect back to the page.
+        return RedirectToPage(); 
     }
 
     public async Task<IActionResult> OnPostDeleteAsync(string id) {
-        Console.WriteLine("Delete called! id: " + id);
+        //Get the id from the todo that's about to be deleted. The good thing is that the Id is guranteed to be correct
+        //because the Todos are rendered with their mongo ids as their tag id!
+        await _service.DeleteTodoByIdAsync(id);
 
-        return RedirectToPage(); // Redirect to GET
+        //Afterwards, refresh the current list of todos to reflect the current list.
+        todos = await _service.GetTodosAsync();
+
+        //Refresh the page to show the new list.
+        return RedirectToPage(); 
     }
 }

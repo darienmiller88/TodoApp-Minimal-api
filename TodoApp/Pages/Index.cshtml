@@ -22,6 +22,8 @@
                 <input type="checkbox" name="isComplete" >
                 <form asp-page-handler="Delete" method="post">
                     <button class="delete-todo">Delete</button>
+
+                    @* This is how forms are able to send parameters to methods to the Handlers in the .cshtml.cs files *@
                     <input type="hidden" name="id" value="@todo.Id"/>
                 </form>
             </div>
