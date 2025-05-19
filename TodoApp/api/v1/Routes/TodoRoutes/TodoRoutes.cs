@@ -41,21 +41,23 @@ public static class TodoRoutes{
 
     //Handler to receive all todos from Todo service. 
     internal static async Task<IResult> GetTodosHandler(ITodoService service){
-        return Results.Ok(await service.GetTodosAsync());
+        List<Todo> todos = await service.GetTodosAsync();
+
+        return Results.Json(todos, statusCode: 200);
     }
 
     //Handler to receive all Completed todos from Todo service.
     internal static async Task<IResult> GetCompletedTodosHandler(ITodoService service){
         ServiceResult<List<Todo>> todosResult = await service.GetCompletedTodosAsync();
 
-        return Results.Ok(todosResult.Data);
+        return Results.Json(todosResult.Data, statusCode: 200);
     }
 
     //Handler to receive all incomplete todos from Service.
     internal static async Task<IResult> GetIncompletedTodosHandler(ITodoService service){
         ServiceResult<List<Todo>> todosResult = await service.GetIncompletedTodosAsync();
 
-        return Results.Ok(todosResult.Data);
+        return Results.Json(todosResult.Data, statusCode: todosResult.StatusCode);
     }
 
     //Handler to receive one todo by id from service.
