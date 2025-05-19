@@ -35,12 +35,11 @@ public class TestTodoService{
             new Todo("todo 2", true)
         });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
+        List<Todo> completedTodos = await service.GetCompletedTodosAsync();
 
-        Assert.NotNull(result.Data);
-        Assert.NotEmpty(result.Data);
-        Assert.Equal(200, result.StatusCode);
-        Assert.Equal(2,result.Data.Count);
+        Assert.NotNull(completedTodos);
+        Assert.NotEmpty(completedTodos);
+        Assert.Equal(2, completedTodos.Count);
     }
 
     [Fact]
@@ -51,12 +50,11 @@ public class TestTodoService{
             new Todo("todo 2", false)
         });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<List<Todo>> result = await service.GetIncompletedTodosAsync();
+        List<Todo> result = await service.GetIncompletedTodosAsync();
 
-        Assert.NotNull(result.Data);
-        Assert.NotEmpty(result.Data);
-        Assert.Equal(200, result.StatusCode);
-        Assert.Equal(2,result.Data.Count);
+        Assert.NotNull(result);
+        Assert.NotEmpty(result);
+        Assert.Equal(2,result.Count);
     }
 
     [Fact]
@@ -67,10 +65,10 @@ public class TestTodoService{
             new Todo("todo 2", false)
         });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<List<Todo>> result = await service.GetCompletedTodosAsync();
+        List<Todo> completedTodos = await service.GetCompletedTodosAsync();
 
-        Assert.NotNull(result.Data);
-        Assert.Empty(result.Data);
+        Assert.NotNull(completedTodos);
+        Assert.Empty(completedTodos);
     }
 
     [Fact]
@@ -81,10 +79,10 @@ public class TestTodoService{
             new Todo("todo 2", true)
         });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<List<Todo>> result = await service.GetIncompletedTodosAsync();
+        List<Todo> incompletedTodos = await service.GetIncompletedTodosAsync();
 
-        Assert.NotNull(result.Data);
-        Assert.Empty(result.Data);
+        Assert.NotNull(incompletedTodos);
+        Assert.Empty(incompletedTodos);
     }
 
     [Fact]
