@@ -18,7 +18,7 @@ public class Todo{
     public string UpdatedAt { get; set; }
     
     [BsonElement("todo_name")]
-    [StringLength(25, MinimumLength = 5)]
+    [StringLength(35, MinimumLength = 5)]
     public string TodoName { get; set; }
 
     [BsonElement("is_complete")]

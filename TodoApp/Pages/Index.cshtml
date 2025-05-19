@@ -4,7 +4,7 @@
 <div class="title">Todo List</div>
 <form method="post">
     @Html.AntiForgeryToken()
-    <input class="input-todo" asp-for="NewTodo.TodoName" minlength="5" maxlength="25" placeholder="Enter todo name"  type="text" required>
+    <input class="input-todo" asp-for="NewTodo.TodoName" minlength="5" maxlength="35" placeholder="Enter todo name"  type="text" required>
     <button class="add-todo" type="submit">Add Todo</button>
 </form>
 <div class="todos">

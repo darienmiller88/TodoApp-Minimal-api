@@ -12,7 +12,6 @@ body{
 }
 
 .input-todo{
-    font-size: 25px;
 }
 
 .todos{
@@ -39,7 +38,8 @@ body{
 }
 
 .todo-name{
-    border: 2px solid green;
+    display: flex;
+    align-items: center;
 }
 
 .strike-through{
@@ -57,6 +57,8 @@ form{
 form input{
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 .add-todo{
