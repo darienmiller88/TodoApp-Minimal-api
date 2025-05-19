@@ -7,6 +7,7 @@ using Moq;
 using MongoDB.Driver;
 using System.Threading;
 using System.Linq;
+using MongoDB.Bson;
 
 namespace Tests;
 public class TestTodoService{
@@ -128,12 +129,7 @@ public class TestTodoService{
 
         var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{ t1, t2 });
         TodoService service = new TodoService(mockCollection.Object);
-        ServiceResult<Todo> result = await service.GetTodoByIdAsync("bhjbbui");//Check for empty
-
-        Assert.Null(result.Data);
-        Assert.Equal(404, result.StatusCode);
-
-        result = await service.GetTodoByIdAsync("FH3UIJORE");//Check for fake id
+        ServiceResult<Todo> result = await service.GetTodoByIdAsync(ObjectId.GenerateNewId().ToString());
 
         Assert.Null(result.Data);
         Assert.Equal(404, result.StatusCode);

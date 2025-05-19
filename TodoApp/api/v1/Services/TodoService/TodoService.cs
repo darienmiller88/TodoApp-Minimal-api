@@ -40,10 +40,6 @@ public class TodoService : ITodoService{
 
     //GET: Get a todo that with an Id of 'Id'
     public async Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id){
-        if (!ObjectId.TryParse(Id, out _)) {
-            return new ServiceResult<Todo>($"Invalid ID format: {Id}. Must be a valid 24 digit hex string", 400, null);
-        }
-
         Todo? todoResult = await todoCollection.Find(todo => todo.Id == Id).FirstOrDefaultAsync();
 
         //If there is no todo with an Id of 'Id' found in the list of todos, return 404 not found.

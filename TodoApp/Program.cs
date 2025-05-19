@@ -34,9 +34,7 @@ app.Use(async (context, next) => {
     if (context.Request.RouteValues.TryGetValue("id", out var id)) {
         string? idString = id?.ToString();
 
-        if (!ObjectId.TryParse(idString, out _))
-        {
-            Console.WriteLine($"{idString} is not a valid 24 hex string");
+        if (!ObjectId.TryParse(idString, out _)) {
             await context.Response.WriteAsync($"{idString} is not a valid 24 hex string");
             return;
         }

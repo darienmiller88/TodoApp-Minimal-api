@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Routing;
 using MiniValidation;
 using MongoDB.Driver;
 using System.Collections.Generic;
-using System.Net;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -28,14 +27,14 @@ public static class TodoRoutes{
         todoRoutes.MapGet("/get-incompleted-todos", GetIncompletedTodosHandler);
         todoRoutes.MapGet("/get-todo/{id}", GetTodoByIdHandler);
 
-        //POST route(s).
+        //POST route.
         todoRoutes.MapPost("/add-todo", AddTodoHandler);
 
         //PATCH routes
         todoRoutes.MapPatch("/update-todo-complete-status/{id}", UpdateTodoByidHandler);
         todoRoutes.MapPatch("/update-todoName/{id}", UpdateTodoByNameHandler);
 
-        //Delete Route(s)
+        //Delete Route
         todoRoutes.MapDelete("/delete-todo/{id}", DeleteTodoByIdHandler);
     }
 

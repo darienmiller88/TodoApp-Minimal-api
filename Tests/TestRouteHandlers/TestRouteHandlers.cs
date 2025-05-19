@@ -21,7 +21,7 @@ public class TestTodoRouteHandlers{
         IResult result = await TodoRoutes.GetTodosHandler(service);
 
         //Ensures that the GetTodosHandler returns a list of todos.
-        Assert.IsType<Ok<List<Todo>>>(result);
+        Assert.IsType<List<Todo>>(result);
     }
 
     [Fact]
@@ -35,13 +35,12 @@ public class TestTodoRouteHandlers{
         ITodoService service = new TodoService(mockCollection.Object);
         var result = await TodoRoutes.GetCompletedTodosHandler(service);
 
-        Assert.IsType<Ok<List<Todo>>>(result);
+        Assert.IsType<List<Todo>>(result);
 
-        var okResult = result as Ok<List<Todo>>;
+        var okResult = result as List<Todo>;
 
         Assert.NotNull(okResult);
-        Assert.NotNull(okResult.Value);
-        Assert.Equal(2, okResult.Value.Count);
+        Assert.Equal(2, okResult.Count);
     }
 
      [Fact]
@@ -144,8 +143,7 @@ public class TestTodoRouteHandlers{
         var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{});
         ITodoService service = new TodoService(mockCollection.Object);
         Todo todo = new Todo("todo to add", false);
-        HttpContext context = new DefaultHttpContext();
-        var result = await TodoRoutes.AddTodoHandler(service, todo, context);
+        var result = await TodoRoutes.AddTodoHandler(service, todo);
 
         //This is what should be return by the handler
         Assert.IsType<Created<ServiceResult<Todo>>>(result);
