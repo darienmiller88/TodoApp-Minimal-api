@@ -83,13 +83,8 @@ public static class TodoRoutes{
         //Try adding the validated Todo to the list.
         ServiceResult<Todo> addTodoResult = await service.AddTodoAsync(todo);
 
-        //If that fails, send back the errors.
-        if (addTodoResult.Data == null){
-            return Results.Conflict(addTodoResult);
-        }
-
-        //Otherwise, send back a success!
-        return Results.Created(context.Request.Path, addTodoResult);
+        //Send back the result
+        return Results.Json(addTodoResult, statusCode: addTodoResult.StatusCode);
     }
 
     //Handler to update Todo by id.
