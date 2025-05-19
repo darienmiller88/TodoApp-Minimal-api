@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using MiniValidation;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -49,21 +50,23 @@ public static class TodoRoutes{
     internal static async Task<IResult> GetCompletedTodosHandler(ITodoService service){
         ServiceResult<List<Todo>> todosResult = await service.GetCompletedTodosAsync();
 
-        return Results.Json(todosResult.Data, statusCode: 200);
+        return Results.Json(todosResult, statusCode: 200);
     }
 
     //Handler to receive all incomplete todos from Service.
     internal static async Task<IResult> GetIncompletedTodosHandler(ITodoService service){
         ServiceResult<List<Todo>> todosResult = await service.GetIncompletedTodosAsync();
 
-        return Results.Json(todosResult.Data, statusCode: todosResult.StatusCode);
+        return Results.Json(todosResult, statusCode: todosResult.StatusCode);
     }
 
     //Handler to receive one todo by id from service.
     internal static async Task<IResult> GetTodoByIdHandler(ITodoService service, string id){
         ServiceResult<Todo> getResult = await service.GetTodoByIdAsync(id);
+
+        Console.Write(getResult);
         
-        return Results.Json(getResult.Data, statusCode: getResult.StatusCode);
+        return Results.Json(getResult, statusCode: getResult.StatusCode);
     }
 
     //Handler to add Todo to list of Todos.
