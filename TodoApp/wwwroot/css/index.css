@@ -19,10 +19,13 @@ body{
     /* border: 2px solid black; */
     width: fit-content;
     margin: auto;
+    margin-top: 20px;
 }
 
 .todos .todo{
     display: flex;
+    justify-content: space-between;
+
     width: 60vw;
     background-color: rgba(175, 175, 175, 0.6);
     font-size: 28px;
@@ -35,15 +38,25 @@ body{
     border-radius: 8px;
 }
 
+.todo-name{
+    border: 2px solid green;
+}
+
 .strike-through{
     text-decoration: line-through;
     color: rgb(40, 40, 40);
 }
 
 form{
+    display: flex;
     margin: auto;
     width: fit-content;
-    border: 2px solid black;
+    /* border: 2px solid red; */
+}
+
+form input{
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
 }
 
 .add-todo{
@@ -58,32 +71,32 @@ form{
 
 .delete-update-wrapper{
     display: flex;
-    border: 2px solid red;
+    align-items: center;
+    /* border: 2px solid red; */
 }
 
 input[type="checkbox"]{
-   
-
     color: yellow;
     width: 2.15em;
     height: 2.15em;
     transition: 0.4s;
     border: 2px solid black;
+    margin-right: 15px;
 }
 
-/* input[type="checkbox"]:checked::after {
-    content: '';
-    position: absolute;
-    left: 0.6em;
-    top: 0.2em;
-    width: 0.4em;
-    height: 0.9em;
-    border: solid white;
-    border-width: 0 0.2em 0.2em 0;
-    transform: rotate(45deg);
-} */
+.delete-todo{
+    background-color: rgb(220, 10, 15);
+    border: 2px solid aliceblue;
+    border-radius: 8px;
+    color: aliceblue;
+    padding: 10px 20px;
+    
+    font-size: 20px;
+    transition: 0.3s;
+    /* font-weight: 900; */
+}
 
-input[type="checkbox"]:hover{
-   cursor: pointer;
-   background-color: rgba(125, 125, 125, 0.6);
+.delete-todo:hover{
+    cursor: pointer;
+    background-color: rgb(170, 10, 15);
 }

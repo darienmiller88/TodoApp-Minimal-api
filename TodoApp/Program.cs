@@ -43,8 +43,8 @@ app.Use(async (context, next) => {
     await next();
 });
 
-app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
-// app.MapRazorPages();
+// app.MapGet("/", () => "visit prefeix /api/v1/todos for api content");
+app.MapRazorPages();
 app.MapTodoRoutes();
 
 app.Run();

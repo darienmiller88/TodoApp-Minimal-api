@@ -33,17 +33,11 @@ public class IndexModel : PageModel{
             return Page();
         }
 
-        
-        // var result = _service.AddTodo(NewTodo);
+        //Add the new todo to MongoDB...
+        await _service.AddTodoAsync(NewTodo);
 
-        Console.WriteLine(NewTodo);
+        //And afterwards, refresh the list of Todos by retrieving the updated list from the database.
         todos = await _service.GetTodosAsync();
-        
-        // if (result.Data == null){
-        //     Console.WriteLine(result.Message + " " + result.StatusCode);
-        // }else{
-        // }
-
 
         return RedirectToPage(); // Redirect to GET
     }
