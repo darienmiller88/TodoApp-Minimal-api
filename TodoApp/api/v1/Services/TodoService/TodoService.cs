@@ -11,8 +11,8 @@ namespace api.v1.Services;
 //stringerface for Todoservice to allow for depency injection for each route.
 public interface ITodoService{
     Task<List<Todo>> GetTodosAsync();
-    Task<ServiceResult<List<Todo>>> GetIncompletedTodosAsync();
-    Task<ServiceResult<List<Todo>>> GetCompletedTodosAsync();
+    Task<List<Todo>> GetIncompletedTodosAsync();
+    Task<List<Todo>> GetCompletedTodosAsync();
     Task<ServiceResult<Todo>> GetTodoByIdAsync(string Id);
     Task<ServiceResult<Todo>> AddTodoAsync(Todo newTodo);
     Task<ServiceResult<Todo>> DeleteTodoByIdAsync(string Id);
@@ -52,17 +52,13 @@ public class TodoService : ITodoService{
     }
 
     //GET: Retrieves all todos that are completed.
-    public async Task<ServiceResult<List<Todo>>> GetCompletedTodosAsync(){
-        List<Todo> completedTodos = await todoCollection.Find(todo => todo.isComplete).ToListAsync();
-
-        return new ServiceResult<List<Todo>>("All completed todos", 200, completedTodos);
+    public async Task<List<Todo>> GetCompletedTodosAsync(){
+        return await todoCollection.Find(todo => todo.isComplete).ToListAsync();
     }
 
     //GET: Retrieves all todos that are not completed.
-    public async Task<ServiceResult<List<Todo>>> GetIncompletedTodosAsync(){
-        List<Todo> incompletedTodos = await todoCollection.Find(todo => !todo.isComplete).ToListAsync();
-
-        return new ServiceResult<List<Todo>>("All incompleted todos", 200, incompletedTodos);
+    public async Task<List<Todo>> GetIncompletedTodosAsync(){
+        return await todoCollection.Find(todo => !todo.isComplete).ToListAsync();
     }
 
     //POST: Function to add a todo to the array,  and eventually to the database.
