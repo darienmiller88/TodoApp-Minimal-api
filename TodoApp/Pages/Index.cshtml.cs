@@ -62,10 +62,16 @@ public class IndexModel : PageModel
         return RedirectToPage();
     }
 
-    public async Task<IActionResult> OnPostUpdateAsync() {
-        Console.WriteLine("update handler hit!");
+    //UPDATE: Change the complete status of the 
+    public async Task<IActionResult> OnPostUpdateAsync(string id) {
 
-        //Refresh the page to show the new list.
+        //Update the todo be flipping its complete status.
+        await _service.UpdateTodoByIdAsync(id);
+
+        //Refresh the list of todos.
+        todos = await _service.GetTodosAsync();
+
+        //Finally, Refresh the page to show the new list.
         return RedirectToPage();
     }
 }

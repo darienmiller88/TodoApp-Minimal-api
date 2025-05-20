@@ -15,6 +15,7 @@
             <div class="delete-update-wrapper">
                 <form asp-page-handler="Update" method="post">
                     <button class="undo base-button-stlying">Undo</button>
+                    <input type="hidden" name="id" value="@todo.Id"/>
                 </form>
                 <form asp-page-handler="Delete" method="post">
                     <button class="delete-todo base-button-stlying">Delete</button>
@@ -28,6 +29,7 @@
             <div class="delete-update-wrapper">
                 <form asp-page-handler="Update" method="post">
                     <button class="complete base-button-stlying">Complete</button>
+                    <input type="hidden" name="id" value="@todo.Id"/>
                 </form>
                 <form asp-page-handler="Delete" method="post">
                     <button class="delete-todo base-button-stlying">Delete</button>
