@@ -72,18 +72,22 @@ form input{
     align-items: center;
 }
 
-input[type="checkbox"]{
-    color: yellow;
-    width: 2.15em;
-    height: 2.15em;
-    transition: 0.4s;
-    border: 2px solid black;
-    margin-right: 15px;
+.undo{
+    background-color: rgb(90, 110, 110);
+    margin-right: 10px;
+}
+
+.complete{
+    background-color: rgb(40, 130, 20);
+    margin-right: 10px;
 }
 
 .delete-todo{
     background-color: rgb(220, 10, 15);
-    border: 2px solid aliceblue;
+}
+
+.base-button-stlying{
+     border: 2px solid aliceblue;
     border-radius: 8px;
     color: aliceblue;
     padding: 10px 20px;
@@ -95,6 +99,11 @@ input[type="checkbox"]{
 .delete-todo:hover{
     cursor: pointer;
     background-color: rgb(170, 10, 15);
+}
+
+.undo:hover{
+    cursor: pointer;
+    background-color: rgb(10, 10, 100);
 }
 
 .delete-todo:active{

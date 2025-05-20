@@ -10,7 +10,8 @@ using api.v1.Models;
 
 namespace TodoApp.Pages;
 
-public class IndexModel : PageModel {
+public class IndexModel : PageModel
+{
     private readonly ILogger<IndexModel> _logger;
     private readonly ITodoService _service;
     public List<Todo> todos;
@@ -19,7 +20,8 @@ public class IndexModel : PageModel {
     //Forms from front end will bind to this object
     public Todo NewTodo { get; set; } = new();
 
-    public IndexModel(ILogger<IndexModel> logger, ITodoService service) {
+    public IndexModel(ILogger<IndexModel> logger, ITodoService service)
+    {
         _logger = logger;
         _service = service;
         todos = [];
@@ -31,8 +33,10 @@ public class IndexModel : PageModel {
         todos = await _service.GetTodosAsync();
     }
 
-    public async Task<IActionResult> OnPost() {
-        if (!ModelState.IsValid) {
+    public async Task<IActionResult> OnPost()
+    {
+        if (!ModelState.IsValid)
+        {
             return Page();
         }
 
@@ -42,10 +46,11 @@ public class IndexModel : PageModel {
         //And afterwards, refresh the list of Todos by retrieving the updated list from the database.
         todos = await _service.GetTodosAsync();
 
-        return RedirectToPage(); 
+        return RedirectToPage();
     }
 
-    public async Task<IActionResult> OnPostDeleteAsync(string id) {
+    public async Task<IActionResult> OnPostDeleteAsync(string id)
+    {
         //Get the id from the todo that's about to be deleted. The good thing is that the Id is guranteed to be correct
         //because the Todos are rendered with their mongo ids as their tag id!
         await _service.DeleteTodoByIdAsync(id);
@@ -54,6 +59,13 @@ public class IndexModel : PageModel {
         todos = await _service.GetTodosAsync();
 
         //Refresh the page to show the new list.
-        return RedirectToPage(); 
+        return RedirectToPage();
+    }
+
+    public async Task<IActionResult> OnPostUpdateAsync() {
+        Console.WriteLine("update handler hit!");
+
+        //Refresh the page to show the new list.
+        return RedirectToPage();
     }
 }
