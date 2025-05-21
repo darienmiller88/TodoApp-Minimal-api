@@ -138,6 +138,16 @@ public async Task<IActionResult> OnPostUpdateAsync(string id) {
     return RedirectToPage();
 }
 ```
+### get and set keywords
+
+`get` and `set` in C# are shorthand ways to attach a getter and setter to a member in C#. Rather than have fully typed out setters and getters like in Java, you can just do the following:
+
+```C#
+public bool isComplete { get; set; }
+```
+
+For private members, the flow with look more like the Java workflow.
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
