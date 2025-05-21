@@ -6,6 +6,7 @@ I'm introducing a new language into my tech stack: C#! Super happy with how the 
 * [Vue](https://vuejs.org/)
 * [C#](https://learn.microsoft.com/en-us/dotnet/csharp/)
 * [MongoDB-Atlas](https://www.mongodb.com/cloud/atlas)
+* [Azure]()
 
 ### Requirements:
 
@@ -14,6 +15,16 @@ I'm introducing a new language into my tech stack: C#! Super happy with how the 
 * Run `dotnet run`, or `dotnet watch run` to enable a server restart on change.
 * `cd client` to access the Vue package, and run `npm run dev` to start vite server for Vue, which should be on port `5173`.
 * Run `dotnet test` to run tests.
+
+### Website link:
+
+Visit the webapp at this funky ass link -> https://razortodoapp-bvcce2h9e5hyg5d5.canadacentral-01.azurewebsites.net/
+
+### What I learned:
+
+When delving into this mini project, my goal was to build foundational knowledge using ASP.NET to build effective
+and scable web applications in a brand language, as well as a new environment. The infrastructure, the tooling, the 
+library, and the language features are all really cool! Here's what stood out:
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
