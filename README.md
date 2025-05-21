@@ -39,6 +39,23 @@ library, and the language features are all really cool! Here's what stood out:
 * Named parameters
 * Automatic response body binding to models
 
+#### Methods that return two values
+
+In c#, in a similar vein to go, can return more than one return value, though with a very different syntax as shown below:
+
+```
+if (context.Request.RouteValues.TryGetValue("id", out var id)) {
+    string? idString = id?.ToString();
+
+    if (!ObjectId.TryParse(idString, out _)) {
+        await context.Response.WriteAsync($"{idString} is not a valid 24 hex string");
+        return;
+    }
+}
+```
+
+As you can see with the second argument to `TryGetValue()`, `out var id` returns the value for the route parameter the if statement is parsing. `out` declares that the method is returning a variable, and var id is variable declaration.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
