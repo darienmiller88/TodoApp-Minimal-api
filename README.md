@@ -190,7 +190,19 @@ public static class TodoRoutes{
 }
 ```
 
-As you can see, by using `this ClassName variableName`, you've officially made this method callable to the ClassName you typed in! In this example, `RouteGroupBuilder` is the class where the `app` variable that allows routing, so now I'm able to call `app.MapTodoRoutes()` and rehgister my routes.
+As you can see, by using `this ClassName variableName`, you've officially made this method callable to the ClassName you typed in! In this example, `RouteGroupBuilder` is the class where the `app` variable that allows routing, so now I'm able to call `app.MapTodoRoutes()` and register my routes.
+
+### Named parameters
+When called a method in C#, you can just passing the arguments in the order as defined by the methods, OR if you prefer, in any order as long as you the name of method parameter in addition to the actual data as such:
+
+```c#
+return Results.Json(todos, statusCode: 200);
+```
+
+`Results.Json()` will take in the data to marshall into JSON, as well as a number of optional arguments with default values. Since I only needed to pass the status code 200, I only cared about the `statusCode` argument, which ended up being the last paramter in the parameter list for that method. So to get around that, all I have to do is type the name of the parameter, and boom!
+
+### Automatic response body binding to models
+Finally, 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
