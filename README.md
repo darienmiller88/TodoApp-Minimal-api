@@ -43,7 +43,7 @@ library, and the language features are all really cool! Here's what stood out:
 
 In c#, in a similar vein to go, can return more than one return value, though with a very different syntax as shown below:
 
-```
+```c#
 if (context.Request.RouteValues.TryGetValue("id", out var id)) {
     string? idString = id?.ToString();
 
@@ -54,7 +54,25 @@ if (context.Request.RouteValues.TryGetValue("id", out var id)) {
 }
 ```
 
-As you can see with the second argument to `TryGetValue()`, `out var id` returns the value for the route parameter the if statement is parsing. `out` declares that the method is returning a variable, and var id is variable declaration.
+As you can see with the second argument to `TryGetValue()`, `out var id` returns the value for the route parameter the if statement is parsing. `out` declares that the method is returning a variable, and var id is variable declaration. Of course, if you don't care about the value being returned, you can do this `out _` to tell the compiler to ignore the return value.
+
+#### WebApplicationBuilder
+
+The coolest feature I used in ASP.NET so far was the `WebApplicationBuilder` class, which comes from the `using Microsoft.AspNetCore.Builder;` namespace. This is an incredibly powerful tool that allows you create RESTful APIs with methods like `.MapGet`, `.MapPost`, `.MapPut`, `.MapDelete`, `.MapPatch`, `.Use()`, `.MapGroup()`, etc. The methods allow very clean, very boilerplate-free code with creating APis as you can see below:
+
+```c#
+using Microsoft.AspNetCore.Builder;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<ITodoService, TodoService>();
+builder.Services.AddRazorPages();
+
+var app = builder.Build();
+```
+The five major operations, as well as the `.Use()` methods are all defined on that `app` variable. It's very node in design obviously, but with all of the power of the ASP.NET framework backig it.
+
+#### Dependency injection
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
