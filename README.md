@@ -3,10 +3,10 @@
 I'm introducing a new language into my tech stack: C#! Super happy with how the language functions: minimal api is EXTREMELY clean, but i'm a bit overwhelmed lol.
 
 ### Built With:
-* [Vue](https://vuejs.org/)
 * [C#](https://learn.microsoft.com/en-us/dotnet/csharp/)
 * [MongoDB-Atlas](https://www.mongodb.com/cloud/atlas)
-* [Azure]()
+* [Azure](https://azure.microsoft.com/en-us/pricing/purchase-options/azure-account?icid=portal)
+* [Razor Pages](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/?view=aspnetcore-9.0&tabs=visual-studio)
 
 ### Requirements:
 
