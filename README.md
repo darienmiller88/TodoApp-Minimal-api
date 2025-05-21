@@ -26,6 +26,19 @@ When delving into this mini project, my goal was to build foundational knowledge
 and scable web applications in a brand language, as well as a new environment. The infrastructure, the tooling, the 
 library, and the language features are all really cool! Here's what stood out:
 
+#### Interesting quirks of C#
+
+* Methods that return two value
+* WebApplicationBuilder, which allows for the creation of a mega router
+* Dependency injection
+* Handler method parameters
+* Razor Pages
+* get and set keywords
+* XUnit testing
+* Extension member
+* Named parameters
+* Automatic response body binding to models
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
