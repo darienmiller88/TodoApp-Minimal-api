@@ -26,7 +26,7 @@ When delving into this mini project, my goal was to build foundational knowledge
 and scable web applications in a brand language, as well as a new environment. The infrastructure, the tooling, the 
 library, and the language features are all really cool! Here's what stood out:
 
-#### Interesting quirks of C#
+### Interesting quirks of C#
 
 * Methods that return two value
 * WebApplicationBuilder, which allows for the creation of a mega router
@@ -39,7 +39,7 @@ library, and the language features are all really cool! Here's what stood out:
 * Named parameters
 * Automatic response body binding to models
 
-#### Methods that return two values
+### Methods that return two values
 
 In c#, in a similar vein to go, can return more than one return value, though with a very different syntax as shown below:
 
@@ -56,7 +56,7 @@ if (context.Request.RouteValues.TryGetValue("id", out var id)) {
 
 As you can see with the second argument to `TryGetValue()`, `out var id` returns the value for the route parameter the if statement is parsing. `out` declares that the method is returning a variable, and var id is variable declaration. Of course, if you don't care about the value being returned, you can do this `out _` to tell the compiler to ignore the return value.
 
-#### WebApplicationBuilder
+### WebApplicationBuilder
 
 The coolest feature I used in ASP.NET so far was the `WebApplicationBuilder` class, which comes from the `using Microsoft.AspNetCore.Builder;` namespace. This is an incredibly powerful tool that allows you create RESTful APIs with methods like `.MapGet`, `.MapPost`, `.MapPut`, `.MapDelete`, `.MapPatch`, `.Use()`, `.MapGroup()`, etc. The methods allow very clean, very boilerplate-free code with creating APis as you can see below:
 
@@ -72,13 +72,13 @@ var app = builder.Build();
 ```
 The five major operations, as well as the `.Use()` methods are all defined on that `app` variable. It's very node in design obviously, but with all of the power of the ASP.NET framework backing it.
 
-#### Dependency injection
+### Dependency injection
 
 Dependency Injection is technique in C# where one class instance is registered as part of another class instance, which will allow methods of that instance to have access to the methods of the first class instance. It is what makes the `builder.Services.AddScoped<ITodoService, TodoService>();` method of the WebApplicationClass so powerful. Rather than each route handler to the MapRequests have a response and request object, each handler can essentially have as many parameters as there are services registered with the builder instance! 
 
 In the above example, I added both my TodoService interface and TodoService instance as a Dependency for the builder class, so now when I add a handler to the `.MapXXX()` methods, I can pass `ITodoService` to them as a parameter!
 
-#### Razor Pages
+### Razor Pages
 
 Razor pages in c# are a neat feature that fully leverages Dependency injection to allow users to inject c# code into HTML pages, specifically pages with a `.cshtml` extension. These pages also have an additional `.cshtml.cs` file attached to them with an `IndexModel` class with methods and members that interact with the html code in the cshtml file. You can now write c# directly in the html code! You include anti CSRF tokens, reference your Models folder to retrieve model data, and much more! Here is a code snippet:
 
