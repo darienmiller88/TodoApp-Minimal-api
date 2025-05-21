@@ -202,7 +202,16 @@ return Results.Json(todos, statusCode: 200);
 `Results.Json()` will take in the data to marshall into JSON, as well as a number of optional arguments with default values. Since I only needed to pass the status code 200, I only cared about the `statusCode` argument, which ended up being the last paramter in the parameter list for that method. So to get around that, all I have to do is type the name of the parameter, and boom!
 
 ### Automatic response body binding to models
-Finally, 
+Finally, unlike Go, my other backend language, c# has automatic model binding! So when giving a handler to one of the `.MapXXX()` methods, you can add the model you want the request body to bind to. Go requires this to be done manually with 
+`Json.NewDecoder(req.Body).UnMarshall(&model)`, and in Node, the request comes in as a unstructured JavaScript object. Useful feature! Here is an example of me using it:
+
+```c#
+internal static async Task<IResult> AddTodoHandler(ITodoService service, [FromBody] Todo? todo) {
+
+}
+```
+
+This handler will accept the TodoService I registered with the main `app` object in Program.cs, as well as the `Todo` model I would like the request body to bind to.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
