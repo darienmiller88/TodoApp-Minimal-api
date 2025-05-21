@@ -171,6 +171,26 @@ public async Task TestAddValidTodo(){
 
 ### Extension methods
 
+This is easily one of the coolest features I've ever seen in a programming language! In c#, if make a class static, and any of its methods also static, you can attach that method to another class. That is, when the setup is complete, the `string` class for example will have an extra callable method I defined that is now technically apart of the class, and is treated as such! Here is an example of my usage:
+
+```c#
+public static class TodoRoutes{
+
+    //Extension method to all it to be callable by the "WebApplication" class, which is what the "app" object is 
+    //and instance of.
+    public static void MapTodoRoutes(this IEndpointRouteBuilder app){
+        RouteGroupBuilder todoRoutes = app.MapGroup("/api/v1/todos");
+
+        //GET routes.
+        todoRoutes.MapGet("/get-todos", GetTodosHandler);
+        todoRoutes.MapGet("/get-completed-todos", GetCompletedTodosHandler);
+        todoRoutes.MapGet("/get-incompleted-todos", GetIncompletedTodosHandler);
+        todoRoutes.MapGet("/get-todo/{id}", GetTodoByIdHandler);
+    }
+}
+```
+
+As you can see, by using `this ClassName variableName`, you've officially made this method callable to the ClassName you typed in! In this example, `RouteGroupBuilder` is the class where the `app` variable that allows routing, so now I'm able to call `app.MapTodoRoutes()` and rehgister my routes.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
