@@ -70,9 +70,16 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 ```
-The five major operations, as well as the `.Use()` methods are all defined on that `app` variable. It's very node in design obviously, but with all of the power of the ASP.NET framework backig it.
+The five major operations, as well as the `.Use()` methods are all defined on that `app` variable. It's very node in design obviously, but with all of the power of the ASP.NET framework backing it.
 
 #### Dependency injection
+
+Dependency Injection is technique in C# where one class instance is registered as part of another class instance, which will allow methods of that instance to have access to the methods of the first class instance. It is what makes the `builder.Services.AddScoped<ITodoService, TodoService>();` method of the WebApplicationClass so powerful. Rather than each route handler to the MapRequests have a response and request object, each handler can essentially have as many parameters as there are services registered with the builder instance! 
+
+In the above example, I added both my TodoService interface and TodoService instance as a Dependency for the builder class, so now when I add a handler to the `.MapXXX()` methods, I can pass `ITodoService` to them as a parameter!
+
+#### Razor Pages
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
