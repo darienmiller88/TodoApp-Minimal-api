@@ -45,4 +45,10 @@ C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\refint\TodoApp.dll
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\TodoApp.genruntimeconfig.cache
 C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\ref\TodoApp.dll
-C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-vktu3bhdjo.gz
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\obj\Debug\net9.0\compressed\4m8bxxunhm-t3h7ejs132.gz
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\publish\web.config
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\publish\appsettings.Development.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\publish\appsettings.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\publish\TodoApp.deps.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\publish\TodoApp.runtimeconfig.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\bin\Debug\net9.0\publish\TodoApp.staticwebassets.endpoints.json

@@ -1,0 +1,116 @@
+body{
+    font-family:'Courier New', Courier, monospace;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='414' height='49.7' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='8.5' stroke-opacity='0.23'%3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.title{
+    color: chocolate;
+    text-align: center;
+    font-size: 65px;
+    font-weight: bold;
+}
+
+.todos{
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.todos .todo{
+    display: flex;
+    justify-content: space-between;
+
+    width: 60vw;
+    background-color: rgba(175, 175, 175, 0.6);
+    font-size: 28px;
+    font-weight: 600;
+
+    padding: 15px;
+    margin: 10px;
+    color: aliceblue;
+
+    border-radius: 8px;
+}
+
+.todo-name{
+    display: flex;
+    align-items: center;
+}
+
+.strike-through{
+    text-decoration: line-through;
+    color: rgb(40, 40, 40);
+}
+
+form{
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
+
+form input{
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border: none;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.add-todo{
+    padding: 10px 15px;
+    font-size: 18px;
+    color: aliceblue;
+    background-color: chocolate;
+    
+    border: none;
+    border-radius: 5px;
+}
+
+.delete-update-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.undo{
+    background-color: rgb(90, 110, 110);
+    margin-right: 10px;
+}
+
+.complete{
+    background-color: rgb(40, 130, 20);
+    margin-right: 10px;
+}
+
+.delete-todo{
+    background-color: rgb(220, 10, 15);
+}
+
+.base-button-stlying{
+     border: 2px solid aliceblue;
+    border-radius: 8px;
+    color: aliceblue;
+    padding: 10px 20px;
+    
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.delete-todo:hover{
+    cursor: pointer;
+    background-color: rgb(170, 10, 15);
+}
+
+.undo:hover{
+    cursor: pointer;
+    background-color: rgb(10, 10, 100);
+}
+
+.complete:hover{
+    cursor: pointer;
+    background-color: rgb(40, 100, 20);
+}
+
+.delete-todo:active{
+    border: 2px solid rgb(10, 15, 150);
+}

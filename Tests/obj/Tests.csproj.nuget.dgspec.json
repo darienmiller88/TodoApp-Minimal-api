@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj": {}
+    "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj": {
+    "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj",
+        "projectUniqueName": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj",
+        "projectPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\Tests.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\obj\\",
+        "outputPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {
-                "projectPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj"
+              "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {
+                "projectPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj"
               }
             }
           }
@@ -89,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {
+    "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
+        "projectUniqueName": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
         "projectName": "TodoApp",
-        "projectPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
+        "projectPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\",
+        "outputPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "P7YnWs/qgQ3knrp3cwVbrN1937ynAMAW1Rfyy1GiBNU=",
+  "Hash": "8S8aom4BFC//5xBYq3cysDme7M7tR3R6Ik9kcyOeZdI=",
   "Source": "TodoApp",
   "BasePath": "_content/TodoApp",
   "Mode": "Default",
@@ -10,38 +10,38 @@
     {
       "Name": "TodoApp\\wwwroot",
       "Source": "TodoApp",
-      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-vktu3bhdjo.gz",
+      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-t3h7ejs132.gz",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TodoApp",
-      "RelativePath": "css/index#[.{fingerprint=vktu3bhdjo}]?.css.gz",
+      "RelativePath": "css/index#[.{fingerprint=t3h7ejs132}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "RelatedAsset": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "3ilqjze6uc",
-      "Integrity": "W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko=",
+      "Fingerprint": "c9t0rhd52v",
+      "Integrity": "4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css"
+      "OriginalItemSpec": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "js/index#[.{fingerprint=5ipweew5fc}]?.js.gz",
       "AssetKind": "All",
@@ -49,20 +49,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "RelatedAsset": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "5ipweew5fc",
       "Integrity": "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js"
+      "OriginalItemSpec": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js"
     },
     {
-      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "css/index#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vktu3bhdjo",
-      "Integrity": "wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o=",
+      "Fingerprint": "t3h7ejs132",
+      "Integrity": "p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\index.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "img/todo#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\img\\todo.png"
     },
     {
-      "Identity": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "Identity": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "SourceId": "TodoApp",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\",
       "BasePath": "_content/TodoApp",
       "RelativePath": "js/index#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -125,12 +125,12 @@
   "Endpoints": [
     {
       "Route": "css/index.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-vktu3bhdjo.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-t3h7ejs132.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001154734411"
+          "Quality": "0.001140250855"
         }
       ],
       "ResponseHeaders": [
@@ -140,15 +140,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "865"
+          "Value": "876"
         },
         {
           "Name": "ETag",
-          "Value": "\"W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko=\""
+          "Value": "\"4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:32:02 GMT"
+          "Value": "Tue, 20 May 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -168,19 +168,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o=\""
+          "Value": "W/\"p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o="
+          "Value": "sha256-p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw="
         }
       ]
     },
     {
       "Route": "css/index.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -189,7 +189,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2898"
+          "Value": "2984"
         },
         {
           "Name": "Content-Type",
@@ -197,11 +197,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o=\""
+          "Value": "\"p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:32:02 GMT"
+          "Value": "Tue, 20 May 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -211,13 +211,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o="
+          "Value": "sha256-p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw="
         }
       ]
     },
     {
       "Route": "css/index.css.gz",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-vktu3bhdjo.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-t3h7ejs132.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -226,7 +226,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "865"
+          "Value": "876"
         },
         {
           "Name": "Content-Type",
@@ -234,11 +234,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko=\""
+          "Value": "\"4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:32:02 GMT"
+          "Value": "Tue, 20 May 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -256,18 +256,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko="
+          "Value": "sha256-4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo="
         }
       ]
     },
     {
-      "Route": "css/index.vktu3bhdjo.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-vktu3bhdjo.gz",
+      "Route": "css/index.t3h7ejs132.css",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-t3h7ejs132.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001154734411"
+          "Quality": "0.001140250855"
         }
       ],
       "ResponseHeaders": [
@@ -277,15 +277,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "865"
+          "Value": "876"
         },
         {
           "Name": "ETag",
-          "Value": "\"W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko=\""
+          "Value": "\"4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:32:02 GMT"
+          "Value": "Tue, 20 May 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -305,13 +305,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o=\""
+          "Value": "W/\"p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vktu3bhdjo"
+          "Value": "t3h7ejs132"
         },
         {
           "Name": "label",
@@ -319,13 +319,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o="
+          "Value": "sha256-p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw="
         }
       ]
     },
     {
-      "Route": "css/index.vktu3bhdjo.css",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
+      "Route": "css/index.t3h7ejs132.css",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\css\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -334,7 +334,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2898"
+          "Value": "2984"
         },
         {
           "Name": "Content-Type",
@@ -342,11 +342,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o=\""
+          "Value": "\"p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:32:02 GMT"
+          "Value": "Tue, 20 May 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -356,7 +356,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vktu3bhdjo"
+          "Value": "t3h7ejs132"
         },
         {
           "Name": "label",
@@ -364,13 +364,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wc+bDLD8QOTwx6uX93ijzGa9SrS3RYZBpfL6Dsmp+/o="
+          "Value": "sha256-p7MKy/NqJoCDBr3Th57dBpIkJs1aykRBI/E2TDToAlw="
         }
       ]
     },
     {
-      "Route": "css/index.vktu3bhdjo.css.gz",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-vktu3bhdjo.gz",
+      "Route": "css/index.t3h7ejs132.css.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\4m8bxxunhm-t3h7ejs132.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -379,7 +379,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "865"
+          "Value": "876"
         },
         {
           "Name": "Content-Type",
@@ -387,11 +387,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko=\""
+          "Value": "\"4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 20 May 2025 02:32:02 GMT"
+          "Value": "Tue, 20 May 2025 13:08:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -409,7 +409,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vktu3bhdjo"
+          "Value": "t3h7ejs132"
         },
         {
           "Name": "label",
@@ -417,13 +417,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-W65k9P30ma8JG+HANoNhKg0yPhTZvUM4lI8Grsztwko="
+          "Value": "sha256-4Hy9ZI1/xOXegvHWgP5Ve3KUhXdK9eYDAq08cD5idGo="
         }
       ]
     },
     {
       "Route": "img/todo.izapxcrqx6.png",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -468,7 +468,7 @@
     },
     {
       "Route": "img/todo.png",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\img\\todo.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -505,7 +505,7 @@
     },
     {
       "Route": "js/index.5ipweew5fc.js",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -568,7 +568,7 @@
     },
     {
       "Route": "js/index.5ipweew5fc.js",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -613,7 +613,7 @@
     },
     {
       "Route": "js/index.5ipweew5fc.js.gz",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -666,7 +666,7 @@
     },
     {
       "Route": "js/index.js",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -721,7 +721,7 @@
     },
     {
       "Route": "js/index.js",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\wwwroot\\js\\index.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -758,7 +758,7 @@
     },
     {
       "Route": "js/index.js.gz",
-      "AssetFile": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
+      "AssetFile": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\Debug\\net9.0\\compressed\\exh82fkt9f-5ipweew5fc.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {

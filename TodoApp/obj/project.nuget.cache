@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2qHtUhdh0m0=",
+  "dgSpecHash": "+iYUeOlONwk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
+  "projectFilePath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steve\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",

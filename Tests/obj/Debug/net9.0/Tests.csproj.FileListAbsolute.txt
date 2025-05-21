@@ -119,3 +119,9 @@ c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Sh
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Snappier.dll
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\Sprache.dll
 c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\ZstdSharp.dll
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\publish\web.config
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\publish\appsettings.Development.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\publish\appsettings.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\publish\TodoApp.deps.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\publish\TodoApp.runtimeconfig.json
+c:\Users\steve\Desktop\csharp projects\TodoAppSolution\Tests\bin\Debug\net9.0\publish\TodoApp.staticwebassets.endpoints.json

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {}
+    "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {
+    "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
+        "projectUniqueName": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
         "projectName": "TodoApp",
-        "projectPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
+        "projectPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\TodoApp.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\",
+        "outputPath": "c:\\Users\\steve\\Desktop\\csharp projects\\TodoAppSolution\\TodoApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config"

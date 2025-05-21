@@ -1,0 +1,16 @@
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\TodoApp.exe
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\appsettings.Development.json
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\appsettings.json
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\TodoApp.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\TodoApp.deps.json
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\TodoApp.runtimeconfig.json
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\TodoApp.pdb
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\DnsClient.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\DotNetEnv.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\MiniValidation.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\MongoDB.Bson.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\MongoDB.Driver.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\SharpCompress.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\Snappier.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\Sprache.dll
+C:\Users\steve\Desktop\csharp projects\TodoAppSolution\TodoApp\publish\ZstdSharp.dll
