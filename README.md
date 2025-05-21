@@ -35,7 +35,7 @@ library, and the language features are all really cool! Here's what stood out:
 * Razor Pages
 * get and set keywords
 * XUnit testing
-* Extension member
+* Extension methods
 * Named parameters
 * Automatic response body binding to models
 
@@ -147,6 +147,29 @@ public bool isComplete { get; set; }
 ```
 
 For private members, the flow with look more like the Java workflow.
+
+### XUnit testing
+
+For testing purposes, I had a lot of options, but chose XUnit due to its implicty and familiar syntax after working with unit testing in Java. From what I've seen, it seems to be a solid, but standard testing library, contain the `Assert` class with the expected testing methods like `.Equal()`, `.NotNull()`, `.Null()`, etc. Here is a code snippet!
+
+```c#
+[Fact]
+public async Task TestAddValidTodo(){
+    var mockCollection = MockTodoService.GetMockTodoService(new List<Todo>{});
+    TodoService service = new TodoService(mockCollection.Object);
+    ServiceResult<Todo> result = await service.AddTodoAsync(new Todo("example todo", false));
+
+    Assert.NotNull(result.Data);
+    Assert.Equal(201, result.StatusCode);
+
+    List<Todo> todos = await service.GetTodosAsync();
+
+    //Assert that only one todo is in the fake database.
+    Assert.Single(todos);
+}
+```
+
+### Extension methods
 
 
 ## Contributing
