@@ -80,6 +80,64 @@ In the above example, I added both my TodoService interface and TodoService inst
 
 #### Razor Pages
 
+Razor pages in c# are a neat feature that fully leverages Dependency injection to allow users to inject c# code into HTML pages, specifically pages with a `.cshtml` extension. These pages also have an additional `.cshtml.cs` file attached to them with an `IndexModel` class with methods and members that interact with the html code in the cshtml file. You can now write c# directly in the html code! You include anti CSRF tokens, reference your Models folder to retrieve model data, and much more! Here is a code snippet:
+
+```c#
+@if(todo.isComplete){
+    <div class="todo-name strike-through">@todo.TodoName</div>
+    <div class="delete-update-wrapper">
+        <form asp-page-handler="Update" method="post">
+            <button class="undo base-button-stlying">Undo</button>
+            <input type="hidden" name="id" value="@todo.Id"/>
+        </form>
+        <form asp-page-handler="Delete" method="post">
+            <button class="delete-todo base-button-stlying">Delete</button>
+
+            @* This is how forms are able to send parameters to methods to the Handlers in the .cshtml.cs files *@
+            <input type="hidden" name="id" value="@todo.Id"/>
+        </form>
+    </div>
+}else{
+    <div class="todo-name">@todo.TodoName</div>
+    <div class="delete-update-wrapper">
+        <form asp-page-handler="Update" method="post">
+            <button class="complete base-button-stlying">Complete</button>
+            <input type="hidden" name="id" value="@todo.Id"/>
+        </form>
+        <form asp-page-handler="Delete" method="post">
+            <button class="delete-todo base-button-stlying">Delete</button>
+
+            @* This is how forms are able to send parameters to methods to the Handlers in the .cshtml.cs files *@
+            <input type="hidden" name="id" value="@todo.Id"/>
+        </form>
+    </div>
+}
+```
+
+This tag right here:
+
+```html
+<form asp-page-handler="Update" method="post">
+    <button class="complete base-button-stlying">Complete</button>
+    <input type="hidden" name="id" value="@todo.Id"/>
+</form>
+```
+
+has an attribute called `asp-page-handler` which allows this form to send a Post request to a method in the supporting `.cshtml.cs` called `OnPostUpdateAsync()` in the IndexModel class as shown below:
+
+```c#
+public async Task<IActionResult> OnPostUpdateAsync(string id) {
+
+    //Update the todo be flipping its complete status.
+    await _service.UpdateTodoByIdAsync(id);
+
+    //Refresh the list of todos.
+    todos = await _service.GetTodosAsync();
+
+    //Finally, Refresh the page to show the new list.
+    return RedirectToPage();
+}
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
